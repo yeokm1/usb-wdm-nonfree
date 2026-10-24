@@ -1,0 +1,558 @@
+
+;   Device Driver for Microsoft Xbox 360 Controller
+
+[Version]
+Signature           = "$Chicago$"
+Class               = MEDIA
+ClassGUID           = {4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider            = %Provider%
+DriverVer           = 10/01/2002,5.2.3790.1830
+LayoutFile          = layout.inf, layout1.inf, layout2.inf
+
+[DestinationDirs]
+X360C.CopyFiles     = 10,System32\Drivers
+HID.CopyFiles       = 10,System32\Drivers
+X360CCP.CopyFiles   = 11
+X360CFF.CopyFiles   = 11
+
+[Manufacturer]
+%VendorMDCZ%        = MadCatz
+
+[MadCatz]
+%ProductMDCZ1%      = X360C_PID_4716,USB\VID_0738&PID_4716
+%ProductMDCZ2%      = X360C_PID_4718,USB\VID_0738&PID_4718
+%ProductMDCZ3%      = X360C_PID_4726,USB\VID_0738&PID_4726
+%ProductMDCZ4%      = X360C_PID_4728,USB\VID_0738&PID_4728
+%ProductMDCZ5%      = X360C_PID_4736,USB\VID_0738&PID_4736
+%ProductMDCZ6%      = X360C_PID_4738,USB\VID_0738&PID_4738
+%ProductMDCZ7%      = X360C_PID_A728,USB\VID_0738&PID_A728
+%ProductMDCZ8%      = X360C_PID_F028,USB\VID_1BAD&PID_F028
+%ProductMDCZ9%      = X360C_PID_F029,USB\VID_1BAD&PID_F029
+%ProductMDCZA%      = X360C_PID_F039,USB\VID_1BAD&PID_F039
+
+[X360C_PID_4716]
+AddReg              = X360C.AddReg, X360C_PID_4716.AddReg, X360CCP.AddReg, X360CCP_PID_4716.AddReg, X360CFF.AddReg, X360CFF_PID_4716.AddReg
+CopyFiles           = HID.CopyFiles, X360C.CopyFiles, X360CCP.CopyFiles, X360CFF.CopyFiles
+
+[X360C_PID_4718]
+AddReg              = X360C.AddReg, X360C_PID_4718.AddReg, X360CCP.AddReg, X360CCP_PID_4718.AddReg, X360CFF.AddReg, X360CFF_PID_4718.AddReg
+CopyFiles           = HID.CopyFiles, X360C.CopyFiles, X360CCP.CopyFiles, X360CFF.CopyFiles
+
+[X360C_PID_4726]
+AddReg              = X360C.AddReg, X360C_PID_4726.AddReg, X360CCP.AddReg, X360CCP_PID_4726.AddReg, X360CFF.AddReg, X360CFF_PID_4726.AddReg
+CopyFiles           = HID.CopyFiles, X360C.CopyFiles, X360CCP.CopyFiles, X360CFF.CopyFiles
+
+[X360C_PID_4728]
+AddReg              = X360C.AddReg, X360C_PID_4728.AddReg, X360CCP.AddReg, X360CCP_PID_4728.AddReg, X360CFF.AddReg, X360CFF_PID_4728.AddReg
+CopyFiles           = HID.CopyFiles, X360C.CopyFiles, X360CCP.CopyFiles, X360CFF.CopyFiles
+
+[X360C_PID_4736]
+AddReg              = X360C.AddReg, X360C_PID_4736.AddReg, X360CCP.AddReg, X360CCP_PID_4736.AddReg, X360CFF.AddReg, X360CFF_PID_4736.AddReg
+CopyFiles           = HID.CopyFiles, X360C.CopyFiles, X360CCP.CopyFiles, X360CFF.CopyFiles
+
+[X360C_PID_4738]
+AddReg              = X360C.AddReg, X360C_PID_4738.AddReg, X360CCP.AddReg, X360CCP_PID_4738.AddReg, X360CFF.AddReg, X360CFF_PID_4738.AddReg
+CopyFiles           = HID.CopyFiles, X360C.CopyFiles, X360CCP.CopyFiles, X360CFF.CopyFiles
+
+[X360C_PID_A728]
+AddReg              = X360C.AddReg, X360C_PID_A728.AddReg, X360CCP.AddReg, X360CCP_PID_A728.AddReg, X360CFF.AddReg, X360CFF_PID_A728.AddReg
+CopyFiles           = HID.CopyFiles, X360C.CopyFiles, X360CCP.CopyFiles, X360CFF.CopyFiles
+
+[X360C_PID_F028]
+AddReg              = X360C.AddReg, X360C_PID_F028.AddReg, X360CCP.AddReg, X360CCP_PID_F028.AddReg, X360CFF.AddReg, X360CFF_PID_F028.AddReg
+CopyFiles           = HID.CopyFiles, X360C.CopyFiles, X360CCP.CopyFiles, X360CFF.CopyFiles
+
+[X360C_PID_F029]
+AddReg              = X360C.AddReg, X360C_PID_F029.AddReg, X360CCP.AddReg, X360CCP_PID_F029.AddReg, X360CFF.AddReg, X360CFF_PID_F029.AddReg
+CopyFiles           = HID.CopyFiles, X360C.CopyFiles, X360CCP.CopyFiles, X360CFF.CopyFiles
+
+[X360C_PID_F039]
+AddReg              = X360C.AddReg, X360C_PID_F039.AddReg, X360CCP.AddReg, X360CCP_PID_F039.AddReg, X360CFF.AddReg, X360CFF_PID_F039.AddReg
+CopyFiles           = HID.CopyFiles, X360C.CopyFiles, X360CCP.CopyFiles, X360CFF.CopyFiles
+
+[HID.CopyFiles]
+hidclass.sys
+hidparse.sys
+
+[X360C.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"x360c.sys"
+
+[X360C_PID_4716.AddReg]
+HKLM,%OemKey_PID_4716%,OEMName,,%ProductMDCZ1%
+
+[X360C_PID_4718.AddReg]
+HKLM,%OemKey_PID_4718%,OEMName,,%ProductMDCZ2%
+
+[X360C_PID_4726.AddReg]
+HKLM,%OemKey_PID_4726%,OEMName,,%ProductMDCZ3%
+
+[X360C_PID_4728.AddReg]
+HKLM,%OemKey_PID_4728%,OEMName,,%ProductMDCZ4%
+
+[X360C_PID_4736.AddReg]
+HKLM,%OemKey_PID_4736%,OEMName,,%ProductMDCZ5%
+
+[X360C_PID_4738.AddReg]
+HKLM,%OemKey_PID_4738%,OEMName,,%ProductMDCZ6%
+
+[X360C_PID_A728.AddReg]
+HKLM,%OemKey_PID_A728%,OEMName,,%ProductMDCZ7%
+
+[X360C_PID_F028.AddReg]
+HKLM,%OemKey_PID_F028%,OEMName,,%ProductMDCZ8%
+
+[X360C_PID_F029.AddReg]
+HKLM,%OemKey_PID_F029%,OEMName,,%ProductMDCZ9%
+
+[X360C_PID_F039.AddReg]
+HKLM,%OemKey_PID_F039%,OEMName,,%ProductMDCZA%
+
+[X360C.CopyFiles]
+x360c.sys
+
+[X360CCP.AddReg]
+HKCR,CLSID\%ControlPanel.CLSID%,,,"%ControlPanel%"
+HKCR,CLSID\%ControlPanel.CLSID%\InProcServer32,,,%11%\x360ccp.dll
+HKCR,CLSID\%ControlPanel.CLSID%\InProcServer32,ThreadingModel,,"Apartment"
+HKLM,%Parameters%,"Support Device Count",0x00010001,25
+HKLM,%Parameters%,"Support Device Attribute 0",0x00010001,73269902
+HKLM,%Parameters%,"Support Device Attribute 1",0x00010001,252510218
+HKLM,%Parameters%,"Support Device Attribute 2",0x00010001,252510219
+HKLM,%Parameters%,"Support Device Attribute 3",0x00010001,252510220
+HKLM,%Parameters%,"Support Device Attribute 4",0x00010001,252510221
+HKLM,%Parameters%,"Support Device Attribute 5",0x00010001,252510223
+HKLM,%Parameters%,"Support Device Attribute 6",0x00010001,252510257
+HKLM,%Parameters%,"Support Device Attribute 7",0x00010001,252510230
+HKLM,%Parameters%,"Support Device Attribute 8",0x00010001,464385280
+HKLM,%Parameters%,"Support Device Attribute 9",0x00010001,464385281
+HKLM,%Parameters%,"Support Device Attribute 10",0x00010001,464385282
+HKLM,%Parameters%,"Support Device Attribute 11",0x00010001,464385284
+HKLM,%Parameters%,"Support Device Attribute 12",0x00010001,464385286
+HKLM,%Parameters%,"Support Device Attribute 13",0x00010001,74302018
+HKLM,%Parameters%,"Support Device Attribute 14",0x00010001,121128726
+HKLM,%Parameters%,"Support Device Attribute 15",0x00010001,121128728
+HKLM,%Parameters%,"Support Device Attribute 16",0x00010001,121128742
+HKLM,%Parameters%,"Support Device Attribute 17",0x00010001,121128744
+HKLM,%Parameters%,"Support Device Attribute 18",0x00010001,121128758
+HKLM,%Parameters%,"Support Device Attribute 19",0x00010001,121128760
+HKLM,%Parameters%,"Support Device Attribute 20",0x00010001,121153320
+HKLM,%Parameters%,"Support Device Attribute 21",0x00010001,464384040
+HKLM,%Parameters%,"Support Device Attribute 22",0x00010001,464384041
+HKLM,%Parameters%,"Support Device Attribute 23",0x00010001,464384057
+HKLM,%Parameters%,"Support Device Attribute 24",0x00010001,121162498
+
+[X360CCP_PID_4716.AddReg]
+HKLM,%OemKey_PID_4716%,ConfigCLSID,,%ControlPanel.CLSID%
+
+[X360CCP_PID_4718.AddReg]
+HKLM,%OemKey_PID_4718%,ConfigCLSID,,%ControlPanel.CLSID%
+
+[X360CCP_PID_4726.AddReg]
+HKLM,%OemKey_PID_4726%,ConfigCLSID,,%ControlPanel.CLSID%
+
+[X360CCP_PID_4728.AddReg]
+HKLM,%OemKey_PID_4728%,ConfigCLSID,,%ControlPanel.CLSID%
+
+[X360CCP_PID_4736.AddReg]
+HKLM,%OemKey_PID_4736%,ConfigCLSID,,%ControlPanel.CLSID%
+
+[X360CCP_PID_4738.AddReg]
+HKLM,%OemKey_PID_4738%,ConfigCLSID,,%ControlPanel.CLSID%
+
+[X360CCP_PID_A728.AddReg]
+HKLM,%OemKey_PID_A728%,ConfigCLSID,,%ControlPanel.CLSID%
+
+[X360CCP_PID_F028.AddReg]
+HKLM,%OemKey_PID_F028%,ConfigCLSID,,%ControlPanel.CLSID%
+
+[X360CCP_PID_F029.AddReg]
+HKLM,%OemKey_PID_F029%,ConfigCLSID,,%ControlPanel.CLSID%
+
+[X360CCP_PID_F039.AddReg]
+HKLM,%OemKey_PID_F039%,ConfigCLSID,,%ControlPanel.CLSID%
+
+[X360CCP.CopyFiles]
+x360ccp.dll
+
+[X360CFF.AddReg]
+HKCR,CLSID\%FFDriver.CLSID%,,,"%FFDriver%"
+HKCR,CLSID\%FFDriver.CLSID%\InProcServer32,,,%11%\x360cff.dll
+HKCR,CLSID\%FFDriver.CLSID%\InProcServer32,ThreadingModel,,"Both"
+
+[X360CFF_PID_4716.AddReg]
+HKLM,%OemKey_PID_4716%\Axes\0,Attributes,1, 01,00,00,00,01,00,30,00
+HKLM,%OemKey_PID_4716%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_4716%\Axes\1,Attributes,1, 01,00,00,00,01,00,31,00
+HKLM,%OemKey_PID_4716%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_4716%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%OemKey_PID_4716%\OEMForceFeedback,CLSID,,"%FFDriver.CLSID%"
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,,,            "%ConstantForce%"
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,Attributes,1, 00,00,00,00,01,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%RampForce.CLSID%,,,                "%RampForce%"
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%RampForce.CLSID%,Attributes,1,     01,00,00,00,02,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Square.CLSID%,,,                   "%Square%"
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Square.CLSID%,Attributes,1,        02,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Sine.CLSID%,,,                     "%Sine%"
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Sine.CLSID%,Attributes,1,          03,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Triangle.CLSID%,,,                 "%Triangle%"
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Triangle.CLSID%,Attributes,1,      04,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,,,               "%SawtoothUp%"
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,Attributes,1,    05,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,,,             "%SawtoothDown%"
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,Attributes,1,  06,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Spring.CLSID%,,,                   "%Spring%"
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Spring.CLSID%,Attributes,1,        07,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Damper.CLSID%,,,                   "%Damper%"
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Damper.CLSID%,Attributes,1,        08,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Inertia.CLSID%,,,                  "%Inertia%"
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Inertia.CLSID%,Attributes,1,       09,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Friction.CLSID%,,,                 "%Friction%"
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%Friction.CLSID%,Attributes,1,      0A,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%CustomForce.CLSID%,,,              "%CustomForce%"
+HKLM,%OemKey_PID_4716%\OEMForceFeedback\Effects\%CustomForce.CLSID%,Attributes,1,   0B,00,00,00,05,C8,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+
+[X360CFF_PID_4718.AddReg]
+HKLM,%OemKey_PID_4718%\Axes\0,Attributes,1, 01,00,00,00,01,00,30,00
+HKLM,%OemKey_PID_4718%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_4718%\Axes\1,Attributes,1, 01,00,00,00,01,00,31,00
+HKLM,%OemKey_PID_4718%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_4718%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%OemKey_PID_4718%\OEMForceFeedback,CLSID,,"%FFDriver.CLSID%"
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,,,            "%ConstantForce%"
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,Attributes,1, 00,00,00,00,01,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%RampForce.CLSID%,,,                "%RampForce%"
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%RampForce.CLSID%,Attributes,1,     01,00,00,00,02,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Square.CLSID%,,,                   "%Square%"
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Square.CLSID%,Attributes,1,        02,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Sine.CLSID%,,,                     "%Sine%"
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Sine.CLSID%,Attributes,1,          03,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Triangle.CLSID%,,,                 "%Triangle%"
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Triangle.CLSID%,Attributes,1,      04,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,,,               "%SawtoothUp%"
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,Attributes,1,    05,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,,,             "%SawtoothDown%"
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,Attributes,1,  06,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Spring.CLSID%,,,                   "%Spring%"
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Spring.CLSID%,Attributes,1,        07,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Damper.CLSID%,,,                   "%Damper%"
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Damper.CLSID%,Attributes,1,        08,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Inertia.CLSID%,,,                  "%Inertia%"
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Inertia.CLSID%,Attributes,1,       09,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Friction.CLSID%,,,                 "%Friction%"
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%Friction.CLSID%,Attributes,1,      0A,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%CustomForce.CLSID%,,,              "%CustomForce%"
+HKLM,%OemKey_PID_4718%\OEMForceFeedback\Effects\%CustomForce.CLSID%,Attributes,1,   0B,00,00,00,05,C8,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+
+[X360CFF_PID_4726.AddReg]
+HKLM,%OemKey_PID_4726%\Axes\0,Attributes,1, 01,00,00,00,01,00,30,00
+HKLM,%OemKey_PID_4726%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_4726%\Axes\1,Attributes,1, 01,00,00,00,01,00,31,00
+HKLM,%OemKey_PID_4726%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_4726%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%OemKey_PID_4726%\OEMForceFeedback,CLSID,,"%FFDriver.CLSID%"
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,,,            "%ConstantForce%"
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,Attributes,1, 00,00,00,00,01,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%RampForce.CLSID%,,,                "%RampForce%"
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%RampForce.CLSID%,Attributes,1,     01,00,00,00,02,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Square.CLSID%,,,                   "%Square%"
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Square.CLSID%,Attributes,1,        02,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Sine.CLSID%,,,                     "%Sine%"
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Sine.CLSID%,Attributes,1,          03,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Triangle.CLSID%,,,                 "%Triangle%"
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Triangle.CLSID%,Attributes,1,      04,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,,,               "%SawtoothUp%"
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,Attributes,1,    05,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,,,             "%SawtoothDown%"
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,Attributes,1,  06,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Spring.CLSID%,,,                   "%Spring%"
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Spring.CLSID%,Attributes,1,        07,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Damper.CLSID%,,,                   "%Damper%"
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Damper.CLSID%,Attributes,1,        08,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Inertia.CLSID%,,,                  "%Inertia%"
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Inertia.CLSID%,Attributes,1,       09,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Friction.CLSID%,,,                 "%Friction%"
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%Friction.CLSID%,Attributes,1,      0A,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%CustomForce.CLSID%,,,              "%CustomForce%"
+HKLM,%OemKey_PID_4726%\OEMForceFeedback\Effects\%CustomForce.CLSID%,Attributes,1,   0B,00,00,00,05,C8,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+
+[X360CFF_PID_4728.AddReg]
+HKLM,%OemKey_PID_4728%\Axes\0,Attributes,1, 01,00,00,00,01,00,30,00
+HKLM,%OemKey_PID_4728%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_4728%\Axes\1,Attributes,1, 01,00,00,00,01,00,31,00
+HKLM,%OemKey_PID_4728%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_4728%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%OemKey_PID_4728%\OEMForceFeedback,CLSID,,"%FFDriver.CLSID%"
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,,,            "%ConstantForce%"
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,Attributes,1, 00,00,00,00,01,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%RampForce.CLSID%,,,                "%RampForce%"
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%RampForce.CLSID%,Attributes,1,     01,00,00,00,02,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Square.CLSID%,,,                   "%Square%"
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Square.CLSID%,Attributes,1,        02,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Sine.CLSID%,,,                     "%Sine%"
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Sine.CLSID%,Attributes,1,          03,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Triangle.CLSID%,,,                 "%Triangle%"
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Triangle.CLSID%,Attributes,1,      04,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,,,               "%SawtoothUp%"
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,Attributes,1,    05,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,,,             "%SawtoothDown%"
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,Attributes,1,  06,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Spring.CLSID%,,,                   "%Spring%"
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Spring.CLSID%,Attributes,1,        07,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Damper.CLSID%,,,                   "%Damper%"
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Damper.CLSID%,Attributes,1,        08,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Inertia.CLSID%,,,                  "%Inertia%"
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Inertia.CLSID%,Attributes,1,       09,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Friction.CLSID%,,,                 "%Friction%"
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%Friction.CLSID%,Attributes,1,      0A,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%CustomForce.CLSID%,,,              "%CustomForce%"
+HKLM,%OemKey_PID_4728%\OEMForceFeedback\Effects\%CustomForce.CLSID%,Attributes,1,   0B,00,00,00,05,C8,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+
+[X360CFF_PID_4736.AddReg]
+HKLM,%OemKey_PID_4736%\Axes\0,Attributes,1, 01,00,00,00,01,00,30,00
+HKLM,%OemKey_PID_4736%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_4736%\Axes\1,Attributes,1, 01,00,00,00,01,00,31,00
+HKLM,%OemKey_PID_4736%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_4736%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%OemKey_PID_4736%\OEMForceFeedback,CLSID,,"%FFDriver.CLSID%"
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,,,            "%ConstantForce%"
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,Attributes,1, 00,00,00,00,01,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%RampForce.CLSID%,,,                "%RampForce%"
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%RampForce.CLSID%,Attributes,1,     01,00,00,00,02,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Square.CLSID%,,,                   "%Square%"
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Square.CLSID%,Attributes,1,        02,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Sine.CLSID%,,,                     "%Sine%"
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Sine.CLSID%,Attributes,1,          03,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Triangle.CLSID%,,,                 "%Triangle%"
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Triangle.CLSID%,Attributes,1,      04,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,,,               "%SawtoothUp%"
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,Attributes,1,    05,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,,,             "%SawtoothDown%"
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,Attributes,1,  06,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Spring.CLSID%,,,                   "%Spring%"
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Spring.CLSID%,Attributes,1,        07,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Damper.CLSID%,,,                   "%Damper%"
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Damper.CLSID%,Attributes,1,        08,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Inertia.CLSID%,,,                  "%Inertia%"
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Inertia.CLSID%,Attributes,1,       09,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Friction.CLSID%,,,                 "%Friction%"
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%Friction.CLSID%,Attributes,1,      0A,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%CustomForce.CLSID%,,,              "%CustomForce%"
+HKLM,%OemKey_PID_4736%\OEMForceFeedback\Effects\%CustomForce.CLSID%,Attributes,1,   0B,00,00,00,05,C8,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+
+[X360CFF_PID_4738.AddReg]
+HKLM,%OemKey_PID_4738%\Axes\0,Attributes,1, 01,00,00,00,01,00,30,00
+HKLM,%OemKey_PID_4738%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_4738%\Axes\1,Attributes,1, 01,00,00,00,01,00,31,00
+HKLM,%OemKey_PID_4738%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_4738%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%OemKey_PID_4738%\OEMForceFeedback,CLSID,,"%FFDriver.CLSID%"
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,,,            "%ConstantForce%"
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,Attributes,1, 00,00,00,00,01,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%RampForce.CLSID%,,,                "%RampForce%"
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%RampForce.CLSID%,Attributes,1,     01,00,00,00,02,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Square.CLSID%,,,                   "%Square%"
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Square.CLSID%,Attributes,1,        02,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Sine.CLSID%,,,                     "%Sine%"
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Sine.CLSID%,Attributes,1,          03,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Triangle.CLSID%,,,                 "%Triangle%"
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Triangle.CLSID%,Attributes,1,      04,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,,,               "%SawtoothUp%"
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,Attributes,1,    05,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,,,             "%SawtoothDown%"
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,Attributes,1,  06,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Spring.CLSID%,,,                   "%Spring%"
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Spring.CLSID%,Attributes,1,        07,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Damper.CLSID%,,,                   "%Damper%"
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Damper.CLSID%,Attributes,1,        08,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Inertia.CLSID%,,,                  "%Inertia%"
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Inertia.CLSID%,Attributes,1,       09,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Friction.CLSID%,,,                 "%Friction%"
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%Friction.CLSID%,Attributes,1,      0A,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%CustomForce.CLSID%,,,              "%CustomForce%"
+HKLM,%OemKey_PID_4738%\OEMForceFeedback\Effects\%CustomForce.CLSID%,Attributes,1,   0B,00,00,00,05,C8,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+
+[X360CFF_PID_A728.AddReg]
+HKLM,%OemKey_PID_A728%\Axes\0,Attributes,1, 01,00,00,00,01,00,30,00
+HKLM,%OemKey_PID_A728%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_A728%\Axes\1,Attributes,1, 01,00,00,00,01,00,31,00
+HKLM,%OemKey_PID_A728%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_A728%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%OemKey_PID_A728%\OEMForceFeedback,CLSID,,"%FFDriver.CLSID%"
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,,,            "%ConstantForce%"
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,Attributes,1, 00,00,00,00,01,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%RampForce.CLSID%,,,                "%RampForce%"
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%RampForce.CLSID%,Attributes,1,     01,00,00,00,02,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Square.CLSID%,,,                   "%Square%"
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Square.CLSID%,Attributes,1,        02,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Sine.CLSID%,,,                     "%Sine%"
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Sine.CLSID%,Attributes,1,          03,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Triangle.CLSID%,,,                 "%Triangle%"
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Triangle.CLSID%,Attributes,1,      04,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,,,               "%SawtoothUp%"
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,Attributes,1,    05,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,,,             "%SawtoothDown%"
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,Attributes,1,  06,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Spring.CLSID%,,,                   "%Spring%"
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Spring.CLSID%,Attributes,1,        07,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Damper.CLSID%,,,                   "%Damper%"
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Damper.CLSID%,Attributes,1,        08,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Inertia.CLSID%,,,                  "%Inertia%"
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Inertia.CLSID%,Attributes,1,       09,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Friction.CLSID%,,,                 "%Friction%"
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%Friction.CLSID%,Attributes,1,      0A,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%CustomForce.CLSID%,,,              "%CustomForce%"
+HKLM,%OemKey_PID_A728%\OEMForceFeedback\Effects\%CustomForce.CLSID%,Attributes,1,   0B,00,00,00,05,C8,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+
+[X360CFF_PID_F028.AddReg]
+HKLM,%OemKey_PID_F028%\Axes\0,Attributes,1, 01,00,00,00,01,00,30,00
+HKLM,%OemKey_PID_F028%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_F028%\Axes\1,Attributes,1, 01,00,00,00,01,00,31,00
+HKLM,%OemKey_PID_F028%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_F028%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%OemKey_PID_F028%\OEMForceFeedback,CLSID,,"%FFDriver.CLSID%"
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,,,            "%ConstantForce%"
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,Attributes,1, 00,00,00,00,01,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%RampForce.CLSID%,,,                "%RampForce%"
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%RampForce.CLSID%,Attributes,1,     01,00,00,00,02,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Square.CLSID%,,,                   "%Square%"
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Square.CLSID%,Attributes,1,        02,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Sine.CLSID%,,,                     "%Sine%"
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Sine.CLSID%,Attributes,1,          03,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Triangle.CLSID%,,,                 "%Triangle%"
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Triangle.CLSID%,Attributes,1,      04,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,,,               "%SawtoothUp%"
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,Attributes,1,    05,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,,,             "%SawtoothDown%"
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,Attributes,1,  06,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Spring.CLSID%,,,                   "%Spring%"
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Spring.CLSID%,Attributes,1,        07,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Damper.CLSID%,,,                   "%Damper%"
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Damper.CLSID%,Attributes,1,        08,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Inertia.CLSID%,,,                  "%Inertia%"
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Inertia.CLSID%,Attributes,1,       09,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Friction.CLSID%,,,                 "%Friction%"
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%Friction.CLSID%,Attributes,1,      0A,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%CustomForce.CLSID%,,,              "%CustomForce%"
+HKLM,%OemKey_PID_F028%\OEMForceFeedback\Effects\%CustomForce.CLSID%,Attributes,1,   0B,00,00,00,05,C8,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+
+[X360CFF_PID_F029.AddReg]
+HKLM,%OemKey_PID_F029%\Axes\0,Attributes,1, 01,00,00,00,01,00,30,00
+HKLM,%OemKey_PID_F029%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_F029%\Axes\1,Attributes,1, 01,00,00,00,01,00,31,00
+HKLM,%OemKey_PID_F029%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_F029%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%OemKey_PID_F029%\OEMForceFeedback,CLSID,,"%FFDriver.CLSID%"
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,,,            "%ConstantForce%"
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,Attributes,1, 00,00,00,00,01,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%RampForce.CLSID%,,,                "%RampForce%"
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%RampForce.CLSID%,Attributes,1,     01,00,00,00,02,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Square.CLSID%,,,                   "%Square%"
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Square.CLSID%,Attributes,1,        02,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Sine.CLSID%,,,                     "%Sine%"
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Sine.CLSID%,Attributes,1,          03,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Triangle.CLSID%,,,                 "%Triangle%"
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Triangle.CLSID%,Attributes,1,      04,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,,,               "%SawtoothUp%"
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,Attributes,1,    05,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,,,             "%SawtoothDown%"
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,Attributes,1,  06,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Spring.CLSID%,,,                   "%Spring%"
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Spring.CLSID%,Attributes,1,        07,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Damper.CLSID%,,,                   "%Damper%"
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Damper.CLSID%,Attributes,1,        08,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Inertia.CLSID%,,,                  "%Inertia%"
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Inertia.CLSID%,Attributes,1,       09,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Friction.CLSID%,,,                 "%Friction%"
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%Friction.CLSID%,Attributes,1,      0A,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%CustomForce.CLSID%,,,              "%CustomForce%"
+HKLM,%OemKey_PID_F029%\OEMForceFeedback\Effects\%CustomForce.CLSID%,Attributes,1,   0B,00,00,00,05,C8,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+
+[X360CFF_PID_F039.AddReg]
+HKLM,%OemKey_PID_F039%\Axes\0,Attributes,1, 01,00,00,00,01,00,30,00
+HKLM,%OemKey_PID_F039%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_F039%\Axes\1,Attributes,1, 01,00,00,00,01,00,31,00
+HKLM,%OemKey_PID_F039%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%OemKey_PID_F039%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%OemKey_PID_F039%\OEMForceFeedback,CLSID,,"%FFDriver.CLSID%"
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,,,            "%ConstantForce%"
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%ConstantForce.CLSID%,Attributes,1, 00,00,00,00,01,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%RampForce.CLSID%,,,                "%RampForce%"
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%RampForce.CLSID%,Attributes,1,     01,00,00,00,02,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Square.CLSID%,,,                   "%Square%"
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Square.CLSID%,Attributes,1,        02,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Sine.CLSID%,,,                     "%Sine%"
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Sine.CLSID%,Attributes,1,          03,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Triangle.CLSID%,,,                 "%Triangle%"
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Triangle.CLSID%,Attributes,1,      04,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,,,               "%SawtoothUp%"
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%SawtoothUp.CLSID%,Attributes,1,    05,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,,,             "%SawtoothDown%"
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%SawtoothDown.CLSID%,Attributes,1,  06,00,00,00,03,86,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Spring.CLSID%,,,                   "%Spring%"
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Spring.CLSID%,Attributes,1,        07,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Damper.CLSID%,,,                   "%Damper%"
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Damper.CLSID%,Attributes,1,        08,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Inertia.CLSID%,,,                  "%Inertia%"
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Inertia.CLSID%,Attributes,1,       09,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Friction.CLSID%,,,                 "%Friction%"
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%Friction.CLSID%,Attributes,1,      0A,00,00,00,04,C8,00,00,65,03,00,00,65,03,00,00,20,00,00,00
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%CustomForce.CLSID%,,,              "%CustomForce%"
+HKLM,%OemKey_PID_F039%\OEMForceFeedback\Effects\%CustomForce.CLSID%,Attributes,1,   0B,00,00,00,05,C8,00,00,FD,03,00,00,FD,03,00,00,20,00,00,00
+
+[X360CFF.CopyFiles]
+x360cff.dll
+
+[Strings]
+Provider            = "Masahiko Morii"
+VendorMDCZ          = "Mad Catz"
+ProductMDCZ1        = "Mad Catz Xbox 360 Game Pad"
+ProductMDCZ2        = "Mad Catz Street Fighter IV Arcade FightStick"
+ProductMDCZ3        = "Mad Catz Xbox 360 Game Pad Pro"
+ProductMDCZ4        = "Mad Catz Street Fighter IV FightPad"
+ProductMDCZ5        = "Mad Catz Xbox 360 MicroCon Game Pad Pro"
+ProductMDCZ6        = "Mad Catz Street Fighter IV Arcade FightStick Tournament Edition"
+ProductMDCZ7        = "Mad Catz FightPad"
+ProductMDCZ8        = "Mad Catz FightPad"
+ProductMDCZ9        = "Mad Catz FightPad"
+ProductMDCZA        = "Mad Catz Arcade FightStick Tournament Edition"
+Service             = "Xbox 360 Controller"
+Parameters          = "System\CurrentControlSet\Services\Xbox360Controller\Parameters"
+OemKey_PID_4716     = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_0738&PID_4716"
+OemKey_PID_4718     = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_0738&PID_4718"
+OemKey_PID_4726     = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_0738&PID_4726"
+OemKey_PID_4728     = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_0738&PID_4728"
+OemKey_PID_4736     = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_0738&PID_4736"
+OemKey_PID_4738     = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_0738&PID_4738"
+OemKey_PID_A728     = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_0738&PID_A728"
+OemKey_PID_F028     = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_1BAD&PID_F028"
+OemKey_PID_F029     = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_1BAD&PID_F029"
+OemKey_PID_F039     = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_1BAD&PID_F039"
+ControlPanel        = "Control Panel for Microsoft Xbox 360 Controller"
+ControlPanel.CLSID  = "{FFB0C361-5623-49AA-BD51-B321DB9625CE}"
+FFDriver            = "Force Feedback Driver for Microsoft Xbox 360 Controller"
+FFDriver.CLSID      = "{FFB0C360-5623-49AA-BD51-B321DB9625CE}"
+ConstantForce       = "Constant Force"
+ConstantForce.CLSID = "{13541C20-8E33-11D0-9AD0-00A0C9A06E35}"
+RampForce           = "Ramp Force"
+RampForce.CLSID     = "{13541C21-8E33-11D0-9AD0-00A0C9A06E35}"
+Square              = "Square"
+Square.CLSID        = "{13541C22-8E33-11D0-9AD0-00A0C9A06E35}"
+Sine                = "Sine"
+Sine.CLSID          = "{13541C23-8E33-11D0-9AD0-00A0C9A06E35}"
+Triangle            = "Triangle"
+Triangle.CLSID      = "{13541C24-8E33-11D0-9AD0-00A0C9A06E35}"
+SawtoothUp          = "Sawtooth Up"
+SawtoothUp.CLSID    = "{13541C25-8E33-11D0-9AD0-00A0C9A06E35}"
+SawtoothDown        = "Sawtooth Down"
+SawtoothDown.CLSID  = "{13541C26-8E33-11D0-9AD0-00A0C9A06E35}"
+Spring              = "Spring"
+Spring.CLSID        = "{13541C27-8E33-11D0-9AD0-00A0C9A06E35}"
+Damper              = "Damper"
+Damper.CLSID        = "{13541C28-8E33-11D0-9AD0-00A0C9A06E35}"
+Inertia             = "Inertia"
+Inertia.CLSID       = "{13541C29-8E33-11D0-9AD0-00A0C9A06E35}"
+Friction            = "Friction"
+Friction.CLSID      = "{13541C2A-8E33-11D0-9AD0-00A0C9A06E35}"
+CustomForce         = "Custom Force"
+CustomForce.CLSID   = "{13541C2B-8E33-11D0-9AD0-00A0C9A06E35}"

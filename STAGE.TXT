@@ -1,0 +1,112 @@
+# STAGE.TXT - which of this pack's INFs may be staged, on which Windows
+#
+# Read by the xHCI98 installer (roadmap-usb4 task 43.48) when the user ticks
+# the non-free pack's optional "let Windows use these automatically when a
+# device is plugged in" box. The installer copies the whole pack whether or
+# not the box is ticked; this file says only what the box may stage (place
+# where Windows finds it at the first plug of the device: the INF folder on
+# 98 SE and ME, SetupCopyOEMInf on 2000 and later). Nothing here installs a
+# driver, and no vendor file is changed by this file.
+#
+# Format. Plain ASCII text, CRLF or LF line ends. A line starting with '#'
+# and a blank line are comments. Every other line is four fields separated
+# by '|', each trimmed of spaces:
+#
+#   ACTION | SYSTEMS | INF | NOTE
+#
+#   ACTION   STAGE  the box may stage this INF on the systems named.
+#            COPY   copy-only: never staged by the box, on any system (the
+#                   files are still copied with the rest of the pack).
+#   SYSTEMS  one or more of these tokens, separated by spaces:
+#            W98SE WME W2K WXP WXP64 WVISTA WVISTA64 W7 W7X64
+#            (WXP64 is Windows XP Professional x64 Edition; WVISTA64 and
+#            W7X64 the 64-bit editions). On a COPY line, the systems the
+#            folder is for, for information only.
+#   INF      the INF's path from the pack's top, '/' separated, exactly as
+#            in SHA256.TXT (case as the vendor shipped it; may hold spaces).
+#   NOTE     free text, why; may be empty.
+#
+# Rules the file keeps (and a reader may check):
+#   - Every INF under non-free/ is on exactly one line.
+#   - On any one system, no two STAGE lines match the same hardware ID (as
+#     their [Models] sections are read for that system). Where two INFs in
+#     the pack would match the same ID, one is chosen here, by name, and the
+#     other is restricted to other systems or is COPY.
+#   - nusb33/ is not listed and never staged by the non-free box: xHCI98's
+#     own NUSB storage row owns those files.
+#   - A driver whose maker installs it only with a setup program is COPY.
+#     Today every driver in the pack has its own INF; the setup programs
+#     beside some of them (Realtek's setup.exe, WCH's SETUP.EXE and
+#     DRVSETUP64.exe, FTDI's uninstallers, Morii's x360csai.exe,
+#     x360wcsai.exe and x360csa.exe) are copied, never run.
+#   - SYSTEMS follows README.md's table of which folder serves which
+#     Windows, not every system an INF's own decorations would accept.
+#
+# The drivers here are carried as their makers released them and have not
+# been tested by this project. The choices below were made by reading the
+# INFs (2026-10-22); those marked "owner to confirm" await the owner.
+
+# ---- Ethernet: ASIX AX88772 / AX88772A (USB 2.0, 100 Mbit/s)
+STAGE | W98SE WME        | non-free/ethernet/ax88772/w98se-me/Ax88772.inf | AX88772 3.0.3.12; its undecorated [Models] would also match on 2000-7: there w2k-xp wins
+STAGE | W2K WXP          | non-free/ethernet/ax88772/w2k-xp/Ax88772.inf   | AX88772 3.4.3.38, KMDF 1.7; wins over w98se-me on 2000 and XP (newer, NT driver, catalog)
+
+# ---- Ethernet: ASIX AX88179 / AX88178A (USB 3.0, Gigabit)
+STAGE | WXP WVISTA       | non-free/ethernet/ax88179/wxpvis/Ax88179_178a.inf   | 1.4.2.0; its undecorated [Models] would also match on 7: there w7 wins
+STAGE | WXP64 WVISTA64   | non-free/ethernet/ax88179/wxpvis64/Ax88179_178a.inf | 1.6.2.0; on 7 x64 w7_64 wins
+STAGE | W7               | non-free/ethernet/ax88179/w7/AX88179_178a.inf       | 1.12.11.0 (2018, WHCK catalog); wins over wxpvis on 7: newer, built for 7, more adapter IDs
+STAGE | W7X64            | non-free/ethernet/ax88179/w7_64/AX88179_178a.inf    | 1.14.11.0 (2018, WHCK catalog); wins over wxpvis64 on 7 x64
+
+# ---- Ethernet: Realtek RTL8152 / RTL8153 / RTL8156
+# The XP INF is the same file in WINXP/32 and WINXP/64 (each lists both
+# architectures, each folder holds one architecture's files): stage the
+# folder that matches the system.
+STAGE | WXP              | non-free/ethernet/rtl815x/wxp/WINXP/32/rtuxp.INF            | 5.23 (2018); 32-bit files are in this folder
+STAGE | WXP64            | non-free/ethernet/rtl815x/wxp/WINXP/64/rtuxp.INF            | 5.23 (2018); 64-bit files are in this folder
+STAGE | WVISTA           | non-free/ethernet/rtl815x/wvista/WINVISTA/32/rtux86lh.INF   | 6.27 (2017); wins over the XP INF's .6.0 sections on Vista; its .6.1 sections would match on 7: there w7 wins
+STAGE | WVISTA64         | non-free/ethernet/rtl815x/wvista/WINVISTA/64/rtux64lh.INF   | 6.27 (2017)
+STAGE | W7               | non-free/ethernet/rtl815x/w7/WIN7/32/rtump62x86sta.INF      | 7.61.20 (2021); wins on 7: newest, built for 7, RTL8156 and more adapter IDs
+STAGE | W7X64            | non-free/ethernet/rtl815x/w7/WIN7/64/rtump62x64sta.INF      | 7.61.20 (2021)
+COPY  | W7               | non-free/ethernet/rtl815x/w7/WIN7/WinPE/32/rtump62x86sta.INF | Realtek's WinPE copy, byte-identical INF to WIN7/32's; WIN7/32 is staged
+COPY  | W7X64            | non-free/ethernet/rtl815x/w7/WIN7/WinPE/64/rtump62x64sta.INF | Realtek's WinPE copy; WIN7/64 is staged
+
+# ---- Serial: FTDI VCP 1.09.06, 98 SE and ME (FT232R/BM, FT245R/BM, FT8U232AM)
+STAGE | W98SE WME        | non-free/serial/ftdi/w98se-me/FTDIBUS.INF  | the USB device; on 2000 ftdi/w2k wins (0403:6001)
+STAGE | W98SE WME        | non-free/serial/ftdi/w98se-me/FTDIPORT.INF | its COM port (FTDIBUS\COMPORT); FTDIBUS.INF also copies it to the INF folder itself
+COPY  | W98SE WME        | non-free/serial/ftdi/w98se-me/FTSERMOU.INF | serial mouse on the adapter's port; same 11 SERENUM\FTSM* IDs as ft2232d's FTCSMOU.INF; neither staged (FTDIBUS.INF copies this INF to the INF folder when it installs) - owner to confirm
+
+# ---- Serial: FTDI VCP 1.0.3, 98 SE and ME (FT2232D)
+STAGE | W98SE WME        | non-free/serial/ft2232d/w98se-me/FTCUSB.INF  | each USB interface (0403:6010 MI_00/MI_01); its undecorated [Models] would also match on 2000-7: there ftdi/w2k wins
+STAGE | W98SE WME        | non-free/serial/ft2232d/w98se-me/FTCSER.INF  | its COM port (FTDIBUS\COMPORT&VID_0403&PID_6010); on 2000 ftdi/w2k's ftdiport.inf wins
+COPY  | W98SE WME        | non-free/serial/ft2232d/w98se-me/FTCSMOU.INF | serial mouse; same IDs as ftdi's FTSERMOU.INF; neither staged (FTCUSB.INF copies this INF itself) - owner to confirm
+
+# ---- Serial: FTDI CDM 2.06.00, 2000 (FT232R and earlier, FT2232, FT4232H)
+STAGE | W2K              | non-free/serial/ftdi/w2k/ftdibus.inf  | wins on 2000 over ft2232d's FTCUSB.INF (0403:6010) and VCP 1.09.06's FTDIBUS.INF (0403:6001): newer (2009), WHQL catalog, an NT driver - owner to confirm
+STAGE | W2K              | non-free/serial/ftdi/w2k/ftdiport.inf | its COM port; wins on 2000 over FTCSER.INF and FTDIPORT.INF
+
+# ---- Serial: WCH CH341SER 3.7 (CH340, CH341)
+STAGE | W98SE WME W2K WXP | non-free/serial/ch341/w98se-xp/CH341SER.INF | one INF for 98 SE to XP (its own .NT/.NTamd64 sections)
+COPY  | W98SE WME W2K WXP | non-free/serial/ch341/w98se-xp/WIN 1X/CH341SER.INF | WCH's second copy, byte-identical INF; the folder's own CH341SER.INF is staged
+
+# ---- HID: Morii's x360c, Xbox 360 wired pads (25 pads, same IDs in every build)
+# Each build's INF would also be accepted on the other systems of its
+# architecture; each system gets the build made for it.
+STAGE | W98SE WME        | non-free/hid/x360c/w98se-me/x360c.inf      | Microsoft, Logitech and Saitek pads
+STAGE | W98SE WME        | non-free/hid/x360c/w98se-me/x360c_hori.inf | HORI pads
+STAGE | W98SE WME        | non-free/hid/x360c/w98se-me/x360c_mdcz.inf | Mad Catz pads
+STAGE | W2K              | non-free/hid/x360c/w2k/x360c.inf           |
+STAGE | WXP              | non-free/hid/x360c/wxp/x360c.inf           |
+STAGE | WXP64            | non-free/hid/x360c/wxp64/x360c.inf         |
+STAGE | WVISTA           | non-free/hid/x360c/wvista/x360c.inf        | catalog signed by Morii (not WHQL): Windows asks before installing
+STAGE | WVISTA64         | non-free/hid/x360c/wvista64/x360c.inf      | as wvista
+STAGE | W7               | non-free/hid/x360c/w7/x360c.inf            | as wvista
+STAGE | W7X64            | non-free/hid/x360c/w7_64/x360c.inf         | as wvista
+
+# ---- HID: Morii's x360wc, Xbox 360 Wireless Gaming Receiver (045E:0719; from XP on also the Play & Charge Kit 045E:028F)
+STAGE | W2K              | non-free/hid/x360wc/w2k/x360wc.inf         | receiver only
+STAGE | W2K              | non-free/hid/x360wc/w2k/Omake/x360pck.inf  | Play & Charge Kit (045E:028F) on 2000: an INF with no driver, so the cable shows no unknown device
+STAGE | WXP              | non-free/hid/x360wc/wxp/x360wc.inf         |
+STAGE | WXP64            | non-free/hid/x360wc/wxp64/x360wc.inf       |
+STAGE | WVISTA           | non-free/hid/x360wc/wvista/x360wc.inf      | catalog signed by Morii (not WHQL)
+STAGE | WVISTA64         | non-free/hid/x360wc/wvista64/x360wc.inf    |
+STAGE | W7               | non-free/hid/x360wc/w7/x360wc.inf          |
+STAGE | W7X64            | non-free/hid/x360wc/w7_64/x360wc.inf       |

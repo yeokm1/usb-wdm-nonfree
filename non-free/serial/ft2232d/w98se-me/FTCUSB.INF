@@ -1,0 +1,128 @@
+; FTCUSB.INF
+; Copyright (c) 2004 FTDI Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=USB
+ClassGUID={36fc9e60-c465-11cf-8056-444553540000}
+Provider=%FTDI%
+DriverVer=03/12/2004,1.00.00
+
+[SourceDisksNames]
+1=%DriversDisk%,,,
+
+[SourceDisksFiles]
+ftccomms.vxd = 1
+ftcser98.sys = 1
+ftcsenum.vxd = 1
+ftcsenum.sys = 1
+ftcsmou.vxd = 1
+ftcsui.dll = 1
+ftcusb.sys = 1
+ftcunin.exe = 1
+ftcun98.ini = 1
+ftcun2k.ini = 1
+ftd2xx.dll = 1
+
+[DestinationDirs]
+FTCUSB.Copy1 = 11
+FTCUSB.Copy2 = 17
+FTCUSB.NT.Copy = 10,system32\drivers
+FTCUSB.NT.Copy2 = 11
+FTCUSB.NT.Copy.Dll = 11
+
+[Manufacturer]
+%Ftdi%=FtdiHw
+
+[FtdiHw]
+%USB\VID_0403&PID_6010&MI_00.DeviceDesc%=FTCUSB, USB\VID_0403&PID_6010&MI_00
+%USB\VID_0403&PID_6010&MI_01.DeviceDesc%=FTCUSB, USB\VID_0403&PID_6010&MI_01
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[FTCUSB]
+CopyFiles=FTCUSB.Copy1,FTCUSB.Copy2
+AddReg=FTCUSB.AddReg, FTCUSB.UnInst.Reg
+
+[FTCUSB.HW]
+AddReg=FTCUSB.AddReg.HW
+
+[FTCUSB.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,ftcser98.sys
+
+[FTCUSB.AddReg.HW]
+HKR,,"UpperFilters",0x00010000,"ftcsenum.sys"
+
+[FTCUSB.Copy1]
+ftccomms.vxd
+ftcsenum.vxd
+ftcsmou.vxd
+ftcser98.sys
+ftcsenum.sys
+ftcsui.dll
+ftcunin.exe
+ftcun98.ini
+
+[FTCUSB.Copy2]
+ftcusb.inf
+ftcser.inf
+ftcsmou.inf
+
+[FTCUSB.UnInst.Reg]
+HKLM,%WINUN%,"FTCUSB"
+HKLM,%WINUN%\FTCUSB , "UninstallString",,"%11%\ftcunin.exe %11%\ftcun98.ini"
+HKLM,%WINUN%\FTCUSB , "DisplayName",,"FTDI FT2232C USB Drivers"
+
+;---------------------------------------------------------------;
+; For Win2000 ...
+;
+
+[FTCUSB.NT]
+CopyFiles=FTCUSB.NT.Copy,FTCUSB.NT.Copy2,FTCUSB.NT.Copy.Dll
+AddReg=FTCUSB.NT.AddReg,FTCUSB.UnInst.NT.Reg
+
+[FTCUSB.NT.Services]
+AddService = FTCUSB, 0x00000002, FTCUSB.AddService
+
+[FTCUSB.AddService]
+DisplayName    = %FTCUSB.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\ftcusb.sys
+LoadOrderGroup = Base
+AddReg         = FTCUSB.AddService.AddReg
+
+[FTCUSB.NT.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,ftcusb.sys
+
+[FTCUSB.AddService.AddReg]
+HKR,Parameters,"MaximumTransferSize",0x10001,4096
+
+[FTCUSB.NT.Copy]
+ftcusb.sys
+
+[FTCUSB.NT.Copy2]
+ftcunin.exe
+ftcun2k.ini
+
+[FTCUSB.NT.Copy.Dll]
+ftd2xx.dll
+
+[FTCUSB.UnInst.NT.Reg]
+HKLM,%WINUN%,"FTCUSB"
+HKLM,%WINUN%\FTCUSB , "UninstallString",,"%11%\ftcunin.exe %11%\ftcun2k.ini"
+HKLM,%WINUN%\FTCUSB , "DisplayName",,"FTDI FT2232C USB Drivers"
+
+;---------------------------------------------------------------;
+
+[Strings]
+Ftdi="FTDI"
+DriversDisk="FTDI USB Drivers Disk"
+USB\VID_0403&PID_6010&MI_00.DeviceDesc="FTDI Dual USB A"
+USB\VID_0403&PID_6010&MI_01.DeviceDesc="FTDI Dual USB B"
+FTCUSB.SvcDesc="FTCUSB.SYS FT2232C IO test driver"
+WINUN="Software\Microsoft\Windows\CurrentVersion\Uninstall"

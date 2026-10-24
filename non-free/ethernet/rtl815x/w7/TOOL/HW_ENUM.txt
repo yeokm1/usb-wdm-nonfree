@@ -1,0 +1,74 @@
+RTL8152BX.DeviceDesc,usb\vid_0bda&pid_8050,Realtek(R) USB FE Family Controller
+RTL8152BX.DeviceDesc,usb\vid_0bda&pid_8152,Realtek(R) USB FE Family Controller
+RTL8153X.DeviceDesc,usb\vid_0bda&pid_8153,Realtek(R) USB GbE Family Controller
+RTL8153X.DeviceDesc,usb\vid_0bda&pid_8053,Realtek(R) USB GbE Family Controller
+RTL8156X.DeviceDesc,usb\vid_0bda&pid_8156,Realtek(R) USB 2.5GbE Family Controller
+RTL8156X.DeviceDesc,usb\vid_0bda&pid_8056,Realtek(R) USB 2.5GbE Family Controller
+RTL8155X.DeviceDesc,usb\vid_0bda&pid_8155,Realtek(R) USB Dash 2.5GbE Family Controller
+Elecom-001.DeviceDesc,usb\vid_056e&pid_4013,ELECOM EDC-G01 1GbE Ethernet Adapter
+Elecom-002.DeviceDesc,usb\vid_056e&pid_4017,ELECOM EDC-QUA3 Wired LAN Adapter
+Elecom-003.DeviceDesc,usb\vid_056e&pid_9013,ELECOM DST-WCC01
+Xiaomi-001.DeviceDesc,usb\vid_2717&pid_0011,Xiaomi Accessory
+PioneerDJ-001.DeviceDesc,usb\vid_2b73&pid_0007,Pioneer DJ Network Adapter
+PioneerDJ-001.DeviceDesc,usb\vid_2b73&pid_0031,Pioneer DJ Network Adapter
+Belkin-001.DeviceDesc,usb\vid_050d&pid_047a,USB 2.0 Ethernet Adapter 10/100Mbps
+Belkin-002.DeviceDesc,usb\vid_050d&pid_048a,USB 3.0 to Gigabit Adapter
+LG-001.DeviceDesc,usb\vid_043e&pid_9820,LG USB 10/100 Ethernet Adapter
+LG-002.DeviceDesc,usb\vid_043e&pid_9819,LG USB GbE Ethernet Adapter
+TP-LINK-001.DeviceDesc,usb\vid_2357&pid_0601,TP-LINK Gigabit Ethernet USB Adapter
+TP-LINK-001.DeviceDesc,usb\vid_2357&pid_0604,TP-LINK Gigabit Ethernet USB Adapter
+TP-LINK-002.DeviceDesc,usb\vid_2357&pid_0602,TP-LINK 100Mbps Ethernet USB Adapter
+TP-LINK-003.DeviceDesc,usb\vid_2357&pid_0603,TP-LINK Fast Ethernet USB Adapter
+D-LINK-001.DeviceDesc,usb\vid_2001&pid_7e34,Remote NDIS based Internet Sharing Device
+D-LINK-001.DeviceDesc,usb\vid_2001&pid_a710,Remote NDIS based Internet Sharing Device
+D-LINK-002.DeviceDesc,usb\vid_2001&pid_b301,D-Link DUB-E250 2.5G Ethernet Adapter
+D-LINK-003.DeviceDesc,usb\vid_2001&pid_b302,D-Link DUB-E251G 2.5G Ethernet Adapter
+Lenovo-001.DeviceDesc,usb\vid_17ef&pid_304f,ThinkPad OneLink Pro Dock Giga Ethernet
+Lenovo-FFF.DeviceDesc,usb\vid_17ef&pid_7205,Lenovo USB Ethernet
+Lenovo-003.DeviceDesc,usb\vid_17ef&pid_3052,ThinkPad Tablet Dock Giga Ethernet
+Lenovo-004.DeviceDesc,usb\vid_17ef&pid_720a,ThinkPad OneLink Adapter
+Lenovo-FFF.DeviceDesc,usb\vid_17ef&pid_720c,Lenovo USB Ethernet
+Lenovo-007.DeviceDesc,usb\vid_17ef&pid_3054,ThinkPad OneLink Plus Dock Ethernet
+Lenovo-009.DeviceDesc,usb\vid_17ef&pid_3057,ThinkPad WiGig dock for USB Ethernet
+Lenovo-FFF.DeviceDesc,usb\vid_17ef&pid_3062,Lenovo USB Ethernet
+Lenovo-FFF.DeviceDesc,usb\vid_17ef&pid_3069,Lenovo USB Ethernet
+Lenovo-FFF.DeviceDesc,usb\vid_17ef&pid_7214,Lenovo USB Ethernet
+Lenovo-00E.DeviceDesc,usb\vid_17ef&pid_3065,Lenovo Thunderbolt 3 Graphics Dock Ethernet
+Lenovo-FFF.DeviceDesc,usb\vid_17ef&pid_a359,Lenovo USB Ethernet
+Lenovo-011.DeviceDesc,usb\vid_17ef&pid_3082,ThinkPad Thunderbolt 3 Dock USB Ethernet
+Lenovo-FFF.DeviceDesc,usb\vid_17ef&pid_721e,Lenovo USB Ethernet
+Lenovo-FFF.DeviceDesc,usb\vid_17ef&pid_a387,Lenovo USB Ethernet
+Lenovo-FFF.DeviceDesc,usb\vid_17ef&pid_3098,Lenovo USB Ethernet
+Lenovo-FFF.DeviceDesc,usb\vid_17ef&pid_a3c1,Lenovo USB Ethernet
+Lenovo-018.DeviceDesc,usb\vid_17ef&pid_8153,Realtek USB GbE Family Controller
+Lenovo-FFF.DeviceDesc,usb\vid_17ef&pid_309b,Lenovo USB Ethernet
+Lenovo-FFF.DeviceDesc,usb\vid_17ef&pid_309c,Lenovo USB Ethernet
+Lenovo-FFF.DeviceDesc,usb\vid_17ef&pid_309d,Lenovo USB Ethernet
+Linksys-001.DeviceDesc,usb\vid_13b1&pid_0041,Linksys USB3GIGV1
+Samsung-001.DeviceDesc,usb\vid_04e8&pid_a101,Samsung USB Ethernet Adapter
+Acer-001.DeviceDesc,usb\vid_1025&pid_104e,Chicago173
+IOI-001.DeviceDesc,usb\vid_0f21&pid_8153,IOI USB 3.0 Gigabit Ethernet Controller
+Club3D-001.DeviceDesc,usb\vid_2d1c&pid_8153,USB C TO RJ45 DONGLE
+Luxshare-001.DeviceDesc,usb\vid_208e&pid_d003,Luxshare USB-C to Ethernet Adapter
+Toshiba-001.DeviceDesc,usb\vid_0930&pid_0416,TOSHIBA KB Dock USB Ethernet
+dynabook-001.DeviceDesc,usb\vid_30f3&pid_0425,dynabook USB-C Dock Ethernet
+dynabook-002.DeviceDesc,usb\vid_30f3&pid_0419,dynabook Travel Adapter Ethernet
+Clevo-001.DeviceDesc,usb\vid_30da&pid_5101,USB LAN Controller
+ASUS-001.DeviceDesc,usb\vid_0b05&pid_18d1,ASUS 2.5G Ethernet USB Adapter
+ASUS-001.DeviceDesc,usb\vid_0b05&pid_1976,ASUS 2.5G Ethernet USB Adapter
+Twinhead-001.DeviceDesc,usb\vid_14ff&pid_1400,USB GIGABIT LAN
+TRENDnet-001.DeviceDesc,usb\vid_20f4&pid_e02b,TRENDnet USB 2.5G Adapter
+TRENDnet-001.DeviceDesc,usb\vid_20f4&pid_e02c,TRENDnet USB 2.5G Adapter
+Telaum-001.DeviceDesc,usb\vid_0df4&pid_0025,TM25G-USB
+NEC-001.DeviceDesc,usb\vid_17aa&pid_6117,N0U1
+Satechi-001.DeviceDesc,usb\vid_310e&pid_0060,USB3.1 Gen1 1000M Lan
+Satechi-001.DeviceDesc,usb\vid_310e&pid_0061,USB3.1 Gen1 1000M Lan
+Satechi-002.DeviceDesc,usb\vid_310e&pid_0062,USB3.1 Gen1 2500M Lan
+Gopod-001.DeviceDesc,usb\vid_2d01&pid_0030,USB3.1 Gen1 1000M Lan
+Gopod-001.DeviceDesc,usb\vid_2d01&pid_0031,USB3.1 Gen1 1000M Lan
+Gopod-002.DeviceDesc,usb\vid_2d01&pid_0032,USB3.1 Gen1 2500M Lan
+I-ODATA-001.DeviceDesc,usb\vid_065f&pid_3200,ETQG-US3
+Dell-001.DeviceDesc,usb\vid_413c&pid_b097,Alienware AW1022 2.5GbE Adapter
+SanDiskPro-001.DeviceDesc,usb\vid_0781&pid_cffe,PRO-DOCK 4
+Getac-001.DeviceDesc,usb\vid_2baf&pid_0012,Getac USB 2.5GbE Family Controller
+Zebra-001.DeviceDesc,usb\vid_2655&pid_8153,Z21 USB Ethernet Controller

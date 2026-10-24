@@ -1,0 +1,25 @@
+//======================================================================
+// ASIX AX88179/178A Windows XP/Vista 64-bit Driver
+// Revision History
+//
+// This document describes the major changes, additions and bug fixes made 
+// to the driver between released versions. 
+//======================================================================
+
+Version 1.6.2.0 (2013-05-24)
+1. Fixed a packet filter issue.
+2. Fixed Vlan id disorder issue.
+3. Added USB command error handling.
+4. Added Toshiba's AX88179 VID/PID support.
+5. Changed the "Jumbo Frame" options strings to "2KB", "4KB".
+
+Version 1.6.1.0 (2013-03-21)
+1. Added Lenovo's AX88179 VID/PID support.
+
+Version 1.6.1.0 (2012-12-21)
+1. Fixed compatibility issue with Gigabit switches.
+2. Added Sitecom's AX88179 VID/PID support.
+3. Added multi-language in the inf file. 
+
+Version 1.6.0.0 (2012-07-17)
+1. Initial release.

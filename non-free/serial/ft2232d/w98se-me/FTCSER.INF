@@ -1,0 +1,151 @@
+; FTCSER.INF
+; Copyright (c) 2004 FTDI Ltd.
+;
+
+[Version]
+Signature="$CHICAGO$"
+Class=Ports
+ClassGUID={4d36e978-e325-11ce-bfc1-08002be10318}
+Provider=%FTDI%
+DriverVer=03/12/2004,1.00.00
+
+[SourceDisksNames]
+1=%DriversDisk%,,,
+
+[SourceDisksFiles]
+ftcser2k.sys=1
+ftcser.inf=1
+ftcsui2.dll=1
+ftcserco.dll=1
+
+[DestinationDirs]
+DefaultDestDir=11
+FTCSER.NT.Copy=10,system32\drivers
+FTCSER.NT.CopyUI=10,system32
+FTCSER.NT.CopyCoInst=10,system32
+
+; Install class "Ports"
+;----------------------------------------------------------
+[ClassInstall]
+AddReg=PortsClass.AddReg
+
+[PortsClass.AddReg]
+HKR,,,,%PortsClassName%
+
+[ClassInstall32.NT]
+AddReg=PortsClass.NT.AddReg
+
+[PortsClass.NT.AddReg]
+HKR,,,,%PortsClassName%
+HKR,,Icon,,"-23"
+HKR,,Installer32,,"MsPorts.Dll,PortsClassInstaller"
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%FTDI%=FtdiHw
+
+[FtdiHw]
+%VID_0403&PID_6010.DeviceDesc%=FTCSER,FTDIBUS\COMPORT&VID_0403&PID_6010
+
+;---------------------------------------------------------------;
+; For Win98 ...
+;
+
+[FTCSER]
+AddReg=FTCSER.AddReg,FTCSER.W98.AddReg
+
+[FTCSER.AddReg]
+HKR,,PortSubClass,1,01
+
+[FTCSER.W98.AddReg]
+HKR,,DevLoader,,*vcomm
+HKR,,Enumerator,,ftcsenum.vxd
+HKR,,PortDriver,,ftccomms.vxd
+HKR,,Contention,,*vcd
+HKR,,ConfigDialog,,ftcsui.dll
+HKR,,DCB,3,1C,00,00,00, 80,25,00,00, 11,33,00,00, 00,00, 0a,00, 0a,00, 08, 00, 00, 11, 13, 00, 00, 00
+HKR,,PortSubClass,1,01
+HKR,,EnumPropPages,,"ftcsui.dll,EnumPropPages"
+
+[FTCSER.HW]
+AddReg=FTCSER.HW.AddReg
+
+[FTCSER.HW.AddReg]
+HKR,,ConfigData,1,01,00,3F,3F,10,27,88,13,C4,09,E2,04,71,02,38,41,9c,80,4E,C0,34,00,1A,00,0D,00,06,40,03,80,00,00,d0,80
+
+;---------------------------------------------------------------;
+; For Win2000 ...
+;
+
+[FTCSER.NT]
+CopyFiles=FTCSER.NT.Copy,FTCSER.NT.CopyUI
+AddReg=FTCSER.NT.AddReg
+
+[FTCSER.NT.HW]
+AddReg=FTCSER.NT.HW.AddReg
+
+[FTCSER.NT.CoInstallers]
+AddReg=FTCSER.NT.CoInstallers.AddReg
+CopyFiles=FTCSER.NT.CopyCoInst
+
+[FTCSER.NT.Services]
+AddService = FTCSER2K, 0x00000002, FTCSER.AddService
+AddService = Serenum,,SerEnum.AddService
+
+[FTCSER.NT.HW.AddReg]
+HKR,,"UpperFilters",0x00010000,"serenum"
+HKR,,"ConfigData",1,01,00,3F,3F,10,27,88,13,C4,09,E2,04,71,02,38,41,9c,80,4E,C0,34,00,1A,00,0D,00,06,40,03,80,00,00,d0,80
+HKR,,"MinReadTimeout",0x00010001,0
+HKR,,"MinWriteTimeout",0x00010001,0
+HKR,,"LatencyTimer",0x00010001,16
+
+[FTCSER.NT.AddReg]
+HKR,,EnumPropPages32,,"ftcsui2.dll,SerialPortPropPageProvider"
+
+[FTCSER.AddService]
+DisplayName    = %FTCSER.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\ftcser2k.sys
+LoadOrderGroup = Base
+AddReg         = FTCSER.AddService.AddReg
+
+; -------------- Serenum Driver install section
+[SerEnum.AddService]
+DisplayName    = %SerEnum.SvcDesc%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\serenum.sys
+LoadOrderGroup = PNP Filter
+
+[FTCSER.AddService.AddReg]
+HKR,Parameters,"MaximumTransferSize",0x10001,4096
+
+[FTCSER.NT.CoInstallers.AddReg]
+HKR,,CoInstallers32,0x00010000,"ftcserco.Dll,FTCSERCoInstaller"
+
+[FTCSER.NT.Copy]
+ftcser2k.sys
+;serenum.sys
+
+[FTCSER.NT.CopyUI]
+ftcsui2.dll
+
+[FTCSER.NT.CopyCoInst]
+ftcserco.dll
+
+;---------------------------------------------------------------;
+
+[Strings]
+FTDI="FTDI"
+DriversDisk="FTDI USB Drivers Disk"
+PortsClassName = "Ports (COM & LPT)"
+VID_0403&PID_6010.DeviceDesc="USB Serial Port"
+FTCSER.SvcDesc="FTDI USB Dual Serial Port Driver"
+SerEnum.SvcDesc="Serenum Filter Driver"
+
+
