@@ -419,3 +419,14 @@ sha256sum -c SHA256.TXT
 
 `.gitattributes` keeps every file byte for byte, so a checkout matches the
 hashes whatever the local line-ending setting.
+
+## Releases
+
+Each release is a zip of the repository's files at its tag, made with
+`git archive --format=zip -o usb-wdm-nonfree-<version>.zip <tag>`, so the
+same command at the same tag gives the same bytes. Its hash is recorded
+here, in the commit after the tag (a zip cannot hold its own hash):
+
+| Version | Tag | File | Size (bytes) | SHA-256 |
+|---|---|---|---|---|
+| 1.0.0 | `v1.0.0` (commit `128106f`) | `usb-wdm-nonfree-v1.0.0.zip` | 40,860,928 | `31756d03326ea003c10c4b17f52f38883c8f4675aa629f03e93e46eb9b07ece9` |
