@@ -44,7 +44,7 @@ separately (owner, 2026-10-22).
 | All 5 files in `mcs7830/w98se-xp/`, all 4 in each of `wxp64/`, `wvista/`, `wvista64/`, all 3 in each of `w7/`, `w7_64/` | ASIX Electronics Corporation, for MosChip Semiconductor's line (`WdfCoInstaller01009.dll`, 1.9.7600.16385: Microsoft Corporation, as shipped) | 1.49.0.0, 1.49.0.0, 1.0.0.18, 1.0.0.18, 1.0.0.17, 1.0.0.17 (`DriverVer`) |
 | All 35 files in `rtl8150/w98se-vista/` | Realtek Semiconductor Corp.; its setup engine (`SETUP.EXE`, `ISSetup.dll`, `_Setup.dll`, `DATA1.CAB` and the files with them) is Flexera's InstallShield, as Realtek ships it | 5.126 (`WINXP\NET8150.INF` `DriverVer` 04/11/2008,5.126.0411.2008; `WIN98` and `WINME` 03/19/2004,5.1191.0319.2004) |
 | All 3 files in `dm96xx/w98se-2k/`, all 4 in `dm96xx/wxp/` | DAVICOM Semiconductor, Inc. | 5.0.1.0; 1.90 (`DriverVer` 03/12/2002,1.90.0312.2002) |
-| All 32 files in `dm96xx/wxp-7/` | DAVICOM Semiconductor, Inc. (`WdfCoInstaller01009.dll` in each folder, 1.9.7600.16385: Microsoft Corporation, as Davicom ships it) | V1.0.4.0 (`DriverVer` 5.0.2.0709 XP, 5.0.2.0406 Vista, 5.0.3.0703 7, 3.0.2.0416 2000) |
+| All 32 files in `dm96xx/wxp-7/` | DAVICOM Semiconductor, Inc. (`WdfCoInstaller01009.dll` in every folder but `Win2k/`, 1.9.7600.16385: Microsoft Corporation, as Davicom ships it) | V1.0.4.0 (`DriverVer` 5.0.2.0709 XP, 5.0.2.0406 Vista, 5.0.3.0703 7, 3.0.2.0416 2000) |
 
 They are their makers' driver packages as released, unmodified, apart
 from `dm96xx/wxp-7/` (unpacked from Davicom's installer, below).
@@ -340,7 +340,7 @@ Provenance of `ax88178/`:
 - **Packages:** ASIX's AX88178 drivers for 98 SE and ME (1.0.3.46,
   `DriverVer` 2005-01-18), 2000 and XP 32-bit (1.4.3.64), XP x64
   (1.6.3.64), Vista 32-bit (1.8.3.14) and 64-bit (1.10.3.14), all
-  2010-11-24 and marked WHQL, and 7 (and 8) 32-bit (1.12.6.0) and 64-bit
+  2010-11-24 and marked WHQL, and 7 32-bit (1.12.6.0) and 64-bit
   (1.14.6.0), 2013-07-12, marked WHCK.
 - **Original download location:** ASIX's official URLs under
   `http://www.asix.com.tw/FrootAttach/driver/` (98 SE and ME) and

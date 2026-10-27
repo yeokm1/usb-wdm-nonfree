@@ -72,12 +72,13 @@ for your system, listed in that device's section below. Each folder is a
 complete driver; keep its files together and don't rename them.
 
 **Status:** the drivers under `non-free/` are carried exactly as their
-makers released them (Davicom's `dm96xx/wxp-7/` was unpacked from its
-installer, see its section) and are not tested by this project, on real or
+makers released them and are not tested by this project, on real or
 virtual machines (the repository owner's decision, 2026-10-22). Only
 NUSB 3.3's USB storage files (`nusb33/`) have been tried here, on
-Windows 98 SE. One INF check was also made: Windows 98 SE reads ASIX's
-AX88172 INF for 98 SE and ME (2026-10-27, see that chip's section).
+Windows 98 SE. One exception to "as released" is Davicom's
+`dm96xx/wxp-7/`. It was unpacked from Davicom's installer. One INF check
+was also made. Windows 98 SE reads ASIX's AX88172 INF for 98 SE and ME.
+That chip's section has the details.
 
 **Letting Windows find them at the first plug:** [STAGE.TXT](STAGE.TXT)
 lists which INF may be staged on which Windows, one line per INF, for an
@@ -223,7 +224,7 @@ released it:
 | `ax88772b/wxp64/` | Windows XP x64 | `ax88772b.sys` 5.6.3.0 (2010-05-21) | AX88772B |
 | `ax88772b/wvista/` | Windows Vista, 32-bit | `ax88772b.sys` 5.8.2.0 (2010-05-21) | AX88772B |
 | `ax88772b/wvista64/` | Windows Vista, 64-bit | `ax88772b.sys` 5.10.2.0 (2010-05-21) | AX88772B |
-| `ax88772b/w7/` | Windows 7, 32-bit | `ax88772b.sys` 5.12.12.0 (2015-05-14) | AX88772B and AX88772C (`0B95:772B` revisions `0001` and `0002`, `0B95:7E2B`), D-Link `2001:1A02` |
+| `ax88772b/w7/` | Windows 7, 32-bit | `ax88772b.sys` 5.12.12.0 (2015-05-14) | AX88772B and AX88772C (`0B95:772B` revisions `0001` and `0002`, `0B95:7E2B` revision `0001`), D-Link `2001:1A02` |
 | `ax88772b/w7_64/` | Windows 7, 64-bit | `ax88772b.sys` 5.14.12.0 (2015-05-14) | as `w7/` |
 | `ax88178/w98se-me/` | Windows 98 SE and ME | `ax88178.sys` 1.0.3.46 (2005-01-18) | AX88178 (`0B95:1780`) |
 | `ax88178/w2k-xp/` | Windows 2000 and XP, 32-bit | `ax88178.sys` 1.4.3.64 (2010-11-24) | AX88178 |
@@ -321,7 +322,7 @@ it, one folder per system, each as released:
 
 | Folder | Systems | Driver |
 |---|---|---|
-| `mcs7830/w98se-xp/` | Windows 98 SE, ME, 2000 and XP, 32-bit | 1.49.0.0 (2012-05-25). One INF, `netmosu.inf`. It installs `MOSMAC98.SYS` on 98 SE and ME and `mosumac.sys` on 2000 and XP |
+| `mcs7830/w98se-xp/` | Windows 98 SE, ME, 2000 and XP, 32-bit | `DriverVer` 1.49.0.0 (2012-05-25). One INF, `netmosu.inf`. It installs `MOSMAC98.SYS` (file version 1.28.0.0) on 98 SE and ME and `mosumac.sys` 1.49.0.0 on 2000 and XP |
 | `mcs7830/wxp64/` | Windows XP x64 | `USBMAC64.sys` 1.49.0.0 (2012-05-25) |
 | `mcs7830/wvista/` | Windows Vista, 32-bit | `mosumac.sys`, `DriverVer` 1.0.0.18 (2011-08-09), KMDF 1.9 |
 | `mcs7830/wvista64/` | Windows Vista, 64-bit | `USBMAC64.sys`, `DriverVer` 1.0.0.18 (2011-08-09), KMDF 1.9 |
@@ -353,8 +354,8 @@ use `w98se-2k/`. It is newer than `wxp-7/Win2k/` and matches more IDs.
 
 `wxp-7/` comes from Davicom's "DM96xx Driver V1.0.4.0", which Davicom
 released as one installer program. This project unpacked the installer
-with 7-Zip, without running it, and keeps only its per-system driver
-folders, otherwise unchanged. The installer itself, its setup programs
+with 7-Zip. The installer was not run. Only its per-system driver
+folders are kept, unchanged. The installer itself, its setup programs
 and its Windows 8 folders are not here. Install by pointing Update
 Driver at the folder for your system.
 
