@@ -46,7 +46,7 @@
 #
 # The drivers here are carried as their makers released them and have not
 # been tested by this project. The choices below were made by reading the
-# INFs (2026-10-22, the Wi-Fi lines 2026-10-27); those marked "owner to
+# INFs (2026-10-22, the Wi-Fi lines 2026-10-27). Those marked "owner to
 # confirm" await the owner.
 
 # ---- Ethernet: ASIX AX88772 / AX88772A (USB 2.0, 100 Mbit/s)
@@ -206,8 +206,8 @@ STAGE | W7X64            | non-free/wifi/rtl8187b/wxp-7/Win7X64/net8187b.inf    
 
 # ---- Wi-Fi: Realtek RTL8188CU / RTL8192CU / RTL8192DU / RTL8723AU, 1021.3 (2012)
 # COPY only (owner, 2026-10-27: the newer packages win). Its INFs also list
-# 0BDA:8179 and A179 (RTL8188EU, staged from rtwlanu) and 0BDA:8192 with no
-# revision (RTL8192SU, staged from rtl8192su). Use Update Driver by hand.
+# 0BDA:8179 and A179 (RTL8188EU, staged from rtwlanu) and brand ids such as
+# Sitecom 0DF6:0061 (also in rtl8192su's INFs). Use Update Driver by hand.
 COPY  | WXP              | non-free/wifi/rtl8192cu/wxp-7/WinXP/netrtwlanu.inf         | 1021.3. NTx86
 COPY  | WXP64            | non-free/wifi/rtl8192cu/wxp-7/WinX64/netrtwlanu.inf        | 1021.3. NTamd64
 COPY  | WVISTA           | non-free/wifi/rtl8192cu/wxp-7/VistaX86/netrtwlanu.inf      | 1021.3. NTx86.6.0
@@ -237,7 +237,7 @@ COPY  | WVISTA64         | non-free/wifi/rtwlanu17/wxp-7/VistaX64/netrtwlanu_Vis
 COPY  | W7               | non-free/wifi/rtwlanu17/wxp-7/Win7X86/netrtwlanu.inf       | 1030.17. NTx86.6.1
 COPY  | W7X64            | non-free/wifi/rtwlanu17/wxp-7/Win7X64/netrtwlanu.inf       | 1030.17. NTamd64.6.1
 
-# ---- Wi-Fi: Realtek RTL8188SU / RTL8191SU / RTL8192SU (0BDA:8171-8175, 8192, 8712, C047 and brand ids)
+# ---- Wi-Fi: Realtek RTL8188SU / RTL8191SU / RTL8192SU (0BDA:8171-8175, 8712, C047 and brand ids)
 STAGE | W2K              | non-free/wifi/rtl8192su/w2k-7/Win2K/net8192su.inf          | 1084.53 (2011). $Chicago$, undecorated [Realtek] (its NTx86 section is missing, so XP and later do not match it)
 STAGE | WXP              | non-free/wifi/rtl8192su/w2k-7/WinXP/net8192su.inf          | 1084.53. NTx86, would also match on Vista and 7: there VistaX86 and Win7X86 win
 STAGE | WXP64            | non-free/wifi/rtl8192su/w2k-7/WinX64/net8192su.inf         | 1084.53. NTamd64, would also match on Vista and 7 x64: there VistaX64 and Win7X64 win

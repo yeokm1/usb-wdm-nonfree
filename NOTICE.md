@@ -886,7 +886,7 @@ Provenance of `x360c/` and `x360wc/`:
 | All 18 files in `rtwlanu17/wxp-7/` | Realtek Semiconductor Corp. | 1030.17.1101.2016 (`DriverVer` 04/06/2017) |
 | All 21 files in `rtl8192su/w2k-7/` | Realtek Semiconductor Corp. | 1084.53.0809.2011 (2000 to Vista), 1086.48.0809.2011 (7) |
 | All 19 files in `ar9271/wxp-7/` | Atheros Communications (now Qualcomm Atheros), as TP-LINK Technologies Co., Ltd. ships it for the TL-WN721N (the INFs name "TP-LINK" as provider) | 7.7.0.102 (XP), 8.0.0.84 (Vista), 2.0.0.62 (7) |
-| All 25 files in `ar9170/w2k-7/` | Atheros Communications, as TP-LINK Technologies Co., Ltd. ships it for the TL-WN821N and TL-WN822N (the INFs for 7 carry TP-LINK's copyright). `Setup.exe`, `QSS.exe` and the two user guides: TP-LINK | 3.0.0.165 (2000, XP), 3.1.0.131 (Vista), 3.5.0.12 (7) |
+| All 25 files in `ar9170/w2k-7/` | Atheros Communications, as TP-LINK Technologies Co., Ltd. ships it for the TL-WN821N and TL-WN822N (the INFs for 7 carry TP-LINK's copyright). `Setup.exe` and `QSS.exe`: TP-LINK, built with Macrovision's InstallShield 14 (their version resources), as TP-LINK ships them. The two user guides: TP-LINK | 3.0.0.165 (2000, XP), 3.1.0.131 (Vista), 3.5.0.12 (7) |
 | All 9 files in `ae2500/wxp/`, all 15 in each of `wvista/`, `w7/` | Broadcom Corporation, as Cisco-Linksys ships it for the AE1200 and AE2500 (`WdfCoInstaller01005.dll` and `WdfCoInstaller0100564.dll`, 1.5.6000.0, and `WdfCoInstaller01009.dll` and `WdfCoInstaller0100964.dll`, 1.9.7600.16385: Microsoft Corporation, as Linksys ships them) | 5.100.68.46, 5.100.243.6, 5.100.68.46 |
 
 The Realtek folders hold only the per-system driver folders, taken from
@@ -1100,7 +1100,7 @@ Provenance of `ar9170/w2k-7/`:
 - **Name:** these keep TP-LINK's names: `Driver Files/`, its folders and
   the user guides hold spaces.
 - **Modification:** none. `Setup.exe` and `QSS.exe` are TP-LINK's setup
-  and its QSS (Wi-Fi Protected Setup) program. They are copied, never
+  and its QSS (Quick Secure Setup) program. They are copied, never
   run.
 
 Provenance of `ae2500/` (`wxp/`, `wvista/`, `w7/`):

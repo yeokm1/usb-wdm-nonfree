@@ -85,8 +85,7 @@ shipped".
   and 2000. Realtek's packages for them start at XP.
 - Realtek RTL8187B, on 98 SE, ME and 2000.
 - Realtek RTL8188SU, RTL8191SU and RTL8192SU, on 98 SE and ME.
-- Realtek RTL8192FU and RTL8822CU, on 98 SE to 7. One RTL8822CU dongle,
-  Linksys `13B1:0043`, is listed in `rtwlanu17/`.
+- Realtek RTL8192FU and RTL8822CU, on 98 SE to 7.
 - The newest chips, Wi-Fi 6 and later, on 98 SE to 7: Realtek RTL8851BU,
   RTL8852AU, RTL8852BU, RTL8852CU, RTL8832AU, RTL8832BU, RTL8832CU and
   RTL8922AU, and MediaTek MT7921AU and MT7925U. Their makers offer
@@ -424,7 +423,7 @@ Realtek built them. Realtek's setup program and utility are not here
 
 | Folder | Systems (INF folder) | Driver | Chips |
 |---|---|---|---|
-| `rtl8187/w98se-vista/` | 98 SE (`Win98\`), ME (`WinME\`), 2000 and XP (`WinXP2K\`), XP x64 (`WinX64\`), Vista 32-bit (`VistaX86\`) and 64-bit (`VistaX64\`) | `rtl8187.sys` 5.1313.0613.2008 (XP x64 5.1312.0416.2008, Vista 6.1313.0613.2008) | RTL8187L |
+| `rtl8187/w98se-vista/` | 98 SE (`Win98\`), ME (`WinME\`), 2000 and XP (`WinXP2K\`), XP x64 (`WinX64\`), Vista 32-bit (`VistaX86\`) and 64-bit (`VistaX64\`) | `rtl8187.sys` 5.1313.0613.2008 (Vista 6.1313.0613.2008). The XP x64 INF's `DriverVer` is 5.1312.0416.2008 | RTL8187L |
 | `rtl8187/w7/` | 7, 32-bit (`Win7X86\`) and 64-bit (`Win7X64\`) | `rtl8187.sys` 6.1316.1209.2009 | RTL8187L |
 | `rtl8187b/wxp-7/` | XP (`WinXP\`), XP x64 (`WinX64\`), Vista (`VistaX86\`, `VistaX64\`), 7 (`Win7X86\`, `Win7X64\`) | `rtl8187B.sys` 5.1162.0610.2009 (XP x64 5.1160.0415.2009, Vista 6.1162.0610.2009, 7 62.1181.1105.2009) | RTL8187B |
 | `rtl8192su/w2k-7/` | 2000 (`Win2K\`), then XP to 7 in folders named as above | `rtl8192su.sys` 1084.53.0809.2011 (7: 1086.48.0809.2011) | RTL8188SU, RTL8191SU, RTL8192SU |
@@ -473,7 +472,7 @@ example `rtl8187\w98se-vista\Win98\` or `rtwlanu\wxp-7\Win7X64\`.
 
 ### Atheros (TP-Link's packages)
 
-Atheros offers no USB Wi-Fi download of its own. These are TP-Link's
+No USB Wi-Fi download from Atheros itself was found. These are TP-Link's
 packages for its own dongles, which carry Atheros's drivers. TP-Link's
 separate utility for the AR9271 is not here (the owner's decision,
 2026-10-27).
@@ -481,7 +480,7 @@ separate utility for the AR9271 is not here (the owner's decision,
 | Folder | Systems (INF folder) | Driver | Chips (VID:PID) |
 |---|---|---|---|
 | `ar9271/wxp-7/` | XP (`Windows XP 32bit\`), XP x64 (`Windows XP 64bit\`), Vista (`Windows Vista 32bit\`, `Windows Vista 64bit\`), 7 (`Windows 7 32bit\`, `Windows 7 64bit\`) | 7.7.0.102 (XP), 8.0.0.84 (Vista), 2.0.0.62 (7) | AR9271 (`0CF3:9271`), and `0CF3:7015` |
-| `ar9170/w2k-7/` | 2000 (`Driver Files\Windows 2000\`), XP, XP x64, Vista, 7 (`Driver Files\Windows ...\`) | `arusb_2k.sys` and `arusb_xp.sys` 3.0.0.165 (2000, XP, XP x64), 3.1.0.131 (Vista), 3.5.0.12 (7) | AR9170 (`0CF3:1002`, `0CF3:9170`) |
+| `ar9170/w2k-7/` | 2000 (`Driver Files\Windows 2000\`), XP, XP x64, Vista, 7 (`Driver Files\Windows ...\`) | `arusb_2k.sys` (2000), `arusb_xp.sys` and `arusb_xpx.sys` (XP, XP x64) 3.0.0.165. `arusb_lh.sys` and `arusb_lhx.sys` (Vista) 3.1.0.131. `arusb_win7.sys` and `arusb_win7x.sys` (7) 3.5.0.12 | AR9170 (`0CF3:1002`, `0CF3:9170`) |
 
 `ar9271/` is TP-Link's TL-WN721N v1 package, without its Windows 8 and
 8.1 folders. `ar9170/` is TP-Link's TL-WN821N v2 and TL-WN822N v1
