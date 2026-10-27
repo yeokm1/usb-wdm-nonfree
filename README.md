@@ -848,4 +848,4 @@ here, in the commit after the tag (a zip cannot hold its own hash):
 | Version | Tag | File | Size (bytes) | SHA-256 |
 |---|---|---|---|---|
 | 1.0.0 | `v1.0.0` (commit `128106f`) | `usb-wdm-nonfree-v1.0.0.zip` | 40,860,928 | `31756d03326ea003c10c4b17f52f38883c8f4675aa629f03e93e46eb9b07ece9` |
-| 1.1.0 | `v1.1.0` (commit `ba29955`) | `usb-wdm-nonfree-v1.1.0.zip` | 175,858,759 | `25d5605bcb00f4a363665a05d994376ad94fdb40526d0fe64218a88f09e84232` |
+| 1.1.0 | `v1.1.0` (commit `565d11b`) | `usb-wdm-nonfree-v1.1.0.zip` | 185,097,979 | `44f22200fd4f60292923cbac95460f88b3b0ea607129346c6d88fb8dd64072e1` |
