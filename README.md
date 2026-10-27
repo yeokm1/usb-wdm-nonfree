@@ -32,6 +32,14 @@ the box; the brand on the dongle often differs from the chip inside.
 | USB 1.1 Ethernet adapter | Davicom DM9601 | Yes | Yes | Yes | Yes | - | - | - |
 | USB 2.0 Ethernet adapter | Davicom DM9620, DM9621, DM9621A | Yes | Yes | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
 | USB Ethernet adapter | Davicom DM9622 | Yes | Yes | Yes | - | - | Yes (32/64-bit) | - |
+| USB Wi-Fi adapter, 802.11b/g | Realtek RTL8187L | Yes | Yes | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB Wi-Fi adapter, 802.11b/g | Realtek RTL8187B | - | - | - | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit), newer than 7's own |
+| USB Wi-Fi adapter, 802.11n | Realtek RTL8188SU, RTL8191SU, RTL8192SU | - | - | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB Wi-Fi adapter, 802.11n | Realtek RTL8188CU, RTL8192CU, RTL8192DU, RTL8723AU | - | - | - | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB Wi-Fi adapter, 802.11n and 802.11ac | Realtek RTL8188EU, RTL8188FU, RTL8192EU, RTL8723BU, RTL8723DU, RTL8188GU (RTL8710BU), RTL8811AU, RTL8821AU, RTL8812AU, RTL8814AU, RTL8811CU, RTL8821CU, RTL8812BU, RTL8822BU | - | - | - | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB Wi-Fi adapter, 802.11n | Atheros AR9271 | - | - | - | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB Wi-Fi adapter, 802.11n | Atheros AR9170 | - | - | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB Wi-Fi adapter, 802.11n | Linksys AE1200 and AE2500 only (Broadcom) | - | - | - | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
 | USB serial adapter | FTDI FT232R, FT232BM, FT245R/BM, FT8U232AM | Yes | Yes | Yes | - | - | - | - |
 | USB serial adapter, dual port | FTDI FT2232D | Yes | Yes | Yes (FT2232, FT4232H) | - | - | - | - |
 | USB serial adapter (cheap Arduino clones) | WCH CH340, CH341 | Yes | Yes | Yes | Yes | - | - | - |
@@ -42,7 +50,10 @@ Not here because their licences forbid passing them on, so download them
 from the maker (links below, under "Not shipped"): Silicon Labs CP210x,
 Prolific PL2303 and M-Audio MidiSport. Microchip's LAN9500 and LAN7800
 Ethernet drivers are not here either. Their terms could not be read.
-Links to them are under "Not shipped" too.
+Links to them are under "Not shipped" too. MediaTek's Wi-Fi driver for
+the RT2870 to MT7612U chips is not here. Its licence allows copies only
+with your own product. ZyDAS's ZD1211 Wi-Fi driver is not here either
+(the owner's decision, 2026-10-27). Both are under "Not shipped".
 
 **Not covered:** no driver for these USB Ethernet chips on the systems
 named was found, here or at their makers:
@@ -66,6 +77,42 @@ named was found, here or at their makers:
 - Davicom DM9601, on XP x64, Vista and 7.
 - Davicom DM9622, on XP, XP x64 and 7.
 
+**Not covered (Wi-Fi):** no driver for these USB Wi-Fi chips on the
+systems named is here. Some have one only at their makers, under "Not
+shipped".
+
+- Realtek RTL8188CU and every later Realtek USB Wi-Fi chip, on 98 SE, ME
+  and 2000. Realtek's packages for them start at XP.
+- Realtek RTL8187B, on 98 SE, ME and 2000.
+- Realtek RTL8188SU, RTL8191SU and RTL8192SU, on 98 SE and ME.
+- Realtek RTL8192FU and RTL8822CU, on 98 SE to 7. One RTL8822CU dongle,
+  Linksys `13B1:0043`, is listed in `rtwlanu17/`.
+- The newest chips, Wi-Fi 6 and later, on 98 SE to 7: Realtek RTL8851BU,
+  RTL8852AU, RTL8852BU, RTL8852CU, RTL8832AU, RTL8832BU, RTL8832CU and
+  RTL8922AU, and MediaTek MT7921AU and MT7925U. Their makers offer
+  Windows 10 and 11 drivers only, where any were found. MediaTek's
+  MT7663U, on 98 SE to 7, has none found either.
+- Ralink and MediaTek RT2870, RT3070, RT3072, RT3370, RT3572, RT5370,
+  RT5372, RT5572, MT7601U, MT7610U and MT7612U, on 98 SE to 7. MediaTek's
+  driver for XP to 7 is under "Not shipped". Windows 7 has its own driver
+  for the RT2870 family (110 USB IDs).
+- Ralink RT2500USB, on 98 SE to 7. Ralink RT73 (RT2501USB, RT2571W,
+  RT2573), on 98 SE to Vista. Ralink's 2007 package for them is not
+  carried here. Windows 7 has its own driver for most RT73 dongles (57
+  USB IDs).
+- Atheros AR9271, on 98 SE, ME and 2000. Atheros AR9170, on 98 SE and
+  ME. Atheros `0CF3:7010` and `0CF3:1006`, on 98 SE to 7. The AR9271
+  INFs here list those two in comment lines only.
+- ZyDAS ZD1211, on Vista and 7 (98 SE to XP x64: under "Not shipped").
+  ZyDAS ZD1211B, on 98 SE to 7.
+- Broadcom USB chips other than the Linksys AE1200 and AE2500, on 98 SE
+  to 7. This includes the BCM4320 RNDIS dongles (Linksys WUSB54GS, Belkin
+  F5D7051 and others).
+- Older USB Wi-Fi chips not looked for: Atheros AR5523, Intersil
+  ISL3887, Atmel AT76C50x and Marvell's USB parts.
+- Dongles whose USB ID the INFs here do not list, even with a chip named
+  above. Each section below says which IDs its INFs match.
+
 **How to install:** plug the device in, and when Windows asks for a driver
 (or in Device Manager: the device, Update Driver), point it at the folder
 for your system, listed in that device's section below. Each folder is a
@@ -75,9 +122,11 @@ complete driver; keep its files together and don't rename them.
 makers released them and are not tested by this project, on real or
 virtual machines (the repository owner's decision, 2026-10-22). Only
 NUSB 3.3's USB storage files (`nusb33/`) have been tried here, on
-Windows 98 SE. One exception to "as released" is Davicom's
-`dm96xx/wxp-7/`. It was unpacked from Davicom's installer. One INF check
-was also made. Windows 98 SE reads ASIX's AX88172 INF for 98 SE and ME.
+Windows 98 SE. Some folders are exceptions to "as released". Davicom's
+`dm96xx/wxp-7/` was unpacked from Davicom's installer. The Realtek Wi-Fi
+folders hold only the driver folders of Realtek's packages. TP-Link's
+`ar9271/wxp-7/` lacks its Windows 8 and 8.1 folders. NOTICE.md lists
+what was left out of each. One INF check was also made. Windows 98 SE reads ASIX's AX88172 INF for 98 SE and ME.
 That chip's section has the details.
 
 **Letting Windows find them at the first plug:** [STAGE.TXT](STAGE.TXT)
@@ -359,6 +408,134 @@ folders are kept, unchanged. The installer itself, its setup programs
 and its Windows 8 folders are not here. Install by pointing Update
 Driver at the folder for your system.
 
+## `non-free/wifi/` - USB Wi-Fi
+
+The chip makers' drivers for USB Wi-Fi adapters, or a dongle maker's
+where the chip maker offers none. Windows 98 SE, ME and 2000 have no
+Wi-Fi settings of their own. Read "Network name, key and WPA2" below
+before choosing a driver for them.
+
+### Realtek
+
+Realtek's drivers, one folder per package. Each holds only the driver
+folders of Realtek's "Auto Installation Program", one per system, as
+Realtek built them. Realtek's setup program and utility are not here
+(the owner's decision, 2026-10-27).
+
+| Folder | Systems (INF folder) | Driver | Chips |
+|---|---|---|---|
+| `rtl8187/w98se-vista/` | 98 SE (`Win98\`), ME (`WinME\`), 2000 and XP (`WinXP2K\`), XP x64 (`WinX64\`), Vista 32-bit (`VistaX86\`) and 64-bit (`VistaX64\`) | `rtl8187.sys` 5.1313.0613.2008 (XP x64 5.1312.0416.2008, Vista 6.1313.0613.2008) | RTL8187L |
+| `rtl8187/w7/` | 7, 32-bit (`Win7X86\`) and 64-bit (`Win7X64\`) | `rtl8187.sys` 6.1316.1209.2009 | RTL8187L |
+| `rtl8187b/wxp-7/` | XP (`WinXP\`), XP x64 (`WinX64\`), Vista (`VistaX86\`, `VistaX64\`), 7 (`Win7X86\`, `Win7X64\`) | `rtl8187B.sys` 5.1162.0610.2009 (XP x64 5.1160.0415.2009, Vista 6.1162.0610.2009, 7 62.1181.1105.2009) | RTL8187B |
+| `rtl8192su/w2k-7/` | 2000 (`Win2K\`), then XP to 7 in folders named as above | `rtl8192su.sys` 1084.53.0809.2011 (7: 1086.48.0809.2011) | RTL8188SU, RTL8191SU, RTL8192SU |
+| `rtl8192cu/wxp-7/` | XP to 7, folders named as above | `rtwlanu.sys` 1021.3.0912.2012 | RTL8188CU, RTL8192CU, RTL8192DU, RTL8723AU |
+| `rtwlanu/wxp-7/` | XP to 7, folders named as above | `rtwlanu_XP.sys`, `rtwlanu_Vista.sys` and `rtwlanu.sys` 1030.25.0701.2017 (`DriverVer` 2017-12-25) | RTL8188EU, RTL8188FU, RTL8192EU, RTL8723BU, RTL8723DU, RTL8188GU (RTL8710BU), RTL8811AU, RTL8821AU, RTL8812AU, RTL8814AU, RTL8811CU, RTL8821CU, RTL8812BU, RTL8822BU |
+| `rtwlanu17/wxp-7/` | XP to 7, folders named as above | the same files, 1030.17.1101.2016 (`DriverVer` 2017-04-06) | most of the same chips, with more brands' dongles |
+
+What the INFs match:
+
+- RTL8187L: Realtek's `0BDA:8187` and seven IDs of other brands'
+  dongles, all at revision `0100`. The 7 driver adds three more.
+  Revision `0100` keeps these apart from the RTL8187B.
+- RTL8187B: `0BDA:8187` and `0BDA:8189` at revision `0200`. The 7 driver
+  adds `0BDA:8197`, `8198` and `8199`. Windows 7 has its own RTL8187B
+  driver for the same five IDs (6.1159). The one here is newer.
+- RTL8188SU, RTL8191SU, RTL8192SU: Realtek's `0BDA:8171` to `8175`,
+  `8712` and `C047`, and about 70 IDs of other brands' dongles (75 IDs
+  in all on XP to 7, 77 on 2000, 72 on Vista 64-bit).
+- RTL8188CU and its family (`rtl8192cu/`): 27 of Realtek's own IDs on XP
+  to Vista, 29 on 7, and 65 IDs of other brands' dongles.
+- Realtek 1030.25 (`rtwlanu/`): 30 of Realtek's own IDs and 9 IDs of
+  other brands' dongles.
+- Realtek 1030.17 (`rtwlanu17/`): 15 of Realtek's own IDs and 92 IDs of
+  other brands' dongles (ASUS, Belkin, D-Link, Edimax, Linksys, Netgear,
+  TP-Link, TRENDnet and others).
+
+Realtek lists 1030.25 on its pages for Windows 7 and later. Its own
+builds and its release note cover XP to 10. So this pack offers it on
+XP, Vista and 7 (the owner's decision, 2026-10-27).
+
+Where these drivers overlap, the newest wins. [STAGE.TXT](STAGE.TXT)
+lets Windows find `rtwlanu/` (1030.25) and `rtl8192su/` by themselves.
+`rtl8192cu/` and `rtwlanu17/` are never placed there, as they list some
+of the same IDs. They are here for Update Driver by hand. Use
+`rtl8192cu/` for an RTL8188CU, RTL8192CU, RTL8192DU or RTL8723AU dongle.
+Use `rtwlanu17/` for a dongle that `rtwlanu/` does not list. One more
+overlap is allowed: Edimax `7392:7612` is in the RTL8187L driver for 7
+(revision `0100` only) and in the RTL8192SU drivers (any revision).
+Windows prefers the match with the revision.
+
+`rtl8192cu/wxp-7/WinXP/` and `WinX64/` also hold `RTLBt.inf`, the
+RTL8723AU's Bluetooth half. It is not a Wi-Fi driver and is not staged.
+
+Install by pointing Update Driver on the adapter at the INF's folder, for
+example `rtl8187\w98se-vista\Win98\` or `rtwlanu\wxp-7\Win7X64\`.
+
+### Atheros (TP-Link's packages)
+
+Atheros offers no USB Wi-Fi download of its own. These are TP-Link's
+packages for its own dongles, which carry Atheros's drivers. TP-Link's
+separate utility for the AR9271 is not here (the owner's decision,
+2026-10-27).
+
+| Folder | Systems (INF folder) | Driver | Chips (VID:PID) |
+|---|---|---|---|
+| `ar9271/wxp-7/` | XP (`Windows XP 32bit\`), XP x64 (`Windows XP 64bit\`), Vista (`Windows Vista 32bit\`, `Windows Vista 64bit\`), 7 (`Windows 7 32bit\`, `Windows 7 64bit\`) | 7.7.0.102 (XP), 8.0.0.84 (Vista), 2.0.0.62 (7) | AR9271 (`0CF3:9271`), and `0CF3:7015` |
+| `ar9170/w2k-7/` | 2000 (`Driver Files\Windows 2000\`), XP, XP x64, Vista, 7 (`Driver Files\Windows ...\`) | `arusb_2k.sys` and `arusb_xp.sys` 3.0.0.165 (2000, XP, XP x64), 3.1.0.131 (Vista), 3.5.0.12 (7) | AR9170 (`0CF3:1002`, `0CF3:9170`) |
+
+`ar9271/` is TP-Link's TL-WN721N v1 package, without its Windows 8 and
+8.1 folders. `ar9170/` is TP-Link's TL-WN821N v2 and TL-WN822N v1
+package as released. Its 2000 and 32-bit XP INFs also list eight IDs of
+other brands' AR9170 dongles: Netgear `0846:9001`, `9010` and `9040`,
+D-Link `07D1:3C10` and `3A09`, Arcadyan `083A:F522`, and `1435:0326`
+and `0804`. Its XP x64, Vista and 7 INFs list Atheros's two IDs only. Its
+`Setup.exe` (TP-Link's setup and utility) and `QSS.exe` are carried and
+have not been run here.
+
+The Vista and 7 INFs of both packages name a KMDF co-installer,
+`wdfcoinstaller01005.dll`, that TP-Link does not ship. No install
+section in them uses it.
+
+Install by pointing Update Driver on the adapter at the INF's folder.
+
+### Linksys AE1200 and AE2500 (Broadcom)
+
+Linksys's drivers for its AE1200 (`13B1:0039`) and AE2500 (`13B1:003A`)
+dongles, which use Broadcom chips, as released. They match these two
+dongles only.
+
+| Folder | Systems | Driver |
+|---|---|---|
+| `ae2500/wxp/` | XP, 32- and 64-bit | `AE2500xp.sys` and `AE1200xp.sys` 5.100.68.46 (2011-03-28), with their 64-bit builds |
+| `ae2500/wvista/` | Vista, 32- and 64-bit | `AE2500vista.sys` and `AE1200vista.sys` 5.100.243.6 (2011-03-30), KMDF 1.5 co-installers |
+| `ae2500/w7/` | 7, 32- and 64-bit | `AE2500w7.sys` and `AE1200w7.sys` 5.100.68.46, KMDF 1.9 co-installers |
+
+Install by pointing Update Driver on the dongle at the folder.
+
+### Network name, key and WPA2
+
+On XP, Windows' own Wireless Zero Configuration sets the network name
+and key. WPA2 there needs XP SP2 with Microsoft's WPA2 update, or SP3.
+Vista and 7 do it themselves. On 98 SE, ME and 2000, Windows has no
+Wi-Fi settings. The maker's utility does it, and WPA or WPA2 works only
+if that utility supports it.
+
+What the drivers here offer on 98 SE, ME and 2000:
+
+- RTL8187L (98 SE, ME, 2000): the adapter's own properties (Advanced
+  tab) set the network name (SSID) and channel. They have no key
+  setting. Realtek's release note for this driver lists "Implement AES
+  and WPA2" (2005), through Realtek's utility. That utility is not here.
+- RTL8188SU, RTL8191SU, RTL8192SU (2000): the adapter's own properties
+  have no network-name setting. Realtek's utility files name WPA2. That
+  utility is not here.
+- AR9170 (2000): TP-Link's utility is in the package (`Setup.exe`). Its
+  WPA2 support is not stated in what was read.
+
+So no driver here is known to give WPA2 on 98 SE, ME or 2000 with only
+the files in this pack. Realtek's full packages, with their utilities,
+are at the archived links in NOTICE.md.
+
 ## `non-free/serial/` - USB serial bridges
 
 Vendors' virtual COM port drivers for their USB serial chips, each as the
@@ -502,6 +679,7 @@ calibration needs resetting in Game Controllers.
 Each driver was taken unmodified from its maker's official download (or,
 where that no longer exists, an archived or author-approved copy). [NOTICE.md](NOTICE.md)
 gives the exact source, version, date and file hashes for every one.
+Where only part of a package is here, NOTICE.md says which part.
 
 ## Not shipped: download these from the vendor
 
@@ -510,7 +688,9 @@ Internet Archive and found on 2026-10-20, but their licences rule out
 shipping them here. Download each from the archived URL yourself, check
 it against the size and SHA-256 given, and read its licence before using
 it. Microchip's Ethernet drivers (the last section) are left out for
-another reason: their terms could not be read.
+another reason: their terms could not be read. MediaTek's and ZyDAS's
+Wi-Fi drivers were found on 2026-10-27. ZyDAS's is left out by the
+owner's decision. Its section says why.
 
 ### Silicon Labs CP210x, Windows 98 SE
 
@@ -598,6 +778,43 @@ Why not shipped: no licence file is in either zip. Microchip's download
 pages refused this project's requests (2026-10-27), so any terms they
 show were not read (the repository owner's decision, 2026-10-27).
 
+### MediaTek (Ralink) RT2870 to MT7612U Wi-Fi, Windows XP to 7
+
+MediaTek's "ICS" package 1.5.39.173 (2016), one InstallShield setup
+program in a zip. Its drivers, `RT2870.inf` and `netr28u.inf` 5.01.25.0
+(2015-10-28), serve XP, XP x64, Vista and 7, and 8 to 10. Its XP folder
+is named for 2000 too, but whether 2000 runs it is not known. Chips:
+RT2870, RT3070, RT3071, RT3072, RT3370, RT3572, RT3573, RT5370, RT5372,
+RT5572, MT7601U, MT7610U and MT7612U. Windows 7 has its own driver for
+many RT2870-family dongles (`netr28u.inf` 3.00.00.0061, 110 USB IDs).
+
+- `IS_Setup_ICS_011916_1.5.39.173.zip`, 42,835,761 bytes, SHA-256
+  `1849add500b2e0a1650ad64bfdbb79946cc1c4af08344664143dc6cb72a38ea1`:
+  <https://web.archive.org/web/20180131104148/https://d86o2zu8ugzlg.cloudfront.net/mediatek-craft/drivers/IS_Setup_ICS_011916_1.5.39.173.zip>
+  (linked from MediaTek's RT2070 and MT7612U pages, archived 2021).
+
+Why not shipped: its `License.txt` (read from the setup program's
+cabinet, without running it) says "Copies of the Software may be
+distributed only with your own product." MediaTek's download pages say
+the downloads "are designated for business partner use" (the owner's
+decision, 2026-10-27).
+
+### ZyDAS ZD1211 Wi-Fi, Windows 98 SE to XP x64
+
+ZyDAS's ZD1211 driver 4.13.0.0 (2006-02-27), one setup program in a zip,
+for 98 SE, ME, 2000, XP and XP x64. Its `ZD1211U.inf` matches 15 USB
+IDs, ZyDAS's `0ACE:1211` and other brands' dongles. The INF copies no
+driver file by itself. The setup program places them. Its utility,
+`ZDWlan`, names WPA2 in its settings.
+
+- `ZD1211USB_Install_4_13_0_0_ALL.zip`, 3,667,982 bytes, SHA-256
+  `7bce05894139eae0d03108021522f237398adc504d12d4f74df9256bf2df88fd`:
+  <https://web.archive.org/web/20060626171824/http://www.zydas.com.tw:80/web_driver/ZD1211_USB/Windows/ZD1211USB_Install_4_13_0_0_ALL.zip>.
+
+Why not shipped: the owner's decision (2026-10-27). No licence text was
+found for it. Its utility bundles OpenSSL's DLLs (`libeay32.dll`,
+`ssleay32.dll`) and `openssl.exe` without OpenSSL's licence text.
+
 ## Checking the files
 
 ```sh
@@ -617,4 +834,3 @@ here, in the commit after the tag (a zip cannot hold its own hash):
 | Version | Tag | File | Size (bytes) | SHA-256 |
 |---|---|---|---|---|
 | 1.0.0 | `v1.0.0` (commit `128106f`) | `usb-wdm-nonfree-v1.0.0.zip` | 40,860,928 | `31756d03326ea003c10c4b17f52f38883c8f4675aa629f03e93e46eb9b07ece9` |
-| 1.1.0 | `v1.1.0` (commit `e5c1ec9`) | `usb-wdm-nonfree-v1.1.0.zip` | 79,718,652 | `f921d09dacf09eccf757b065acb4eed3fc572fdbf921eaafc765d75f8862452e` |

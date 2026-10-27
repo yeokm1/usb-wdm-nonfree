@@ -874,6 +874,267 @@ Provenance of `x360c/` and `x360wc/`:
 - **Name:** the long names listed in README.md keep Morii's names.
 - **Modification:** none.
 
+### `non-free/wifi/`
+
+| File | Whose | Version |
+|---|---|---|
+| All 16 files in `rtl8187/w98se-vista/` | Realtek Semiconductor Corp. | 5.1313.0613.2008 (`Win98\Netrtuw.inf` `DriverVer` 06/13/2008. XP x64 5.1312.0416.2008. Vista 6.1313.0613.2008) |
+| All 6 files in `rtl8187/w7/` | Realtek Semiconductor Corp. | 6.1316.1209.2009 |
+| All 18 files in `rtl8187b/wxp-7/` | Realtek Semiconductor Corp. | XP 5.1162.0610.2009, XP x64 5.1160.0415.2009, Vista 6.1162.0610.2009, 7 62.1181.1105.2009 |
+| All 20 files in `rtl8192cu/wxp-7/` | Realtek Semiconductor Corp. | 1021.3.0912.2012 (`RTLBt.inf` 1.0.0.0) |
+| All 38 files in `rtwlanu/wxp-7/` | Realtek Semiconductor Corp. | 1030.25.0701.2017 (`DriverVer` 12/25/2017) |
+| All 18 files in `rtwlanu17/wxp-7/` | Realtek Semiconductor Corp. | 1030.17.1101.2016 (`DriverVer` 04/06/2017) |
+| All 21 files in `rtl8192su/w2k-7/` | Realtek Semiconductor Corp. | 1084.53.0809.2011 (2000 to Vista), 1086.48.0809.2011 (7) |
+| All 19 files in `ar9271/wxp-7/` | Atheros Communications (now Qualcomm Atheros), as TP-LINK Technologies Co., Ltd. ships it for the TL-WN721N (the INFs name "TP-LINK" as provider) | 7.7.0.102 (XP), 8.0.0.84 (Vista), 2.0.0.62 (7) |
+| All 25 files in `ar9170/w2k-7/` | Atheros Communications, as TP-LINK Technologies Co., Ltd. ships it for the TL-WN821N and TL-WN822N (the INFs for 7 carry TP-LINK's copyright). `Setup.exe`, `QSS.exe` and the two user guides: TP-LINK | 3.0.0.165 (2000, XP), 3.1.0.131 (Vista), 3.5.0.12 (7) |
+| All 9 files in `ae2500/wxp/`, all 15 in each of `wvista/`, `w7/` | Broadcom Corporation, as Cisco-Linksys ships it for the AE1200 and AE2500 (`WdfCoInstaller01005.dll` and `WdfCoInstaller0100564.dll`, 1.5.6000.0, and `WdfCoInstaller01009.dll` and `WdfCoInstaller0100964.dll`, 1.9.7600.16385: Microsoft Corporation, as Linksys ships them) | 5.100.68.46, 5.100.243.6, 5.100.68.46 |
+
+The Realtek folders hold only the per-system driver folders, taken from
+Realtek's packages by this project and otherwise unchanged (below).
+`ar9271/wxp-7/` is TP-LINK's package without its Windows 8 and 8.1
+folders. The others are their packages as released, unmodified.
+`SHA256.TXT` lists each file's hash. None of these drivers has been tested
+by this project.
+
+Provenance of `rtl8187/` (`w98se-vista/`, `w7/`):
+
+- **Vendor:** Realtek Semiconductor Corp.
+- **Packages:** Realtek's RTL8187L "Auto Installation Program" packages:
+  `8187_1313.0613_UI_1.00.0023` for 98 SE to Vista (`w98se-vista/`) and
+  `RTL8187L_WindowsDriver_Win7_6.1316.1209.2009_UI_1.00.0145.L` for 7
+  (`w7/`). Both are linked from Realtek's old RTL8187L download list
+  (`realtek.com.tw/downloads/RedirectFTPSite.aspx`, entry `DownID=437`,
+  archived 2015).
+- **Original download location:** Realtek's own file server,
+  `https://www.realtek.com/rtdrivers/cn/wlan/`. Archived copies, the ones
+  used:
+  - <https://web.archive.org/web/20240219095753/https://www.realtek.com/rtdrivers/cn/wlan/0001-8187_1313.0613_UI_1.00.0023.zip>
+  - <https://web.archive.org/web/20240219102145/https://www.realtek.com/rtdrivers/cn/wlan/0001-RTL8187L_Win7_6.1316.1209.2009.L.zip>
+- **Obtained:** 2026-10-27, from the archived copies above.
+- **Archives:**
+  - `0001-8187_1313.0613_UI_1.00.0023.zip`, 10,459,616 bytes, SHA-256
+    `761c9f420c0f2636b429ddbc1905f45f38727cdfbca6b84f5cb39139c74d7898`
+  - `0001-RTL8187L_Win7_6.1316.1209.2009.L.zip`, 18,383,978 bytes,
+    SHA-256
+    `063c2a3193b454b8a43e80a55122aa758aeba287a99b0a33d62d5812b161a9f3`
+- **Licence:** none found. Neither zip holds a licence or EULA file. The
+  INFs carry "Copyright (C) 2008 Realtek Semiconductor Corp." (2009 for
+  7).
+- **Name:** these keep Realtek's names: `Netrtuw_x64.inf` and the
+  folders `VistaX86/`, `VistaX64/`, `WinXP2K/`, `Win7X86/` and
+  `Win7X64/` are not 8.3.
+- **Modification:** the folders were taken from the packages by this
+  project and are otherwise unchanged (owner, 2026-10-27). Only the
+  per-system folders of each package's `RTL8187\` folder are carried:
+  `Win98`, `WinME`, `WinXP2K`, `WinX64`, `VistaX86` and `VistaX64` (from
+  `87-USB\RTL8187\`), and `Win7X86` and `Win7X64`. Left out: the rest of
+  each package, that is Realtek's InstallShield setup and its files, the
+  install batch files (7 package), `DATA\`, `EAP\` (7 package) and the
+  release notes.
+
+Provenance of `rtl8187b/wxp-7/`:
+
+- **Vendor:** Realtek Semiconductor Corp.
+- **Package:** `RTL8187B_Drv_XP_5.1162.0610.2009_Win7_62.1181.1105.2009_UI_1.00.0145.ALL.L`,
+  Realtek's RTL8187B "Auto Install Program" (Realtek's download list
+  entry `DownID=880`).
+- **Original download location:** Realtek's own file server. Archived
+  copy, the one used:
+  <https://web.archive.org/web/20240219101632/https://www.realtek.com/rtdrivers/cn/wlan/0001-RTL8187B_Auto_Install_Program.zip>.
+- **Obtained:** 2026-10-27, from the archived copy above.
+- **Archive:** `0001-RTL8187B_Auto_Install_Program.zip`, 17,212,818
+  bytes, SHA-256
+  `aa503063bfad2e6987161388b0736bcf0f3e00ac6fc7b72a8451bf0fdd55b82a`.
+- **Licence:** none found. The INFs carry "Copyright (C) 2008 Realtek
+  Semiconductor Corp." (2009 for 7).
+- **Modification:** the folders were taken from the package by this
+  project and are otherwise unchanged (owner, 2026-10-27). Only the six
+  per-system folders of its `RTL8187B\` folder are carried (`WinXP`,
+  `WinX64`, `VistaX86`, `VistaX64`, `Win7X86`, `Win7X64`). Left out: the
+  rest of the package, that is the InstallShield setup and its files, the
+  install batch files, `DATA\`, `EAP\` and the release notes.
+
+Provenance of `rtl8192cu/wxp-7/`:
+
+- **Vendor:** Realtek Semiconductor Corp.
+- **Package:** `(BV5)RTLWlanU_1021.3.0912.2012_UI_1.00.0199.SupportALL.L`,
+  Realtek's RTL8188CU/RTL8192CU "Auto Install Package", 1021.3.0912.2012,
+  for XP to 8.
+- **Original download location:** Realtek's own file server. Archived
+  copy, the one used:
+  <https://web.archive.org/web/20240219104028/https://www.realtek.com/rtdrivers/cn/wlan/0001-RTL819xCU_AutoInstallPackage.zip>.
+- **Obtained:** 2026-10-27, from the archived copy above.
+- **Archive:** `0001-RTL819xCU_AutoInstallPackage.zip`, 35,282,265 bytes,
+  SHA-256
+  `ad686d0e08c390f074e989950b70b4b94c03a5114c79f3cf265a912b20f4f1ef`.
+- **Licence:** none found. The INFs carry "Copyright (C) 2012 Realtek
+  Semiconductor Corp."
+- **Modification:** the folders were taken from the package by this
+  project and are otherwise unchanged (owner, 2026-10-27). Only six
+  per-system folders of its `RTWLANU_Driver\` folder are carried
+  (`WinXP`, `WinX64`, `VistaX86`, `VistaX64`, `Win7X86`, `Win7X64`).
+  Left out: the rest of the package, that is the InstallShield setup and
+  its files, the install batch files, `DATA\`, `EAP\`, the `IM\`
+  intermediate driver, the release notes and the `Win8X86` and `Win8X64`
+  folders (Windows 8 is outside this pack).
+
+Provenance of `rtwlanu/wxp-7/`:
+
+- **Vendor:** Realtek Semiconductor Corp.
+- **Package:** `RTLWlanU_WindowsDriver_1030.25.0701.2017_DUA_Drv_3.00.0019.L`,
+  listed on Realtek's RTL8192EU, RTL8811AU, RTL8811CU, RTL8812AU,
+  RTL8812BU and RTL8814AU pages (archived 2023) as "32bit/64bit Windows7,
+  Windows8.1, Windows10 WLAN USB driver (Install Package)
+  1030.25.0701.2017, 2018/09/07". The package itself holds XP and Vista
+  builds too, and its release note reads "support WinXP ~ Win10 OS". This
+  pack offers it on XP and Vista as well as 7 (owner, 2026-10-27).
+- **Original download location:** Realtek's own file server. Realtek's
+  pages link it through an `agree-to-download` page (archived 2020, an
+  e-mail field and an audio-driver note, no terms for this file).
+  Archived copy, the one used:
+  <https://web.archive.org/web/20240218131614/https://www.realtek.com/rtdrivers/cn/wlan/0002-Realtek_WindowsDriver_1030.25.0701.2017.zip>.
+- **Obtained:** 2026-10-27, from the archived copy above.
+- **Archive:** `0002-Realtek_WindowsDriver_1030.25.0701.2017.zip`,
+  52,899,174 bytes, SHA-256
+  `dac755a0cecbdbe2818313f2049dfb140c98667ca08fe71b0478759c85d46c3a`.
+- **Licence:** none found. The INFs carry "Copyright (C) 2012 Realtek
+  Semiconductor Corp."
+- **Modification:** the folders were taken from the package by this
+  project and are otherwise unchanged (owner, 2026-10-27). Only six
+  per-system folders of its `RTWLANU_Driver\` folder are carried
+  (`WinXP`, `WinX64`, `VistaX86`, `VistaX64`, `Win7X86`, `Win7X64`).
+  Left out: `Setup.exe` and the InstallShield files with it,
+  `Install.bat`, `UnInstall.bat`, `Autorun.inf`, `EAP\`, `IHV\`, the
+  release notes and the Windows 8, 8.1 and 10 folders.
+
+Provenance of `rtwlanu17/wxp-7/`:
+
+- **Vendor:** Realtek Semiconductor Corp.
+- **Package:** `Realtek_USB_Windows_WHQL_Driver_1030.17.1101.2016`, a
+  drivers-only package for XP to 10 (Realtek's download list entry
+  `DownID=1120&PFid=64`, archived 2019).
+- **Original download location:** Realtek's own file server. Archived
+  copy, the one used:
+  <https://web.archive.org/web/20240218044047/https://www.realtek.com/rtdrivers/cn/wlan/0001-Realtek_USB_Windows_Driver_1030.17.1101.2016.zip>.
+- **Obtained:** 2026-10-27, from the archived copy above.
+- **Archive:** `0001-Realtek_USB_Windows_Driver_1030.17.1101.2016.zip`,
+  25,710,952 bytes, SHA-256
+  `a3ce0028313a8ca9058969170cc66966cc0488766a7ea7c4f66bf536885af45a`.
+- **Licence:** none found. The INFs carry "Copyright (C) 2012 Realtek
+  Semiconductor Corp."
+- **Modification:** the folders were taken from the package by this
+  project and are otherwise unchanged (owner, 2026-10-27). Its six XP to
+  7 folders are carried (`WinXP`, `WinX64`, `VistaX86`, `VistaX64`,
+  `Win7X86`, `Win7X64`). Left out: the Windows 8, 8.1 and 10 folders.
+
+Provenance of `rtl8192su/w2k-7/`:
+
+- **Vendor:** Realtek Semiconductor Corp.
+- **Package:** `RTL8188_8191_8192_SU_WindowsDriver_1086.48.0809.2011.F0049_12.P0406_UI_1.00.0187.L`,
+  Realtek's RTL8188SU/RTL8191SU/RTL8192SU "Auto Install Package"
+  (Realtek's download list entry `DownID=858`).
+- **Original download location:** Realtek's own file server. Archived
+  copy, the one used:
+  <https://web.archive.org/web/20240219103357/https://www.realtek.com/rtdrivers/cn/wlan/0001-RTL8192SU_AutoInstallPackage.zip>.
+- **Obtained:** 2026-10-27, from the archived copy above.
+- **Archive:** `0001-RTL8192SU_AutoInstallPackage.zip`, 29,820,529 bytes,
+  SHA-256
+  `535ffcf7822c827d2bdaa1358ba57b7a1b7cc6245839054407b334fcebdad331`.
+- **Licence:** none found. The INFs carry "Copyright (C) 2008 Realtek
+  Semiconductor Corp."
+- **Modification:** the folders were taken from the package by this
+  project and are otherwise unchanged (owner, 2026-10-27). Only the seven
+  per-system folders of its `88_91_92_SU_Driver\` folder are carried
+  (`Win2K`, `WinXP`, `WinX64`, `VistaX86`, `VistaX64`, `Win7X86`,
+  `Win7X64`). Left out: the rest of the package, that is the
+  InstallShield setup and its files, the install batch files, `DATA\`,
+  `EAP\` and the release notes.
+
+Provenance of `ar9271/wxp-7/`:
+
+- **Vendor:** Atheros Communications (now Qualcomm Atheros), shipped by
+  TP-LINK Technologies Co., Ltd. The INFs name "TP-LINK" as provider.
+- **Package:** TP-LINK's TL-WN721N v1 driver, `TL-WN721N_V1_140915`,
+  listed on TP-LINK's page with "Published Date: 2014-09-15" and
+  "Vista/XP/7/8/8.1". TP-LINK's utility for the same adapter is a
+  separate download and is not carried (owner, 2026-10-27).
+- **Original download location:** TP-LINK's official URL, live on
+  2026-10-27:
+  `https://static.tp-link.com/resources/software/TL-WN721N_V1_140915.zip`,
+  from <https://www.tp-link.com/us/support/download/tl-wn721n/v1/>.
+- **Obtained:** 2026-10-27, from TP-LINK's URL above.
+- **Archive:** `TL-WN721N_V1_140915.zip`, 7,368,965 bytes, SHA-256
+  `5217cb84427bee80754e9ab6718acde854bd1eb0507580dd19d00803f27f345d`. It
+  holds its files in a folder `TL-WN721N_V1_140915/`. They are copied
+  without that folder.
+- **Licence:** none found. The XP to 7 INFs carry no copyright line. The
+  Windows 8 and 8.1 INFs (not carried) carry "Copyright 2009 Atheros
+  Communications Inc., all rights reserved." and "Copyright (c) 2011
+  Qualcomm Atheros, Inc.".
+- **Name:** these keep TP-LINK's names: the folders (`Windows XP 32bit/`
+  and the others) and `Release Note.txt` hold spaces.
+- **Modification:** the `Windows 8 32bit`, `Windows 8 64bit`, `Windows
+  8.1 32bit` and `Windows 8.1 64bit` folders are left out (Windows 8 is
+  outside this pack). The rest is as released.
+
+Provenance of `ar9170/w2k-7/`:
+
+- **Vendor:** Atheros Communications, shipped by TP-LINK Technologies
+  Co., Ltd. The INFs name "TP-LINK" as provider.
+- **Package:** TP-LINK's driver for the TL-WN821N v2 and TL-WN822N v1,
+  listed on TP-LINK's TL-WN822N v1 page as "TL-WN822N_100629",
+  "Published Date: 2010-06-29", "Windows 2000/XP/Vista/7",
+  "WHQL-Certified".
+- **Original download location:** TP-LINK's official URL, live on
+  2026-10-27:
+  `https://static.tp-link.com/resources/software/TL-WN821N_WN822N_100629.zip`,
+  from <https://www.tp-link.com/us/support/download/tl-wn822n/v1/>.
+- **Obtained:** 2026-10-27, from TP-LINK's URL above.
+- **Archive:** `TL-WN821N_WN822N_100629.zip`, 30,190,672 bytes, SHA-256
+  `3d4d5d7d49f61e5b4e17e0ea4d5d415770599d7b238f31eb019c1a7b5aaa7d44`. It
+  holds its files in a folder `TL-WN821N_WN822N/`. They are copied without
+  that folder.
+- **Licence:** none found. The INFs for 7 carry "Copyright (c) 2009,
+  TP-LINK TECHNOLOGIES CO., LTD.All Rights Reserved." The others carry
+  no copyright line.
+- **Name:** these keep TP-LINK's names: `Driver Files/`, its folders and
+  the user guides hold spaces.
+- **Modification:** none. `Setup.exe` and `QSS.exe` are TP-LINK's setup
+  and its QSS (Wi-Fi Protected Setup) program. They are copied, never
+  run.
+
+Provenance of `ae2500/` (`wxp/`, `wvista/`, `w7/`):
+
+- **Vendor:** Broadcom Corporation, shipped by Cisco-Linksys (the INFs:
+  "Cisco Consumer Products LLC"). The KMDF co-installers: Microsoft
+  Corporation, shipped by Linksys in the Vista and 7 packages.
+- **Packages:** Linksys's AE2500 drivers for XP (5.100.68.46,
+  2011-03-28), Vista (5.100.243.6, 2011-03-30) and 7 (5.100.68.46),
+  marked WHQL. Their INFs serve the Linksys AE1200 too.
+- **Original download location:** Linksys's official URLs under
+  `downloads.linksys.com/downloads/driver/`. Archived copies, the ones
+  used:
+  - <https://web.archive.org/web/20210922091040/https://downloads.linksys.com/downloads/driver/AE2500_xpdriver_5.100.68.46_WHQL,0.zip>
+  - <https://web.archive.org/web/20210922091037/https://downloads.linksys.com/downloads/driver/AE2500_vistadriver_5.100.243.6_WHQL,0.zip>
+  - <https://web.archive.org/web/20150809163702/http://downloads.linksys.com/downloads/driver/AE2500Win7_WHQL.zip>
+- **Obtained:** 2026-10-27, from the archived copies above.
+- **Archives:** each zip holds its files in one folder (`xp/`, `vista/`,
+  `win7/`), copied without it.
+  - `AE2500_xpdriver_5.100.68.46_WHQL,0.zip`, 3,117,121 bytes, SHA-256
+    `ee9bdf47246e37bc2d1150e0504bd18dcedfbf0a2b8c67c561a25fdcff592250`
+  - `AE2500_vistadriver_5.100.243.6_WHQL,0.zip`, 10,695,279 bytes,
+    SHA-256
+    `217b3287fdc27fe2e652b9538329edc1f0db42b516749382eb109bfdfc0d2463`
+  - `AE2500Win7_WHQL.zip`, 10,580,152 bytes, SHA-256
+    `fbcba9646b1eb2c9f0fa0135c12d5e3748c7a7152f3c32fed5228880de7ab3e2`
+- **Licence:** none found. The INFs carry "Copyright 1998-2011, Broadcom
+  Corporation." and "(c) 2011 Cisco and/or its affiliates. All rights
+  reserved."
+- **Name:** these keep Linksys's names: `bcmwlhigh5.inf`,
+  `bcmwlhigh6.inf`, the `.sys`, `.cat` and `.dll` files with long names
+  are not 8.3.
+- **Modification:** none.
+
 ## Every file under `non-free/`
 
 The owner of this repository claims no rights in these files and grants no

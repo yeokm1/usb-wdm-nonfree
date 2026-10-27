@@ -668,6 +668,226 @@ b1f5ddc3f42a52c215a95c6c8b6de5ea644638e7532cbd039eb85f8459b63d01  non-free/seria
 88cf8278dc7ddf4f598d3e5c6b7293c2d25eac046112c07583fee2f30e357d77  non-free/serial/ftdi/w98se-me/FTSERMOU.INF
 7becbfffd47ab190568dcd2347ae498830bc9c7d31ba75608be6435f1e43fe1e  non-free/serial/ftdi/w98se-me/FTSERMOU.VXD
 4abbaafd591a8f76066fd25c8f908d6a2e867203331273138e168767139c5ecc  non-free/serial/ftdi/w98se-me/FTSERUI.DLL
+7fc23f85d08c632b8d45ea39637d49ad3cd08ebf9a39e113c419f8a609760003  non-free/wifi/ae2500/w7/AE1200w7.sys
+2a4694c988dce0c094bfa6c91c50fdd98e52fd46be156523fc243de1fc566103  non-free/wifi/ae2500/w7/AE1200w764.sys
+7fc23f85d08c632b8d45ea39637d49ad3cd08ebf9a39e113c419f8a609760003  non-free/wifi/ae2500/w7/AE2500w7.sys
+2a4694c988dce0c094bfa6c91c50fdd98e52fd46be156523fc243de1fc566103  non-free/wifi/ae2500/w7/AE2500w764.sys
+2ec5f32b37860fafaac32aede7c46b735970f08bd6334e02d41ae7ce1729e5a4  non-free/wifi/ae2500/w7/bcmh43xx.cat
+badef4fc2c7ec980d7c2254e22876aad9a62307bc137bd2f826d6fce133e7a04  non-free/wifi/ae2500/w7/bcmh43xx64.cat
+41034723ba03a5d4ecc79949edb256aa0ac2cb1e2096027bf214a02c65c4a814  non-free/wifi/ae2500/w7/bcmihvsrv.dll
+904d66455cd2acbd096d7c6718dfebc85264dc8a0c78157af6d42d38be591eb2  non-free/wifi/ae2500/w7/bcmihvsrv64.dll
+0703f452af4806ad5f380f4a9b1edd55aba9dc896314e55e49efa2f777d1b320  non-free/wifi/ae2500/w7/bcmihvui.dll
+6bc8c59d5cbe0a4d1516a48f28737fe18d2e6b6d398830c7476d19124c6e5a0c  non-free/wifi/ae2500/w7/bcmihvui64.dll
+1ceef71c130fab7f25a4fc70cee24be236fe5509a7c9bc24dbecdf0d446c0ee3  non-free/wifi/ae2500/w7/bcmwlcoi.dll
+b1145547ff2bd9b94731757aed37069c4ede8f44b8f3642bcf9846708f254f96  non-free/wifi/ae2500/w7/bcmwlcoi64.dll
+8d8f8b8d06f0442265e5bf35400aa74348475a71763e4633823cab8399a54640  non-free/wifi/ae2500/w7/bcmwlhigh6.inf
+7a6bf1f950684381205c717a51af2d9c81b203cb1f3db0006a4602e2df675c77  non-free/wifi/ae2500/w7/WdfCoInstaller01009.dll
+18487b4ff94edccc98ed59d9fca662d4a1331c5f1e14df8db3093256dd9f1c3e  non-free/wifi/ae2500/w7/WdfCoInstaller0100964.dll
+64cb368edd4dfe92a9d3978ca0441faf175f6922619d8e62ca7458a15d80e481  non-free/wifi/ae2500/wvista/AE1200vista.sys
+03c9c982c7b545b89fd612cc18c14812032d4590ade7a5636b168afec42ffa17  non-free/wifi/ae2500/wvista/AE1200vista64.sys
+64cb368edd4dfe92a9d3978ca0441faf175f6922619d8e62ca7458a15d80e481  non-free/wifi/ae2500/wvista/AE2500vista.sys
+03c9c982c7b545b89fd612cc18c14812032d4590ade7a5636b168afec42ffa17  non-free/wifi/ae2500/wvista/AE2500vista64.sys
+3989dc253420458b871db71d926bce43e76b5721ed3dadf071da546c5f66bfe6  non-free/wifi/ae2500/wvista/bcmh43xx.cat
+e4307625d17a16c8668ab8cceb773f5711e4d2ebce24fde4a964243984bf4516  non-free/wifi/ae2500/wvista/bcmh43xx64.cat
+768fa2d2d51f161b3b1cc6ad600cb62b2988b18110cd5f5debd0c04e31e31ebc  non-free/wifi/ae2500/wvista/bcmihvsrv.dll
+602824856471501c0f8fe47314919caf497b7a8031862af080ced60cd31619e8  non-free/wifi/ae2500/wvista/bcmihvsrv64.dll
+cc82f0fd2d61d8ccfd32a2c3c6c93c0db0e47c73e1a7ba402676a0575e2e93a8  non-free/wifi/ae2500/wvista/bcmihvui.dll
+a4e8cc3f84dc567bf11ca435e9a192193004110a9eb4722773798e1f2303b2a0  non-free/wifi/ae2500/wvista/bcmihvui64.dll
+6d1327a92c8ebca747708c54d31c02e886b91f9872cc139e21a711d8c591f0de  non-free/wifi/ae2500/wvista/bcmwlcoi.dll
+35983afa4ebeef9bae9f0901a625e17f0c14e5c2f7fdddaa00c9325c4316daf3  non-free/wifi/ae2500/wvista/bcmwlcoi64.dll
+64498894012157d2cba8d1c71f87dd68e9e5c872792e537a624b50fa64032fcd  non-free/wifi/ae2500/wvista/bcmwlhigh6.inf
+865864a32aee78e588764f37847522fdb0bd1940ecd73b3c49d8f68b4d5bad71  non-free/wifi/ae2500/wvista/WdfCoInstaller01005.dll
+181841aed878824863f61e096f26091e23a67284e40f5e0b5c24d96335761abf  non-free/wifi/ae2500/wvista/WdfCoInstaller0100564.dll
+c048c773137dd94c980179e90fae7d90a6902da0153342b33e784db04c16385a  non-free/wifi/ae2500/wxp/AE1200xp.sys
+58ff7a7221668c55cd4570ca295dcd742c18fe1e1d26d7bcd4a85f36c589b700  non-free/wifi/ae2500/wxp/AE1200xp64.sys
+c048c773137dd94c980179e90fae7d90a6902da0153342b33e784db04c16385a  non-free/wifi/ae2500/wxp/AE2500xp.sys
+58ff7a7221668c55cd4570ca295dcd742c18fe1e1d26d7bcd4a85f36c589b700  non-free/wifi/ae2500/wxp/AE2500xp64.sys
+36253a5354798d7b389a1cf51e9e9087e7fca6e05a447270162e9ab91fc8ba5e  non-free/wifi/ae2500/wxp/bcmh43xx.cat
+96ca0b557956b71cdf10d93beb0180bf1ed74969ebbd2baf6aa35a8c078f1269  non-free/wifi/ae2500/wxp/bcmh43xx64.cat
+5f39bc15eb920d14d603ff887f4d248a28be888cabaf022b1b8c16ba71db2966  non-free/wifi/ae2500/wxp/bcmwlcoi.dll
+0663df012e80985d4f7a590cc1e5e19cef9e4c5b7a8de31bdab225dd67b5a7c6  non-free/wifi/ae2500/wxp/bcmwlcoi64.dll
+6f251aa0e5f4b12edf7c68c30744636d15ab9c67f4664703beff9048a9b3afa6  non-free/wifi/ae2500/wxp/bcmwlhigh5.inf
+b925f589e61562d6cdff83770a09469027573ab36602fc3151ea0041002d9bc2  non-free/wifi/ar9170/w2k-7/Driver Files/Windows 2000/arusb_2k.sys
+ea0076b43130f9717cf372215880b6cff6a3ccf1cbce147d82b5e67e82930767  non-free/wifi/ar9170/w2k-7/Driver Files/Windows 2000/arusb_xp.cat
+147bddb2fdf391a6683cd4e18ab4a375d1de821536990b80e69209c708fe1b19  non-free/wifi/ar9170/w2k-7/Driver Files/Windows 2000/arusb_xp.inf
+db000a1dfff572638fb9a16a0d4e0f1e3099d6102cf862e67f872051c0a12c0a  non-free/wifi/ar9170/w2k-7/Driver Files/Windows 7 32bit/arusb_win7.cat
+a2156a66af31a889bdda72b07513ab0e8baaffbcecb211178b6809bc741690f6  non-free/wifi/ar9170/w2k-7/Driver Files/Windows 7 32bit/arusb_win7.inf
+3d6bf469de64a3a498f97e888310ca71cd4cf9b0355206a9fb5ad10fb74b6198  non-free/wifi/ar9170/w2k-7/Driver Files/Windows 7 32bit/arusb_win7.sys
+c63d519df89ce1c506517212b071a67aca623fe902c1ae684a7110c1596fbd60  non-free/wifi/ar9170/w2k-7/Driver Files/Windows 7 64bit/arusb_win7x.cat
+7e3f7b6d29f09520f253cce1d43804ad5121caee203c5ebbf6715d2690f03bd6  non-free/wifi/ar9170/w2k-7/Driver Files/Windows 7 64bit/arusb_win7x.inf
+0330d352c585e5aed64f8a015514b2551a2d35c74a1c72f0c9490599278c0daa  non-free/wifi/ar9170/w2k-7/Driver Files/Windows 7 64bit/arusb_win7x.sys
+8c4d6a10cf40622464a3fd38aa1bb9fa8a49d6f804307ed11d33609ffe82d12f  non-free/wifi/ar9170/w2k-7/Driver Files/Windows Vista 32bit/arusb_lh.cat
+dc01b192548cb5ac5f8035d9ac6b05e50a9b4c13f6c8df0b3d140bd8e75c95dc  non-free/wifi/ar9170/w2k-7/Driver Files/Windows Vista 32bit/arusb_lh.inf
+9c87d409540fad9d79296961d7c2b7f3bc56002a7fc26882ffee506359c118f2  non-free/wifi/ar9170/w2k-7/Driver Files/Windows Vista 32bit/arusb_lh.sys
+60f697c5f93e95bec7b00481047058c807b88d64093f39bb86114e10bc7ffd4b  non-free/wifi/ar9170/w2k-7/Driver Files/Windows Vista 64bit/arusb_lhx.cat
+41aa298f3d195e5510473fd8bf9d23eb167531455809a31c3fdb7164b1e67cdc  non-free/wifi/ar9170/w2k-7/Driver Files/Windows Vista 64bit/arusb_lhx.inf
+3d46f61ad38c57f1f1fb2eade71918be67cb7ddc3763fa879c986363aa55887d  non-free/wifi/ar9170/w2k-7/Driver Files/Windows Vista 64bit/arusb_lhx.sys
+556bf295fd21c61f66c4936b33af50af3fac3ba71356aa47db1f6178ea3bb84a  non-free/wifi/ar9170/w2k-7/Driver Files/Windows XP 32bit/arusb_xp.cat
+fe47bbf5f35b35fb71db2fdef23b7e350ae8306a01ac33dc6a72d36c1dff61e5  non-free/wifi/ar9170/w2k-7/Driver Files/Windows XP 32bit/arusb_xp.inf
+5b064a3c4132a5d76d7ea20b7685848fd3b05ed2afcb61ff346683b1a18e45d9  non-free/wifi/ar9170/w2k-7/Driver Files/Windows XP 32bit/arusb_xp.sys
+9c2e59517b6d77dc24ba75c07545df4d4139955bcce0c2ec15027d351bcafb8c  non-free/wifi/ar9170/w2k-7/Driver Files/Windows XP 64bit/arusb_xp.cat
+cd818bfb9264462c5232d9110e51730cdcdaa2c83af80302da55151735063df7  non-free/wifi/ar9170/w2k-7/Driver Files/Windows XP 64bit/arusb_xp.inf
+0c46ff147f52cc78d2ccab791abc9d4461207f3c348ff71436e09ed216e979b2  non-free/wifi/ar9170/w2k-7/Driver Files/Windows XP 64bit/arusb_xpx.sys
+3f38a2ff355f899ca70ed9573a6bcebeaa57631cdd5648e502de7a2783f1172a  non-free/wifi/ar9170/w2k-7/QSS.exe
+54c9bc5fd9a18d73002a14b9d1ed4bf33c792d7309d313a7a16d42d044964793  non-free/wifi/ar9170/w2k-7/Setup.exe
+715ac6a08707967fc4074e9e39befd36709a3500a2032322675ee7972b7e22ee  non-free/wifi/ar9170/w2k-7/TL-WN821N User Guide.pdf
+387d65cc5680e654c5b3ab0788be858b4001ccc0665db397ceb9bf4d4487bb82  non-free/wifi/ar9170/w2k-7/TL-WN822N User Guide.pdf
+f24d4e2d9f64881c1145bee23dcfba966e682cc31ac0002ab1656dd9fab389f1  non-free/wifi/ar9271/wxp-7/Release Note.txt
+6453badfbcbca7a7618c75c66a4e9130102885466c7195f34e57caa6517f7d21  non-free/wifi/ar9271/wxp-7/Windows 7 32bit/athur.sys
+8d21a24ee1a7153f18d0499554e2428ddfb685c6a1deb0c13293b72d5a01a240  non-free/wifi/ar9271/wxp-7/Windows 7 32bit/athurext.cat
+4fd881c6e80c3ae82e308e233c5ab3d21fd28fb37cbe5331858f3b52d16e1a95  non-free/wifi/ar9271/wxp-7/Windows 7 32bit/netathur.inf
+fcf5d5f1530168c5cd99104684a77330362d6e60e7a6075db853206f581e4042  non-free/wifi/ar9271/wxp-7/Windows 7 64bit/athurextx.cat
+be8e799c1ed36b9dc6beab40e8b460464c01014dec021760fb19626c77550792  non-free/wifi/ar9271/wxp-7/Windows 7 64bit/athurx.sys
+40e3ec4517796542db0016933e5c58e62d2fb3aba1bf8eb16b1065e85458fda6  non-free/wifi/ar9271/wxp-7/Windows 7 64bit/netathurx.inf
+cd23dc1f98167ce34c90b80f38ccc954f854b0dad42d5401eac788c4f217772a  non-free/wifi/ar9271/wxp-7/Windows Vista 32bit/athur.sys
+3e6a2617fd4eddb3af11b0a0bfb797022ae8c17acbe664beea4764b3cd396626  non-free/wifi/ar9271/wxp-7/Windows Vista 32bit/athurext.cat
+f77d955a3f55b6118f52a6072bc42157cbbc6f44cc41cfd45d2e968a4f953065  non-free/wifi/ar9271/wxp-7/Windows Vista 32bit/netathur.inf
+a160a37f393893e911ab6f1b332a6534620ef80c0f4c7a2f63654407d47fe77c  non-free/wifi/ar9271/wxp-7/Windows Vista 64bit/athurextx.cat
+02a197f8134c95e859377fbe3d61b1c20cd35ac0b84b06a593f8a8d03c224acd  non-free/wifi/ar9271/wxp-7/Windows Vista 64bit/athurx.sys
+b14700f269cdeae0965667420fa02d99e4452782257336bb1b6e8ac20dacf2f2  non-free/wifi/ar9271/wxp-7/Windows Vista 64bit/netathurx.inf
+e4a452f70f90c25d8f4b3f53bbd67729cf9157ff784b7b37d909590f5d68dfa8  non-free/wifi/ar9271/wxp-7/Windows XP 32bit/athuw.sys
+ae50fd339331326498d80f2d5b2204b88a30c67addb40d986bf158dda98ebc26  non-free/wifi/ar9271/wxp-7/Windows XP 32bit/netathuw.cat
+7f797e6ad78b265673cee0d03f4c43fe915cc3f23d2e9e38da32ab8c62d37ec3  non-free/wifi/ar9271/wxp-7/Windows XP 32bit/netathuw.inf
+c053073bda074584863dad73a404d6d579039aff3223fd65cb3397ef6ba39339  non-free/wifi/ar9271/wxp-7/Windows XP 64bit/athuwx.sys
+7c500f8792f332b3b798846b968d6ba4d129127c7addd31b30b1f0a0362217b7  non-free/wifi/ar9271/wxp-7/Windows XP 64bit/netathuwx.cat
+6ed539dc0b3d528858183c678b7fed4bf879f9d32f79fb440a0d87208846b0cb  non-free/wifi/ar9271/wxp-7/Windows XP 64bit/netathuwx.inf
+efac61ce40ec4fa9b7d3b753c3eb357032e7bc875dd6bb5bf80a661e095cda38  non-free/wifi/rtl8187/w7/Win7X64/Netrtuw.cat
+42681b363b83ea419f8bd3c33a7b41c02f5f2ce542decef345521753e0ace094  non-free/wifi/rtl8187/w7/Win7X64/Netrtuw.inf
+368ca50c6791849a029f0e55036d0f2952922d5d17be3c35d1195c6afed0d94f  non-free/wifi/rtl8187/w7/Win7X64/rtl8187.sys
+69b9f8e81377a22867a9208d2c99d06c9cba8beb832c5f142879ed8a9e69d28d  non-free/wifi/rtl8187/w7/Win7X86/netrtuw.cat
+27281681e300d47c633c2bde3fd77692a12e0f27f71a78dd24276553b76514f3  non-free/wifi/rtl8187/w7/Win7X86/Netrtuw.inf
+92699ff111c597d6df0aa4ce059f199e3e67cd15e43c102968e3285995ff0079  non-free/wifi/rtl8187/w7/Win7X86/rtl8187.sys
+0fead990834fd90064a17fd3e53c2182f674b606544894aa70902baf38c55e83  non-free/wifi/rtl8187/w98se-vista/VistaX64/Netrtuw.cat
+796c2abb7773c8b637b4fdd3eea02ba08a3f859b8356e72dda9bc9112ae332e1  non-free/wifi/rtl8187/w98se-vista/VistaX64/Netrtuw.inf
+5b2f087ac5b43c2cf0b8f6be8cedb5127d5a649b0139791c217a69cc1290a858  non-free/wifi/rtl8187/w98se-vista/VistaX64/rtl8187.sys
+8406fc256b0b173de5d882dcfc5d338c92c7d50abe77ca23aecad0a1dc578e8f  non-free/wifi/rtl8187/w98se-vista/VistaX86/netrtuw.cat
+60e301124debc75bf5b0afde107d1776ce6a33ec00538c9b11de61f7d9c54964  non-free/wifi/rtl8187/w98se-vista/VistaX86/Netrtuw.inf
+fe79b0cb0890e0b322c1fa1e42cce618946d8c0bb6aca8e3773325db626d8b7e  non-free/wifi/rtl8187/w98se-vista/VistaX86/rtl8187.sys
+3e9b6cbd5875049d5aa4eccf330c40b765be1eeb9a6ce5f2f361c1dc57fea1bf  non-free/wifi/rtl8187/w98se-vista/Win98/Netrtuw.inf
+ad19e21151075dff91f6b18af9526809d865459ab0f60a5bd7f4424eea632a90  non-free/wifi/rtl8187/w98se-vista/Win98/rtl8187.sys
+3e9b6cbd5875049d5aa4eccf330c40b765be1eeb9a6ce5f2f361c1dc57fea1bf  non-free/wifi/rtl8187/w98se-vista/WinME/Netrtuw.inf
+ad19e21151075dff91f6b18af9526809d865459ab0f60a5bd7f4424eea632a90  non-free/wifi/rtl8187/w98se-vista/WinME/rtl8187.sys
+a7a535011001ced83814cce4a36c35058baebd1af9e3ed0ac72446c4f013e23d  non-free/wifi/rtl8187/w98se-vista/WinX64/netrtuw.cat
+c0a397967d3cfe88ae5fc0ee44f9840fa6881ded85b824fafebf0dc51b5def56  non-free/wifi/rtl8187/w98se-vista/WinX64/Netrtuw_x64.inf
+81bd051a6ed0d79c9ffeb1b979c0e6903c3ed47851b7a5bfa0c59ae616e9c3d6  non-free/wifi/rtl8187/w98se-vista/WinX64/rtl8187.sys
+677704e6465b33edb90e4ceabfa71ee0fec736037998a0abf7743e28107d19c6  non-free/wifi/rtl8187/w98se-vista/WinXP2K/netrtuw.cat
+5673ae9cebcce500994cf367a3ee8f85b328140c43dc94f971b9831c7428bc50  non-free/wifi/rtl8187/w98se-vista/WinXP2K/Netrtuw.inf
+4fde293c316994b25d21d0889a247b84d3178ce0f696cbdfa4f90382aed82088  non-free/wifi/rtl8187/w98se-vista/WinXP2K/rtl8187.sys
+7f7497cc38162d66a68f92ad35f23af309831db22fced2a508afeeb3fafb65f1  non-free/wifi/rtl8187b/wxp-7/VistaX64/net8187b.cat
+2babde933344d7beb752c547fbb1c8b7bc6bee8c1954f47c7850d300b3f16cfa  non-free/wifi/rtl8187b/wxp-7/VistaX64/net8187b.inf
+ac52e217ad7befb41fabc9e7b8d6c68ae9c3e3818aa7c1278686ad5dc398891e  non-free/wifi/rtl8187b/wxp-7/VistaX64/rtl8187B.sys
+89164580223be910488187fd570f389269ba6d3ec89ca44e31ad4b55c27d66ad  non-free/wifi/rtl8187b/wxp-7/VistaX86/net8187b.cat
+3bd2fa46411c40b16b280e68f0c7b68044b5e56436747678835a4406e0cba54b  non-free/wifi/rtl8187b/wxp-7/VistaX86/net8187b.inf
+3ccfda09d8e356a1064dab158d7b0106822c8dd4cedab677343415d9ec5b5f6c  non-free/wifi/rtl8187b/wxp-7/VistaX86/rtl8187B.sys
+8105b54772655cd098c435206da9e6c208f34cd1aa7792dddbe617081a0fad17  non-free/wifi/rtl8187b/wxp-7/Win7X64/net8187b.cat
+bf0d0543639713fd13da566225e82f2bbb7b7103c427ca64cda353b9f73faf66  non-free/wifi/rtl8187b/wxp-7/Win7X64/net8187b.inf
+ffdf19383402910b50d387e98c8487f99822d754193d8e1518b2266bf0f5c77d  non-free/wifi/rtl8187b/wxp-7/Win7X64/rtl8187B.sys
+740b34f7cea29703c101b228da8a4749cbd4ebe894334dcaad35e0e304490441  non-free/wifi/rtl8187b/wxp-7/Win7X86/net8187b.cat
+6225ecead3e4dad938a1af4a80a6fabf5e9d899d719eeee33347e08f54538e19  non-free/wifi/rtl8187b/wxp-7/Win7X86/net8187b.inf
+8a19e692516277a2f25dee260af6557864bb65cef458d609d95f83dd64de5884  non-free/wifi/rtl8187b/wxp-7/Win7X86/rtl8187B.sys
+b7b2db8baf92edb3d18d9b785bc94eae352f7961053d3c87135d98c675db5270  non-free/wifi/rtl8187b/wxp-7/WinX64/net8187b.cat
+73ef5dbd98a6b5089d61a7cfdbd91662dce96c7f42f407528dcba1bee6216a88  non-free/wifi/rtl8187b/wxp-7/WinX64/net8187b.inf
+ac15ad92d6670aeb661a30179be699123ee8ecb570e7c10768922717becf7f9d  non-free/wifi/rtl8187b/wxp-7/WinX64/rtl8187B.sys
+f4d45fdf84050bb7768bbc19241cbf3e3786647d9a928070b737e83ae68273dc  non-free/wifi/rtl8187b/wxp-7/WinXP/net8187b.cat
+12da91679582d9ab9b31bb108451a374171f65b1e5a49356fb9e1b7c73c36a09  non-free/wifi/rtl8187b/wxp-7/WinXP/net8187b.inf
+ca1711174f4dc72fd3711c961b910eecf8a7fde2bb392e112ae5a6697dab4cf0  non-free/wifi/rtl8187b/wxp-7/WinXP/rtl8187B.sys
+b244cd11ab53c7dbcdabf8c5bd4c47d54068921807a22c0301a1979aac930882  non-free/wifi/rtl8192cu/wxp-7/VistaX64/netrtwlanu.cat
+be509bed90436f3edfbbba946828cdd6c6141ade495d6accd3eaee021ae807d8  non-free/wifi/rtl8192cu/wxp-7/VistaX64/netrtwlanu.inf
+9157d071c37654e7fa15dde1e55c7bb7b283c38197f2b2ef074103f9525560b9  non-free/wifi/rtl8192cu/wxp-7/VistaX64/rtwlanu.sys
+28007e9be0e4f53a5b4f9fe61e5ae5a0e7e6b67a870743918e37970a11dc720c  non-free/wifi/rtl8192cu/wxp-7/VistaX86/netrtwlanu.cat
+600bcfe7b8018af84de31b952eead292a01bf379e8f75b81b731cc39b396c6bc  non-free/wifi/rtl8192cu/wxp-7/VistaX86/netrtwlanu.inf
+8ec70e41b6da29dae8e11b499dda78bf5f9b8c6252f812d0c251bfbab27a1d8f  non-free/wifi/rtl8192cu/wxp-7/VistaX86/rtwlanu.sys
+2834ef895e461d880c6a642c22257b9f10f0120693f9fb496573ae7458db9988  non-free/wifi/rtl8192cu/wxp-7/Win7X64/netrtwlanu.cat
+2be7576f3f41b27b13b5ff8d70f6545314e9930eafe51ddc4faad1b45b625434  non-free/wifi/rtl8192cu/wxp-7/Win7X64/netrtwlanu.inf
+fb974fa5f842741d7c50cc517d2f9f5dc11e92827022db1751a82969c5948810  non-free/wifi/rtl8192cu/wxp-7/Win7X64/rtwlanu.sys
+395ff31ad3f6b6c7e0495303869a60fe2caba86c8ce8d1a34470f3c2f3b6ed5b  non-free/wifi/rtl8192cu/wxp-7/Win7X86/netrtwlanu.cat
+c715f9082cf925b80485f115eb495217e0fc9a336c073f123aa60760cf5675cb  non-free/wifi/rtl8192cu/wxp-7/Win7X86/netrtwlanu.inf
+ccef20ef09a64554470cbdc6b3c7eba02ce6fd73fd8f545b0dd2ef47bff3910a  non-free/wifi/rtl8192cu/wxp-7/Win7X86/rtwlanu.sys
+702d5f7e6c3dc9f58019a63b298f20127f1e884314d906c201e5d7a2766c5db1  non-free/wifi/rtl8192cu/wxp-7/WinX64/netrtwlanu.cat
+aea5ec763e0465ee354731a0f2e0b2b7bd42c9811eb768201f177325d4b11f76  non-free/wifi/rtl8192cu/wxp-7/WinX64/netrtwlanu.inf
+4323a9b8ccac0fcff7f47029121e37a0b491bf8f64aec9aecef6000f8bf2c1fa  non-free/wifi/rtl8192cu/wxp-7/WinX64/RTLBt.inf
+7094b0f18579190a2ce151f207eb6f98422840b27be5d2c37c7ba15472c4df14  non-free/wifi/rtl8192cu/wxp-7/WinX64/rtwlanu.sys
+51d01bf4cf6b3fdffcb81dbf84558173135be22c233747527a7531749072d174  non-free/wifi/rtl8192cu/wxp-7/WinXP/netrtwlanu.cat
+5466ac5b9b52c65a626de3203bf53ea56389f2b1ed5d3b5a7e8034da5f642489  non-free/wifi/rtl8192cu/wxp-7/WinXP/netrtwlanu.inf
+4323a9b8ccac0fcff7f47029121e37a0b491bf8f64aec9aecef6000f8bf2c1fa  non-free/wifi/rtl8192cu/wxp-7/WinXP/RTLBt.inf
+62b33b8ddd851e901f49bed2cc223b27f000c413a1b2e04ae92da6ca4ee2efa4  non-free/wifi/rtl8192cu/wxp-7/WinXP/rtwlanu.sys
+d36ddd684a5dd820424bbaf5dbabf2cd8062fd7671d6d6d899bf96ef394966ff  non-free/wifi/rtl8192su/w2k-7/VistaX64/net8192su.cat
+50bc5ba6b8d4f81b7cab4b17e147847f2f7b576a269d4d1597f3bd0af0144717  non-free/wifi/rtl8192su/w2k-7/VistaX64/net8192su.inf
+cad9afbaff9c81598f2218a03cb00cea4673845101dabf21b2c9a708fd2d7901  non-free/wifi/rtl8192su/w2k-7/VistaX64/rtl8192su.sys
+8c7828b0715abef2e249e53fc4f6e5d548cb34852ebe4480276f7c551c1d6e17  non-free/wifi/rtl8192su/w2k-7/VistaX86/net8192su.cat
+74dd65fb96fd9bd6decaabf58e2a6c74f73b29a9cb51ebf3c6752ef2f54ec16a  non-free/wifi/rtl8192su/w2k-7/VistaX86/net8192su.inf
+bf8a6c35744fffd8c2b4cd7273e041f14d56373726134239dc84a8e164782bc5  non-free/wifi/rtl8192su/w2k-7/VistaX86/rtl8192su.sys
+6d4f4ae67c03daf92db6183f8e0c0472d230ba541688c16bd2d60ce7dd953095  non-free/wifi/rtl8192su/w2k-7/Win2K/net8192su.cat
+08e127efaa6a6bd49c463e75c2600b9e86d8748f523d958866494a8d70ef729b  non-free/wifi/rtl8192su/w2k-7/Win2K/net8192su.inf
+292dc6ed6cf6469f7b6063dfbf437e917e40bbc255c0cd2b4497399883225778  non-free/wifi/rtl8192su/w2k-7/Win2K/rtl8192su.sys
+33863153765d18622886dd150291d33ca12ab8cc2a34a337819d380626374f07  non-free/wifi/rtl8192su/w2k-7/Win7X64/net8192su.cat
+39298c6e2073328b5e6c845d66c2c002a5f872837259b8a98d1d57eb7e94b39f  non-free/wifi/rtl8192su/w2k-7/Win7X64/net8192su.inf
+c711253f14b176800c68ee1b4620e11b5c2894cd052d5a82d4ce3b05e22b359c  non-free/wifi/rtl8192su/w2k-7/Win7X64/rtl8192su.sys
+1e97048a5adc7ae65021ab9fc80c554ecbec49480a508ca4427a49efb64d68cf  non-free/wifi/rtl8192su/w2k-7/Win7X86/net8192su.cat
+3177085f6c607725012599c9bb692fb0c237a7cd8d79c2093dd1f6744e12782d  non-free/wifi/rtl8192su/w2k-7/Win7X86/net8192su.inf
+1d3e60b0603365831676e8b537e74453a22a2297fb3c8b6f01975e68b6dc0bcb  non-free/wifi/rtl8192su/w2k-7/Win7X86/rtl8192su.sys
+ec20a60c3a3372fcc1bf775cc957a7667024877569b9978eced55f0fdaa68c92  non-free/wifi/rtl8192su/w2k-7/WinX64/net8192su.cat
+2a96e5d98cb8028e824764480c8bf6f60b5663024a0f8f9a43f0a4a4d47892bc  non-free/wifi/rtl8192su/w2k-7/WinX64/net8192su.inf
+0c3c6c67e73a495e25e44e118c621c46b3fbb1b149e774227539d21af96cfb79  non-free/wifi/rtl8192su/w2k-7/WinX64/rtl8192su.sys
+6d4f4ae67c03daf92db6183f8e0c0472d230ba541688c16bd2d60ce7dd953095  non-free/wifi/rtl8192su/w2k-7/WinXP/net8192su.cat
+dd02b81e01a11c5a31d355199fa323f8ddecb3830a04155201541bc6dcca732c  non-free/wifi/rtl8192su/w2k-7/WinXP/net8192su.inf
+066dce4f6d69f73f2eaef33e2d9ccc85c962b3b8e0db27b17280f441e0582b2c  non-free/wifi/rtl8192su/w2k-7/WinXP/rtl8192su.sys
+56175be5423f7a6ac19e9bac65741e88290dfdffc97b84ea07476d83e72269a5  non-free/wifi/rtwlanu/wxp-7/VistaX64/netrtwlanu.cat
+d10520157af537610737af410263adde62d3c39558520e94949a866a95250621  non-free/wifi/rtwlanu/wxp-7/VistaX64/netrtwlanu_Vista.inf
+6bf8c8c4cb68e51b3d71ce3beb427a9ea9972941c3606b623648bacbd627896b  non-free/wifi/rtwlanu/wxp-7/VistaX64/rtlCoInst.dat
+6f69f93ff55702c8c047967136d26e8737b57b1fcb4002b369c091fcb49846f2  non-free/wifi/rtwlanu/wxp-7/VistaX64/rtlCoInst.dll
+bf730d468f420ff12ff5af089c85a5401702d09737b528eb79ec28f7f89ff0a1  non-free/wifi/rtwlanu/wxp-7/VistaX64/RtlExtUI.dll
+8d715918d18438050be78bf9435fe45d4efe9ccccea57dddf8550574d3e80f72  non-free/wifi/rtwlanu/wxp-7/VistaX64/Rtlihvs.dll
+c3ace5b43ef68dc53ca28432357500c9bfc13be8bbf04b2c396d0b8a30ba0e40  non-free/wifi/rtwlanu/wxp-7/VistaX64/rtwlanu_Vista.sys
+11d91f2fef170c67ebdcbe347c4a7d61cb8b9a88b5bb25809fb4b4a866cc976d  non-free/wifi/rtwlanu/wxp-7/VistaX86/netrtwlanu.cat
+6b645db6abae52a297c0e2791cf521c50a33c8e24be9c4b8b86a6fdc74a701aa  non-free/wifi/rtwlanu/wxp-7/VistaX86/netrtwlanu_Vista.inf
+6bf8c8c4cb68e51b3d71ce3beb427a9ea9972941c3606b623648bacbd627896b  non-free/wifi/rtwlanu/wxp-7/VistaX86/rtlCoInst.dat
+717bdb0dcf5f837422bacca15bd7f84106ede18b7921c7f8f73010e4dff75de4  non-free/wifi/rtwlanu/wxp-7/VistaX86/rtlCoInst.dll
+f12d9df4f8ef2fb8cf659866d63dea6c8c58c9e28784a544b2fe7d84eb515d2a  non-free/wifi/rtwlanu/wxp-7/VistaX86/RtlExtUI.dll
+b7df4b0a583be241848a6ba93059532c16ccd438c196371b679c7bbf1ebc4655  non-free/wifi/rtwlanu/wxp-7/VistaX86/Rtlihvs.dll
+c881279eabd79a65920ae46be5378aea3f6df6dbe988eec26645b95a84dde29c  non-free/wifi/rtwlanu/wxp-7/VistaX86/rtwlanu_Vista.sys
+56175be5423f7a6ac19e9bac65741e88290dfdffc97b84ea07476d83e72269a5  non-free/wifi/rtwlanu/wxp-7/Win7X64/netrtwlanu.cat
+df2024cdc9f9405f73781c276498c67603937c5e524e312477a764c1155219d3  non-free/wifi/rtwlanu/wxp-7/Win7X64/netrtwlanu.inf
+6bf8c8c4cb68e51b3d71ce3beb427a9ea9972941c3606b623648bacbd627896b  non-free/wifi/rtwlanu/wxp-7/Win7X64/rtlCoInst.dat
+6f69f93ff55702c8c047967136d26e8737b57b1fcb4002b369c091fcb49846f2  non-free/wifi/rtwlanu/wxp-7/Win7X64/rtlCoInst.dll
+bf730d468f420ff12ff5af089c85a5401702d09737b528eb79ec28f7f89ff0a1  non-free/wifi/rtwlanu/wxp-7/Win7X64/RtlExtUI.dll
+8d715918d18438050be78bf9435fe45d4efe9ccccea57dddf8550574d3e80f72  non-free/wifi/rtwlanu/wxp-7/Win7X64/Rtlihvs.dll
+1c3cf5507d19c005a4c7df904eff14f3e0afa4dcd2139e91b00d479ad2924966  non-free/wifi/rtwlanu/wxp-7/Win7X64/rtwlanu.sys
+11d91f2fef170c67ebdcbe347c4a7d61cb8b9a88b5bb25809fb4b4a866cc976d  non-free/wifi/rtwlanu/wxp-7/Win7X86/netrtwlanu.cat
+c7ce9d817dd203e8bc95c1998e9ae7bc6a0351782d002bca6ba59631fc3c44af  non-free/wifi/rtwlanu/wxp-7/Win7X86/netrtwlanu.inf
+6bf8c8c4cb68e51b3d71ce3beb427a9ea9972941c3606b623648bacbd627896b  non-free/wifi/rtwlanu/wxp-7/Win7X86/rtlCoInst.dat
+717bdb0dcf5f837422bacca15bd7f84106ede18b7921c7f8f73010e4dff75de4  non-free/wifi/rtwlanu/wxp-7/Win7X86/rtlCoInst.dll
+f12d9df4f8ef2fb8cf659866d63dea6c8c58c9e28784a544b2fe7d84eb515d2a  non-free/wifi/rtwlanu/wxp-7/Win7X86/RtlExtUI.dll
+b7df4b0a583be241848a6ba93059532c16ccd438c196371b679c7bbf1ebc4655  non-free/wifi/rtwlanu/wxp-7/Win7X86/Rtlihvs.dll
+f5f913b509e7feb944420c58be76bb9faa91699ac362cfeab17c9249c4010843  non-free/wifi/rtwlanu/wxp-7/Win7X86/rtwlanu.sys
+56175be5423f7a6ac19e9bac65741e88290dfdffc97b84ea07476d83e72269a5  non-free/wifi/rtwlanu/wxp-7/WinX64/netrtwlanu.cat
+2e774ffdd8e4589091558f708c8c2ae4113c257572c21428529c6a121c18b9a1  non-free/wifi/rtwlanu/wxp-7/WinX64/netrtwlanu_XP.inf
+6bf8c8c4cb68e51b3d71ce3beb427a9ea9972941c3606b623648bacbd627896b  non-free/wifi/rtwlanu/wxp-7/WinX64/rtlCoInst.dat
+6f69f93ff55702c8c047967136d26e8737b57b1fcb4002b369c091fcb49846f2  non-free/wifi/rtwlanu/wxp-7/WinX64/rtlCoInst.dll
+fa1e39083845e01e212ac541857b0ed635a3f3bed3ec5426d5dcdae10e7139e1  non-free/wifi/rtwlanu/wxp-7/WinX64/rtwlanu_XP.sys
+11d91f2fef170c67ebdcbe347c4a7d61cb8b9a88b5bb25809fb4b4a866cc976d  non-free/wifi/rtwlanu/wxp-7/WinXP/netrtwlanu.cat
+cc13651d3a88695bd33ebc839ffc13b8465c5cbf53297dd5de9785f8764791f4  non-free/wifi/rtwlanu/wxp-7/WinXP/netrtwlanu_XP.inf
+6bf8c8c4cb68e51b3d71ce3beb427a9ea9972941c3606b623648bacbd627896b  non-free/wifi/rtwlanu/wxp-7/WinXP/rtlCoInst.dat
+717bdb0dcf5f837422bacca15bd7f84106ede18b7921c7f8f73010e4dff75de4  non-free/wifi/rtwlanu/wxp-7/WinXP/rtlCoInst.dll
+b41e4284c943737fc20cda55cab29df6459aa0e9e3d26be1ec0b763fb7891417  non-free/wifi/rtwlanu/wxp-7/WinXP/rtwlanu_XP.sys
+c00756f38b11c82a8a15905fab03af6694b062794898294c6b82cc38f8920aea  non-free/wifi/rtwlanu17/wxp-7/VistaX64/netrtwlanu.cat
+b91ad75620a53006608514b6d7726fd458ca27b09756cb45188dcfe326bd1dd2  non-free/wifi/rtwlanu17/wxp-7/VistaX64/netrtwlanu_Vista.inf
+068e7813d221e0dea39f9ab84668edf26eb5bc097ce137f940e50c847748df24  non-free/wifi/rtwlanu17/wxp-7/VistaX64/rtwlanu_Vista.sys
+61dac353ff5cb962919c038f1584ab3d85b9535f32490185e712cb9bfebb455e  non-free/wifi/rtwlanu17/wxp-7/VistaX86/netrtwlanu.cat
+70aaf4da751ca3b189ad4f8747e37d4078f83778b0227a46e221ed3930d9ae33  non-free/wifi/rtwlanu17/wxp-7/VistaX86/netrtwlanu_Vista.inf
+88b1a3f8f0f067bcc98a4972e9b4b276881f76cec1f5105eb5a008bcdff33f50  non-free/wifi/rtwlanu17/wxp-7/VistaX86/rtwlanu_Vista.sys
+c00756f38b11c82a8a15905fab03af6694b062794898294c6b82cc38f8920aea  non-free/wifi/rtwlanu17/wxp-7/Win7X64/netrtwlanu.cat
+e55f6e8edf6a4a952e3f318d6d28a00a0403dc2aafc5ae1d522c20cc5b550d1b  non-free/wifi/rtwlanu17/wxp-7/Win7X64/netrtwlanu.inf
+a8d24ed6e7042c1befd86df56a0b40fd2b35648e7e5325ccbe5205d51f4caf79  non-free/wifi/rtwlanu17/wxp-7/Win7X64/rtwlanu.sys
+61dac353ff5cb962919c038f1584ab3d85b9535f32490185e712cb9bfebb455e  non-free/wifi/rtwlanu17/wxp-7/Win7X86/netrtwlanu.cat
+e64702bb4751b45f9db1d8df5fa06a3b41b7dbe225bdfd31e1a1e19bbfbba2ba  non-free/wifi/rtwlanu17/wxp-7/Win7X86/netrtwlanu.inf
+ddbb29c29165e97c46ae64f6a5493c990be004b75f27fd45dc9f68a9710297fe  non-free/wifi/rtwlanu17/wxp-7/Win7X86/rtwlanu.sys
+c00756f38b11c82a8a15905fab03af6694b062794898294c6b82cc38f8920aea  non-free/wifi/rtwlanu17/wxp-7/WinX64/netrtwlanu.cat
+b34796540d7da5687975668adac6f9027497cd1766d835b1cadebfacd4342a9e  non-free/wifi/rtwlanu17/wxp-7/WinX64/netrtwlanu_XP.inf
+276bdc02c8b3dfea4c0aa2d4b216609a334e325b38716f484b1cfdcebff9591a  non-free/wifi/rtwlanu17/wxp-7/WinX64/rtwlanu_XP.sys
+61dac353ff5cb962919c038f1584ab3d85b9535f32490185e712cb9bfebb455e  non-free/wifi/rtwlanu17/wxp-7/WinXP/netrtwlanu.cat
+e0948a16d7318a04ac9be46fdfc62419e9009fa681a66346135ee0f18d141fd8  non-free/wifi/rtwlanu17/wxp-7/WinXP/netrtwlanu_XP.inf
+f04600f73950fa25e11a683ad80e574bdd571b816472715f1d626d028d4cde65  non-free/wifi/rtwlanu17/wxp-7/WinXP/rtwlanu_XP.sys
 12b09e67a5a9a8a883ab40b91c59be294f2ddc5940b9780c056176df04a463d1  nusb33/w98se/USBAUTH.SYS
 e8e0604fddcd1772f1c5cba99de9d72d79288d0b303ed3e7bf02d36160698c1c  nusb33/w98se/USBMPHLP.PDR
 372d0a4829eab33cf5c6a1fca347a3be45da82d69a692e89b33d28dc02848657  nusb33/w98se/USBNTMAP.INF

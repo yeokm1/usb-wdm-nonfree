@@ -31,20 +31,23 @@
 #   - On any one system, no two STAGE lines match the same hardware ID (as
 #     their [Models] sections are read for that system). Where two INFs in
 #     the pack would match the same ID, one is chosen here, by name, and the
-#     other is restricted to other systems or is COPY.
+#     other is restricted to other systems or is COPY. One exception,
+#     Edimax 7392:7612 on 7, is explained at the RTL8187L lines.
 #   - nusb33/ is not listed and never staged by the non-free box: xHCI98's
 #     own NUSB storage row owns those files.
 #   - A driver whose maker installs it only with a setup program is COPY.
 #     Today every driver in the pack has its own INF; the setup programs
 #     beside some of them (Realtek's setup.exe, WCH's SETUP.EXE and
 #     DRVSETUP64.exe, FTDI's uninstallers, Morii's x360csai.exe,
-#     x360wcsai.exe and x360csa.exe) are copied, never run.
+#     x360wcsai.exe and x360csa.exe, TP-Link's Setup.exe and QSS.exe)
+#     are copied, never run.
 #   - SYSTEMS follows README.md's table of which folder serves which
 #     Windows, not every system an INF's own decorations would accept.
 #
 # The drivers here are carried as their makers released them and have not
 # been tested by this project. The choices below were made by reading the
-# INFs (2026-10-22); those marked "owner to confirm" await the owner.
+# INFs (2026-10-22, the Wi-Fi lines 2026-10-27); those marked "owner to
+# confirm" await the owner.
 
 # ---- Ethernet: ASIX AX88772 / AX88772A (USB 2.0, 100 Mbit/s)
 # XP x64 to 7: older archived builds (ASIX's newer ones are no longer downloadable)
@@ -176,3 +179,91 @@ STAGE | WVISTA           | non-free/hid/x360wc/wvista/x360wc.inf      | catalog 
 STAGE | WVISTA64         | non-free/hid/x360wc/wvista64/x360wc.inf    |
 STAGE | W7               | non-free/hid/x360wc/w7/x360wc.inf          |
 STAGE | W7X64            | non-free/hid/x360wc/w7_64/x360wc.inf       |
+
+# ---- Wi-Fi: Realtek RTL8187L (0BDA:8187 and brand ids, all REV_0100. On 7 also 145F:0161, 1B75:8187, 7392:7612)
+# REV_0100 keeps these apart from the RTL8187B's 0BDA:8187 REV_0200 below.
+# Edimax 7392:7612 is listed twice on 7: here at REV_0100 only, and in
+# rtl8192su's INF at any revision (an RTL8192SU dongle with the same id).
+# A device's revision id comes first in its hardware id list, so Windows
+# ranks this INF first for a REV_0100 device and rtl8192su's for any other.
+# Both are staged on 7 - owner to confirm.
+STAGE | W98SE            | non-free/wifi/rtl8187/w98se-vista/Win98/Netrtuw.inf        | 5.1313 (2008). $Chicago$, its undecorated [Models] would also match on 2000-7: there the NT builds win
+STAGE | WME              | non-free/wifi/rtl8187/w98se-vista/WinME/Netrtuw.inf        | 5.1313. As Win98
+STAGE | W2K WXP          | non-free/wifi/rtl8187/w98se-vista/WinXP2K/Netrtuw.inf      | 5.1313. Undecorated [Realtek] for 2000, NTx86 for XP. Would also match on Vista and 7: there VistaX86 and w7 win
+STAGE | WXP64            | non-free/wifi/rtl8187/w98se-vista/WinX64/Netrtuw_x64.inf   | 5.1312. Its NTamd64 [Models] would also match on Vista and 7 x64: there VistaX64 and w7 win
+STAGE | WVISTA           | non-free/wifi/rtl8187/w98se-vista/VistaX86/Netrtuw.inf     | 6.1313. NTx86.6.0
+STAGE | WVISTA64         | non-free/wifi/rtl8187/w98se-vista/VistaX64/Netrtuw.inf     | 6.1313. NTamd64.6.0
+STAGE | W7               | non-free/wifi/rtl8187/w7/Win7X86/Netrtuw.inf               | 6.1316 (2009). NTx86.6.1
+STAGE | W7X64            | non-free/wifi/rtl8187/w7/Win7X64/Netrtuw.inf               | 6.1316. NTamd64.6.1
+
+# ---- Wi-Fi: Realtek RTL8187B (0BDA:8187, 8189 REV_0200. On 7 also 8197, 8198, 8199)
+STAGE | WXP              | non-free/wifi/rtl8187b/wxp-7/WinXP/net8187b.inf            | 5.1162 (2009). $Chicago$ with NTx86, would also match on Vista and 7: there VistaX86 and Win7X86 win
+STAGE | WXP64            | non-free/wifi/rtl8187b/wxp-7/WinX64/net8187b.inf           | 5.1160. NTamd64, would also match on Vista and 7 x64: there VistaX64 and Win7X64 win
+STAGE | WVISTA           | non-free/wifi/rtl8187b/wxp-7/VistaX86/net8187b.inf         | 6.1162. NTx86.6.0
+STAGE | WVISTA64         | non-free/wifi/rtl8187b/wxp-7/VistaX64/net8187b.inf         | 6.1162. NTamd64.6.0
+STAGE | W7               | non-free/wifi/rtl8187b/wxp-7/Win7X86/net8187b.inf          | 62.1181 (2009). Newer than 7's own net8187bv32.inf 6.1159
+STAGE | W7X64            | non-free/wifi/rtl8187b/wxp-7/Win7X64/net8187b.inf          | 62.1181. Newer than 7's own net8187bv64.inf
+
+# ---- Wi-Fi: Realtek RTL8188CU / RTL8192CU / RTL8192DU / RTL8723AU, 1021.3 (2012)
+# COPY only (owner, 2026-10-27: the newer packages win). Its INFs also list
+# 0BDA:8179 and A179 (RTL8188EU, staged from rtwlanu) and 0BDA:8192 with no
+# revision (RTL8192SU, staged from rtl8192su). Use Update Driver by hand.
+COPY  | WXP              | non-free/wifi/rtl8192cu/wxp-7/WinXP/netrtwlanu.inf         | 1021.3. NTx86
+COPY  | WXP64            | non-free/wifi/rtl8192cu/wxp-7/WinX64/netrtwlanu.inf        | 1021.3. NTamd64
+COPY  | WVISTA           | non-free/wifi/rtl8192cu/wxp-7/VistaX86/netrtwlanu.inf      | 1021.3. NTx86.6.0
+COPY  | WVISTA64         | non-free/wifi/rtl8192cu/wxp-7/VistaX64/netrtwlanu.inf      | 1021.3. NTamd64.6.0
+COPY  | W7               | non-free/wifi/rtl8192cu/wxp-7/Win7X86/netrtwlanu.inf       | 1021.3. NTx86.6.1
+COPY  | W7X64            | non-free/wifi/rtl8192cu/wxp-7/Win7X64/netrtwlanu.inf       | 1021.3. NTamd64.6.1
+COPY  | WXP              | non-free/wifi/rtl8192cu/wxp-7/WinXP/RTLBt.inf              | the RTL8723AU's Bluetooth half (1.0.0.0). Not a Wi-Fi driver
+COPY  | WXP64            | non-free/wifi/rtl8192cu/wxp-7/WinX64/RTLBt.inf             | as WinXP's
+
+# ---- Wi-Fi: Realtek 1030.25 (RTL8188EU/FU, 8192EU, 8723BU/DU, 8710BU, 8812AU, 8811AU/8821AU, 8814AU, 8811CU/8821CU, 8812BU/8822BU)
+# Realtek's page lists it for 7 and later. Its own builds and release note
+# cover XP to 10, so it is offered on XP and Vista too (owner, 2026-10-27).
+STAGE | WXP              | non-free/wifi/rtwlanu/wxp-7/WinXP/netrtwlanu_XP.inf        | 1030.25 (DriverVer 2017-12-25). NTx86. Wins over rtwlanu17 and rtl8192cu (newest)
+STAGE | WXP64            | non-free/wifi/rtwlanu/wxp-7/WinX64/netrtwlanu_XP.inf       | 1030.25. NTamd64
+STAGE | WVISTA           | non-free/wifi/rtwlanu/wxp-7/VistaX86/netrtwlanu_Vista.inf  | 1030.25. NTx86.6.0
+STAGE | WVISTA64         | non-free/wifi/rtwlanu/wxp-7/VistaX64/netrtwlanu_Vista.inf  | 1030.25. NTamd64.6.0
+STAGE | W7               | non-free/wifi/rtwlanu/wxp-7/Win7X86/netrtwlanu.inf         | 1030.25. NTx86.6.1
+STAGE | W7X64            | non-free/wifi/rtwlanu/wxp-7/Win7X64/netrtwlanu.inf         | 1030.25. NTamd64.6.1
+
+# ---- Wi-Fi: Realtek 1030.17 (2016), the same chips with more brand ids
+# COPY only (owner, 2026-10-27): it shares Realtek's own ids with rtwlanu.
+# For a dongle rtwlanu does not list, use Update Driver by hand.
+COPY  | WXP              | non-free/wifi/rtwlanu17/wxp-7/WinXP/netrtwlanu_XP.inf      | 1030.17 (DriverVer 2017-04-06). NTx86
+COPY  | WXP64            | non-free/wifi/rtwlanu17/wxp-7/WinX64/netrtwlanu_XP.inf     | 1030.17. NTamd64
+COPY  | WVISTA           | non-free/wifi/rtwlanu17/wxp-7/VistaX86/netrtwlanu_Vista.inf | 1030.17. NTx86.6.0
+COPY  | WVISTA64         | non-free/wifi/rtwlanu17/wxp-7/VistaX64/netrtwlanu_Vista.inf | 1030.17. NTamd64.6.0
+COPY  | W7               | non-free/wifi/rtwlanu17/wxp-7/Win7X86/netrtwlanu.inf       | 1030.17. NTx86.6.1
+COPY  | W7X64            | non-free/wifi/rtwlanu17/wxp-7/Win7X64/netrtwlanu.inf       | 1030.17. NTamd64.6.1
+
+# ---- Wi-Fi: Realtek RTL8188SU / RTL8191SU / RTL8192SU (0BDA:8171-8175, 8192, 8712, C047 and brand ids)
+STAGE | W2K              | non-free/wifi/rtl8192su/w2k-7/Win2K/net8192su.inf          | 1084.53 (2011). $Chicago$, undecorated [Realtek] (its NTx86 section is missing, so XP and later do not match it)
+STAGE | WXP              | non-free/wifi/rtl8192su/w2k-7/WinXP/net8192su.inf          | 1084.53. NTx86, would also match on Vista and 7: there VistaX86 and Win7X86 win
+STAGE | WXP64            | non-free/wifi/rtl8192su/w2k-7/WinX64/net8192su.inf         | 1084.53. NTamd64, would also match on Vista and 7 x64: there VistaX64 and Win7X64 win
+STAGE | WVISTA           | non-free/wifi/rtl8192su/w2k-7/VistaX86/net8192su.inf       | 1084.53. NTx86.6.0
+STAGE | WVISTA64         | non-free/wifi/rtl8192su/w2k-7/VistaX64/net8192su.inf       | 1084.53. NTamd64.6.0
+STAGE | W7               | non-free/wifi/rtl8192su/w2k-7/Win7X86/net8192su.inf        | 1086.48 (2011). NTx86.6.1
+STAGE | W7X64            | non-free/wifi/rtl8192su/w2k-7/Win7X64/net8192su.inf        | 1086.48. NTamd64.6.1
+
+# ---- Wi-Fi: Atheros AR9271 / AR7010 (TP-Link TL-WN721N v1 package)
+STAGE | WXP              | non-free/wifi/ar9271/wxp-7/Windows XP 32bit/netathuw.inf     | 7.7.0.102 (2011). NTX86.5.1, would also match on Vista and 7: there the Vista and 7 builds win
+STAGE | WXP64            | non-free/wifi/ar9271/wxp-7/Windows XP 64bit/netathuwx.inf    | 7.7.0.102. NTamd64.5.1, would also match on Vista and 7 x64: there the Vista and 7 builds win
+STAGE | WVISTA           | non-free/wifi/ar9271/wxp-7/Windows Vista 32bit/netathur.inf  | 8.0.0.84. NTX86.6.0, would also match on 7: there the 7 build wins
+STAGE | WVISTA64         | non-free/wifi/ar9271/wxp-7/Windows Vista 64bit/netathurx.inf | 8.0.0.84. NTamd64.6.0
+STAGE | W7               | non-free/wifi/ar9271/wxp-7/Windows 7 32bit/netathur.inf      | 2.0.0.62. NTX86.6.1
+STAGE | W7X64            | non-free/wifi/ar9271/wxp-7/Windows 7 64bit/netathurx.inf     | 2.0.0.62. NTamd64.6.1
+
+# ---- Wi-Fi: Atheros AR9170 (TP-Link TL-WN821N v2 / TL-WN822N v1 package)
+STAGE | W2K              | non-free/wifi/ar9170/w2k-7/Driver Files/Windows 2000/arusb_xp.inf        | 3.0.0.165, arusb_2k.sys. Undecorated [Models] for 2000, would also match on XP to 7: there the later builds win
+STAGE | WXP              | non-free/wifi/ar9170/w2k-7/Driver Files/Windows XP 32bit/arusb_xp.inf    | 3.0.0.165. NTX86.5.1 and NT.5.1, would also match on XP x64 to 7: there the later builds win
+STAGE | WXP64            | non-free/wifi/ar9170/w2k-7/Driver Files/Windows XP 64bit/arusb_xp.inf    | 3.0.0.165. NTamd64.5.1
+STAGE | WVISTA           | non-free/wifi/ar9170/w2k-7/Driver Files/Windows Vista 32bit/arusb_lh.inf  | 3.1.0.131. NTX86.6.0
+STAGE | WVISTA64         | non-free/wifi/ar9170/w2k-7/Driver Files/Windows Vista 64bit/arusb_lhx.inf | 3.1.0.131. NTamd64.6.0
+STAGE | W7               | non-free/wifi/ar9170/w2k-7/Driver Files/Windows 7 32bit/arusb_win7.inf    | 3.5.0.12. NTX86.6.1
+STAGE | W7X64            | non-free/wifi/ar9170/w2k-7/Driver Files/Windows 7 64bit/arusb_win7x.inf   | 3.5.0.12. NTamd64.6.1
+
+# ---- Wi-Fi: Broadcom BCM43235, Linksys AE2500 (13B1:0039, 003A)
+STAGE | WXP WXP64        | non-free/wifi/ae2500/wxp/bcmwlhigh5.inf     | 5.100.68.46. Undecorated and NTamd64, would also match on Vista and 7: there wvista and w7 win
+STAGE | WVISTA WVISTA64  | non-free/wifi/ae2500/wvista/bcmwlhigh6.inf  | 5.100.243.6. .6.0 sections only (its .6.1 sections are missing)
+STAGE | W7 W7X64         | non-free/wifi/ae2500/w7/bcmwlhigh6.inf      | 5.100.68.46. .6.1 sections only
