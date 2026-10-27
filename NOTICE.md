@@ -878,7 +878,7 @@ Provenance of `x360c/` and `x360wc/`:
 
 | File | Whose | Version |
 |---|---|---|
-| All 16 files in `rtl8187/w98se-vista/` | Realtek Semiconductor Corp. | 5.1313.0613.2008 (`Win98\Netrtuw.inf` `DriverVer` 06/13/2008. XP x64 5.1312.0416.2008. Vista 6.1313.0613.2008) |
+| All 41 files in `rtl8187/w98se-vista/` | Realtek Semiconductor Corp. Its setup engine is Macrovision's InstallShield 12, as Realtek ships it. Its cabinets (`data1.cab`, `data2.cab`) also hold others' files, as Realtek ships them: OpenSSL 0.9.8b's `libeay32.dll` and parts of OpenSSL 0.9.7g in `acAuth.dll` (the OpenSSL Project and Eric Young, licence below), Meetinghouse Data Communications' AEGIS client (`AegisI5.exe`, `acAuth.dll`) and Microsoft's GDI+ (`gdiplus.dll`) | Driver 5.1313.0613.2008 (`RTL8187\Win98\Netrtuw.inf` `DriverVer` 06/13/2008. XP x64 5.1312.0416.2008. Vista 6.1313.0613.2008) |
 | All 6 files in `rtl8187/w7/` | Realtek Semiconductor Corp. | 6.1316.1209.2009 |
 | All 18 files in `rtl8187b/wxp-7/` | Realtek Semiconductor Corp. | XP 5.1162.0610.2009, XP x64 5.1160.0415.2009, Vista 6.1162.0610.2009, 7 62.1181.1105.2009 |
 | All 20 files in `rtl8192cu/wxp-7/` | Realtek Semiconductor Corp. | 1021.3.0912.2012 (`RTLBt.inf` 1.0.0.0) |
@@ -891,6 +891,8 @@ Provenance of `x360c/` and `x360wc/`:
 
 The Realtek folders hold only the per-system driver folders, taken from
 Realtek's packages by this project and otherwise unchanged (below).
+`rtl8187/w98se-vista/` is the exception: it is the whole RTL8187L
+package for 98 SE to Vista, setup and utility included, unchanged.
 `ar9271/wxp-7/` is TP-LINK's package without its Windows 8 and 8.1
 folders. The others are their packages as released, unmodified.
 `SHA256.TXT` lists each file's hash. None of these drivers has been tested
@@ -919,18 +921,155 @@ Provenance of `rtl8187/` (`w98se-vista/`, `w7/`):
     `063c2a3193b454b8a43e80a55122aa758aeba287a99b0a33d62d5812b161a9f3`
 - **Licence:** none found. Neither zip holds a licence or EULA file. The
   INFs carry "Copyright (C) 2008 Realtek Semiconductor Corp." (2009 for
-  7).
-- **Name:** these keep Realtek's names: `Netrtuw_x64.inf` and the
-  folders `VistaX86/`, `VistaX64/`, `WinXP2K/`, `Win7X86/` and
-  `Win7X64/` are not 8.3.
-- **Modification:** the folders were taken from the packages by this
-  project and are otherwise unchanged (owner, 2026-10-27). Only the
-  per-system folders of each package's `RTL8187\` folder are carried:
-  `Win98`, `WinME`, `WinXP2K`, `WinX64`, `VistaX86` and `VistaX64` (from
-  `87-USB\RTL8187\`), and `Win7X86` and `Win7X64`. Left out: the rest of
-  each package, that is Realtek's InstallShield setup and its files, the
-  install batch files (7 package), `DATA\`, `EAP\` (7 package) and the
-  release notes.
+  7). The setup's licence page (`license.rtf` in its cabinet) is
+  InstallShield's placeholder text, not a licence. The utility's
+  OpenSSL parts come with no licence text in the package. OpenSSL's
+  licence asks that binary copies carry it, so it is quoted here, as
+  OpenSSL 0.9.8b's `LICENSE` file has it. 0.9.7g's differs only in its
+  first copyright line, "1998-2004":
+
+  ```text
+
+    LICENSE ISSUES
+    ==============
+
+    The OpenSSL toolkit stays under a dual license, i.e. both the conditions of
+    the OpenSSL License and the original SSLeay license apply to the toolkit.
+    See below for the actual license texts. Actually both licenses are BSD-style
+    Open Source licenses. In case of any license issues related to OpenSSL
+    please contact openssl-core@openssl.org.
+
+    OpenSSL License
+    ---------------
+
+  /* ====================================================================
+   * Copyright (c) 1998-2005 The OpenSSL Project.  All rights reserved.
+   *
+   * Redistribution and use in source and binary forms, with or without
+   * modification, are permitted provided that the following conditions
+   * are met:
+   *
+   * 1. Redistributions of source code must retain the above copyright
+   *    notice, this list of conditions and the following disclaimer. 
+   *
+   * 2. Redistributions in binary form must reproduce the above copyright
+   *    notice, this list of conditions and the following disclaimer in
+   *    the documentation and/or other materials provided with the
+   *    distribution.
+   *
+   * 3. All advertising materials mentioning features or use of this
+   *    software must display the following acknowledgment:
+   *    "This product includes software developed by the OpenSSL Project
+   *    for use in the OpenSSL Toolkit. (http://www.openssl.org/)"
+   *
+   * 4. The names "OpenSSL Toolkit" and "OpenSSL Project" must not be used to
+   *    endorse or promote products derived from this software without
+   *    prior written permission. For written permission, please contact
+   *    openssl-core@openssl.org.
+   *
+   * 5. Products derived from this software may not be called "OpenSSL"
+   *    nor may "OpenSSL" appear in their names without prior written
+   *    permission of the OpenSSL Project.
+   *
+   * 6. Redistributions of any form whatsoever must retain the following
+   *    acknowledgment:
+   *    "This product includes software developed by the OpenSSL Project
+   *    for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+   *
+   * THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY
+   * EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+   * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE OpenSSL PROJECT OR
+   * ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+   * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+   * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+   * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+   * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+   * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+   * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+   * OF THE POSSIBILITY OF SUCH DAMAGE.
+   * ====================================================================
+   *
+   * This product includes cryptographic software written by Eric Young
+   * (eay@cryptsoft.com).  This product includes software written by Tim
+   * Hudson (tjh@cryptsoft.com).
+   *
+   */
+
+   Original SSLeay License
+   -----------------------
+
+  /* Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+   * All rights reserved.
+   *
+   * This package is an SSL implementation written
+   * by Eric Young (eay@cryptsoft.com).
+   * The implementation was written so as to conform with Netscapes SSL.
+   * 
+   * This library is free for commercial and non-commercial use as long as
+   * the following conditions are aheared to.  The following conditions
+   * apply to all code found in this distribution, be it the RC4, RSA,
+   * lhash, DES, etc., code; not just the SSL code.  The SSL documentation
+   * included with this distribution is covered by the same copyright terms
+   * except that the holder is Tim Hudson (tjh@cryptsoft.com).
+   * 
+   * Copyright remains Eric Young's, and as such any Copyright notices in
+   * the code are not to be removed.
+   * If this package is used in a product, Eric Young should be given attribution
+   * as the author of the parts of the library used.
+   * This can be in the form of a textual message at program startup or
+   * in documentation (online or textual) provided with the package.
+   * 
+   * Redistribution and use in source and binary forms, with or without
+   * modification, are permitted provided that the following conditions
+   * are met:
+   * 1. Redistributions of source code must retain the copyright
+   *    notice, this list of conditions and the following disclaimer.
+   * 2. Redistributions in binary form must reproduce the above copyright
+   *    notice, this list of conditions and the following disclaimer in the
+   *    documentation and/or other materials provided with the distribution.
+   * 3. All advertising materials mentioning features or use of this software
+   *    must display the following acknowledgement:
+   *    "This product includes cryptographic software written by
+   *     Eric Young (eay@cryptsoft.com)"
+   *    The word 'cryptographic' can be left out if the rouines from the library
+   *    being used are not cryptographic related :-).
+   * 4. If you include any Windows specific code (or a derivative thereof) from 
+   *    the apps directory (application code) you must include an acknowledgement:
+   *    "This product includes software written by Tim Hudson (tjh@cryptsoft.com)"
+   * 
+   * THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND
+   * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+   * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+   * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+   * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+   * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+   * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+   * SUCH DAMAGE.
+   * 
+   * The licence and distribution terms for any publically available version or
+   * derivative of this code cannot be changed.  i.e. this code cannot simply be
+   * copied and put under another distribution licence
+   * [including the GNU Public Licence.]
+   */
+  ```
+- **Name:** these keep Realtek's names. `Netrtuw_x64.inf` is not 8.3.
+  Nor are the setup's `Release notes/` folder, the three release notes
+  in it, and `DATA\`'s `RtlService.ini`, `background.jpg`,
+  `background2.jpg` and `text.file`.
+- **Modification:** none for `w98se-vista/`. It is the zip's `87-USB\`
+  folder, all of it, unchanged (owner, 2026-10-28: Realtek's setup and
+  utility for 98 SE, ME and 2000). Its driver folders stay in its
+  `RTL8187\` folder, where the setup looks for them. `w7/` holds only the
+  7 package's `Win7X86` and `Win7X64` driver folders, otherwise
+  unchanged (owner, 2026-10-27). Left out of the 7 package: its
+  InstallShield setup and files, the install batch files, `DATA\`,
+  `EAP\` and the release notes. Nothing in either package has been run
+  here. The setup's cabinets were listed and read with unshield, outside
+  this repository.
 
 Provenance of `rtl8187b/wxp-7/`:
 
@@ -1048,7 +1187,11 @@ Provenance of `rtl8192su/w2k-7/`:
   (`Win2K`, `WinXP`, `WinX64`, `VistaX86`, `VistaX64`, `Win7X86`,
   `Win7X64`). Left out: the rest of the package, that is the
   InstallShield setup and its files, the install batch files, `DATA\`,
-  `EAP\` and the release notes.
+  `EAP\` and the release notes. The setup and utility were looked at
+  for 2000 (2026-10-28) and are still left out. Its cabinets also hold
+  FUPPES, a UPnP media server under the GNU GPL v2, with FFmpeg and
+  other libraries, and the package has no source for them. Its
+  `IsConfig.ini` also marks 2000 as not supported (`Win2K=0`).
 
 Provenance of `ar9271/wxp-7/`:
 

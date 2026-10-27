@@ -123,7 +123,8 @@ virtual machines (the repository owner's decision, 2026-10-22). Only
 NUSB 3.3's USB storage files (`nusb33/`) have been tried here, on
 Windows 98 SE. Some folders are exceptions to "as released". Davicom's
 `dm96xx/wxp-7/` was unpacked from Davicom's installer. The Realtek Wi-Fi
-folders hold only the driver folders of Realtek's packages. TP-Link's
+folders hold only the driver folders of Realtek's packages, except
+`rtl8187/w98se-vista/`, which is Realtek's whole package. TP-Link's
 `ar9271/wxp-7/` lacks its Windows 8 and 8.1 folders. NOTICE.md lists
 what was left out of each. One INF check was also made. Windows 98 SE reads ASIX's AX88172 INF for 98 SE and ME.
 That chip's section has the details.
@@ -416,14 +417,21 @@ before choosing a driver for them.
 
 ### Realtek
 
-Realtek's drivers, one folder per package. Each holds only the driver
+Realtek's drivers, one folder per package. Most hold only the driver
 folders of Realtek's "Auto Installation Program", one per system, as
-Realtek built them. Realtek's setup program and utility are not here
-(the owner's decision, 2026-10-27).
+Realtek built them. Their setup programs and utilities are not here
+(the owner's decision, 2026-10-27). XP and later set Wi-Fi with
+Windows' own settings.
+
+One exception is `rtl8187/w98se-vista/`. It is Realtek's RTL8187L
+package for 98 SE to Vista, whole and unchanged. So it holds Realtek's
+setup program and its Wi-Fi utility for 98 SE, ME and 2000 (the owner's
+decision, 2026-10-28). The driver folders are in its `RTL8187\` folder,
+where Realtek's setup looks for them.
 
 | Folder | Systems (INF folder) | Driver | Chips |
 |---|---|---|---|
-| `rtl8187/w98se-vista/` | 98 SE (`Win98\`), ME (`WinME\`), 2000 and XP (`WinXP2K\`), XP x64 (`WinX64\`), Vista 32-bit (`VistaX86\`) and 64-bit (`VistaX64\`) | `rtl8187.sys` 5.1313.0613.2008 (Vista 6.1313.0613.2008). The XP x64 INF's `DriverVer` is 5.1312.0416.2008 | RTL8187L |
+| `rtl8187/w98se-vista/` | 98 SE (`RTL8187\Win98\`), ME (`RTL8187\WinME\`), 2000 and XP (`RTL8187\WinXP2K\`), XP x64 (`RTL8187\WinX64\`), Vista 32-bit (`RTL8187\VistaX86\`) and 64-bit (`RTL8187\VistaX64\`). Realtek's setup and utility: `Setup.exe` | `rtl8187.sys` 5.1313.0613.2008 (Vista 6.1313.0613.2008). The XP x64 INF's `DriverVer` is 5.1312.0416.2008 | RTL8187L |
 | `rtl8187/w7/` | 7, 32-bit (`Win7X86\`) and 64-bit (`Win7X64\`) | `rtl8187.sys` 6.1316.1209.2009 | RTL8187L |
 | `rtl8187b/wxp-7/` | XP (`WinXP\`), XP x64 (`WinX64\`), Vista (`VistaX86\`, `VistaX64\`), 7 (`Win7X86\`, `Win7X64\`) | `rtl8187B.sys` 5.1162.0610.2009 (XP x64 5.1160.0415.2009, Vista 6.1162.0610.2009, 7 62.1181.1105.2009) | RTL8187B |
 | `rtl8192su/w2k-7/` | 2000 (`Win2K\`), then XP to 7 in folders named as above | `rtl8192su.sys` 1084.53.0809.2011 (7: 1086.48.0809.2011) | RTL8188SU, RTL8191SU, RTL8192SU |
@@ -462,13 +470,14 @@ of the same IDs. They are here for Update Driver by hand. Use
 Use `rtwlanu17/` for a dongle that `rtwlanu/` does not list. One more
 overlap is allowed: Edimax `7392:7612` is in the RTL8187L driver for 7
 (revision `0100` only) and in the RTL8192SU drivers (any revision).
-Windows prefers the match with the revision.
+Windows prefers the match with the revision. Realtek splits the ID this
+way, and both stay staged (the owner's decision, 2026-10-28).
 
 `rtl8192cu/wxp-7/WinXP/` and `WinX64/` also hold `RTLBt.inf`, the
 RTL8723AU's Bluetooth half. It is not a Wi-Fi driver and is not staged.
 
 Install by pointing Update Driver on the adapter at the INF's folder, for
-example `rtl8187\w98se-vista\Win98\` or `rtwlanu\wxp-7\Win7X64\`.
+example `rtl8187\w98se-vista\RTL8187\Win98\` or `rtwlanu\wxp-7\Win7X64\`.
 
 ### Atheros (TP-Link's packages)
 
@@ -521,19 +530,25 @@ if that utility supports it.
 
 What the drivers here offer on 98 SE, ME and 2000:
 
-- RTL8187L (98 SE, ME, 2000): the adapter's own properties (Advanced
-  tab) set the network name (SSID) and channel. They have no key
-  setting. Realtek's release note for this driver lists "Implement AES
-  and WPA2" (2005), through Realtek's utility. That utility is not here.
+- RTL8187L (98 SE, ME, 2000): run `rtl8187\w98se-vista\Setup.exe`.
+  It is Realtek's own setup. It installs Realtek's driver from the
+  `RTL8187\` folder beside it, and Realtek's Wi-Fi utility. The utility
+  sets the network name and the key. Realtek's settings for the utility
+  turn WPA2 on, on 98 SE and ME as on 2000. The driver's release note
+  lists "Implement AES and WPA2" (2005). Without the utility, the
+  adapter's own properties (Advanced tab) set the network name (SSID)
+  and channel. They have no key setting.
 - RTL8188SU, RTL8191SU, RTL8192SU (2000): the adapter's own properties
-  have no network-name setting. Realtek's utility files name WPA2. That
-  utility is not here.
+  have no network-name setting. Realtek's utility is not here. Its
+  setup program carries a GPL media server without its source. Realtek's
+  setup also marks 2000 as not supported.
 - AR9170 (2000): TP-Link's utility is in the package (`Setup.exe`). Its
   WPA2 support is not stated in what was read.
 
-So no driver here is known to give WPA2 on 98 SE, ME or 2000 with only
-the files in this pack. Realtek's full packages, with their utilities,
-are at the archived links in NOTICE.md.
+None of these setup programs has been run here. So no driver here is
+known to give WPA2 on 98 SE, ME or 2000. The RTL8187L with Realtek's
+utility is the one most likely to. Realtek's full packages are at the
+archived links in NOTICE.md.
 
 ## `non-free/serial/` - USB serial bridges
 
