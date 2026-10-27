@@ -1,0 +1,58 @@
+//======================================================================
+// ASIX AX88772/AX88772A Windows Vista 64-bit driver
+// Revision History
+//
+// This document describes the major changes, additions and bug fixes made 
+// to the driver between released versions. 
+//======================================================================
+
+Version 3.10.3.14 (2008-11-18)
+1. Add PHY ON/OFF sequence procedure.
+2. Add DisplayLink USB bandwidth solution.
+3. Solve the issue that driver stops working after remove USB memory stick.
+4. Add MSI PID/VID
+
+Version 3.10.3.13 (2008-06-18)
+1. Modified based on v3.8.3.10.
+2. Fix system hang up when connecting ADSL with PPPOE.
+3. Modify to ignore the power management setting of Vista system
+
+Version 3.10.3.12 (2008-06-16)
+1. Internal release.
+
+Version 3.10.3.11 (2008-06-05)
+1. Internal release.
+
+Version 3.10.3.10 (2008-05-09)
+1. Modify some line location in the OID set routine to fix Inventec UMPC system WHQL test issue.
+2. Add phy check when resume from sleep/hibernate mode.
+3. Add to check the power management setting of Vista system
+
+Version 3.10.3.9 (2007-09-13)
+1. Fix VLAN issue. (Send packets without VLAN tag when VLAN is enable.)
+
+Version 3.10.3.8 (2007-09-06)
+1. Fix WOL issue. (when enter sleep mode, some vendor commands aren't sent.)
+
+Version 3.10.3.7 (2007-05-15)
+1. Protect oid cancel routine.
+2. Add WdfRequestCancelSentRequest in halt(), for avoid delay complete routine.
+
+Version 3.10.3.6 (2007-03-21)
+1. AX88772/AX88772A combined driver. (New release for AX88772A)
+2. Fix Toshiba UWB dock issue.
+
+
+============================================================
+<<< Note >>>
+The remote Wake-On-LAN function of AX88772A/AX88772 Vista driver doesn't care of 
+the "Power Management" setting in the AX88772A/AX88772 Vista driver property in order to 
+workaround some potential power management function issues of the earlier Vista system. 
+
+User just needs to set the "WakeUp" parameter of AX88772A/AX88772 Vista driver 
+to enable the remote Wake-On-LAN function. If you still have problems, please contact
+the manufacturer of your AX88772A/AX88772 device to make sure if your AX88772A/AX88772 
+board is supported the remote Wake-On-LAN capability or not. 
+============================================================
+
+

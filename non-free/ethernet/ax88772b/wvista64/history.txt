@@ -1,0 +1,18 @@
+//======================================================================
+// ASIX AX88772B Windows Vista 64-bit driver
+// Revision History
+//
+// This document describes the major changes, additions and bug fixes made 
+// to the driver between released versions. 
+//======================================================================
+
+Version	5.10.2.0 (2010-05-21)
+1. Reduce TX CPU utilization.
+2. Reduce power consumption when Ethernet PHY power down.
+
+Version	5.10.1.0 (2010-04-22)
+1. Fix Ethernet link can't change to 10mbps after sleep, when set WoL link
+   speed to 10mbps and forces connection speed.
+
+Version	5.10.0.0 (2010-04-08)
+1. First release.

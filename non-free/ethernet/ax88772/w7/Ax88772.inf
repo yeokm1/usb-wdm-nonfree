@@ -1,0 +1,280 @@
+;****************************************************************
+; ASIX AX88772/772A USB2.0 to Fast Ethernet Adapter
+;
+; Copyright 2003-2009, ASIX Electronics Corporation
+;
+; Version: 3.12.3.2	for windows 7
+;****************************************************************
+[Version]
+Signature  = "$Windows NT$"
+CatalogFile = ax88772ex.cat
+Class      = Net
+ClassGUID  = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider   = %ASIX%
+DriverVer = 06/10/2009, 3.12.3.2
+
+[Manufacturer]
+%ASIX%   = USB
+
+[ControlFlags]
+ExcludeFromSelect = USB\VID_0B95&PID_7720, USB\VID_0B95&PID_772A, USB\VID_0DB0&PID_A877, USB\VID_0421&PID_772A
+
+[USB]
+%AX88772.DeviceDesc% = AX88772.Ndi,USB\VID_0B95&PID_7720
+%AX88772A.DeviceDesc% = AX88772A.Ndi,USB\VID_0B95&PID_772A
+%MSI.DeviceDesc% = AX88772A.Ndi,USB\VID_0DB0&PID_A877
+%Nokia.DeviceDesc% = AX88772A.Ndi,USB\VID_0421&PID_772A
+
+;****************************************************************
+[AX88772.Ndi]
+AddReg          = AX88772.NT.Reg, AX88772.Con.Reg
+Characteristics = 0x84
+BusType         = 15
+CopyFiles       = CopyFile.Sys
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 14		; NdisPhysicalMedium802_3
+
+[AX88772.Ndi.Services]
+AddService = AX88772, 2, AX88772.Service, Common.EventLog
+
+[AX88772A.Ndi]
+AddReg          = AX88772.NT.Reg, AX88772A.Con.Reg
+Characteristics = 0x84
+BusType         = 15
+CopyFiles       = CopyFile.Sys
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 14		; NdisPhysicalMedium802_3
+
+[AX88772A.Ndi.Services]
+AddService = AX88772, 2, AX88772.Service, Common.EventLog
+
+;****************************************************************
+; Driver parameters
+;****************************************************************
+[AX88772.Con.Reg]
+HKR, ,               ChipCode,   0, "0"
+
+; Connection Type
+HKR,Ndi\params\*SpeedDuplex,ParamDesc,,%ConnectionType%
+HKR,Ndi\params\*SpeedDuplex,default,,"0"
+HKR,Ndi\params\*SpeedDuplex,type,,"enum"
+HKR,Ndi\params\*SpeedDuplex\enum,0,,%AutoSense%
+HKR,Ndi\params\*SpeedDuplex\enum,1,,%10Half%
+HKR,Ndi\params\*SpeedDuplex\enum,2,,%10Full%
+HKR,Ndi\params\*SpeedDuplex\enum,3,,%100Half%
+HKR,Ndi\params\*SpeedDuplex\enum,4,,%100Full%
+
+; Mac Address
+HKR,Ndi\params\NetworkAddress,ParamDesc,0,%NetworkAddress%
+HKR,Ndi\params\NetworkAddress,type,0,"edit"
+HKR,Ndi\params\NetworkAddress,default,0, "000000000000"
+HKR,Ndi\params\NetworkAddress,LimitText,0,"12"
+HKR,Ndi\params\NetworkAddress,UpperCase,0,"1"
+HKR,Ndi\params\NetworkAddress,Optional,0,"1"
+
+; Flow Control
+HKR,Ndi\params\*FlowControl,ParamDesc,,%FlowControl%
+HKR,Ndi\params\*FlowControl,default,,"3"
+HKR,Ndi\params\*FlowControl,type,,"enum"
+HKR,Ndi\params\*FlowControl\enum,0,,%Disable%
+HKR,Ndi\params\*FlowControl\enum,1,,%TxEnable%
+HKR,Ndi\params\*FlowControl\enum,2,,%RxEnable%
+HKR,Ndi\params\*FlowControl\enum,3,,%AllEnable%
+
+; Wake Up
+HKR,Ndi\params\WakeUp,ParamDesc,,%WakeUp%
+HKR,Ndi\params\WakeUp,default,,"0"
+HKR,Ndi\params\WakeUp,type,,"enum"
+HKR,Ndi\params\WakeUp\enum,0,,%Disable%
+HKR,Ndi\params\WakeUp\enum,2,,%LinkUp%
+HKR,Ndi\params\WakeUp\enum,4,,%MagicPacket%
+HKR,Ndi\params\WakeUp\enum,6,,%Both%
+
+; Qos Packet Tagging
+HKR,Ndi\params\QosTag,ParamDesc,,%QoSTagging%
+HKR,Ndi\params\QosTag,default,,"0"
+HKR,Ndi\params\QosTag,type,,"enum"
+HKR,Ndi\params\QosTag\enum,0,,%Disable%
+HKR,Ndi\params\QosTag\enum,1,,%Enable%
+
+[AX88772A.Con.Reg]
+HKR, ,               ChipCode,   0, "1"
+
+; Connection Type
+HKR,Ndi\params\*SpeedDuplex,ParamDesc,,%ConnectionType%
+HKR,Ndi\params\*SpeedDuplex,default,,"0"
+HKR,Ndi\params\*SpeedDuplex,type,,"enum"
+HKR,Ndi\params\*SpeedDuplex\enum,0,,%AutoSense%
+HKR,Ndi\params\*SpeedDuplex\enum,1,,%10Half%
+HKR,Ndi\params\*SpeedDuplex\enum,2,,%10Full%
+HKR,Ndi\params\*SpeedDuplex\enum,3,,%100Half%
+HKR,Ndi\params\*SpeedDuplex\enum,4,,%100Full%
+
+; Mac Address
+HKR,Ndi\params\NetworkAddress,ParamDesc,0,%NetworkAddress%
+HKR,Ndi\params\NetworkAddress,type,0,"edit"
+HKR,Ndi\params\NetworkAddress,default,0, "000000000000"
+HKR,Ndi\params\NetworkAddress,LimitText,0,"12"
+HKR,Ndi\params\NetworkAddress,UpperCase,0,"1"
+HKR,Ndi\params\NetworkAddress,Optional,0,"1"
+
+; Flow Control
+HKR,Ndi\params\*FlowControl,ParamDesc,,%FlowControl%
+HKR,Ndi\params\*FlowControl,default,,"3"
+HKR,Ndi\params\*FlowControl,type,,"enum"
+HKR,Ndi\params\*FlowControl\enum,0,,%Disable%
+HKR,Ndi\params\*FlowControl\enum,1,,%TxEnable%
+HKR,Ndi\params\*FlowControl\enum,2,,%RxEnable%
+HKR,Ndi\params\*FlowControl\enum,3,,%AllEnable%
+
+; Wake Up
+HKR,Ndi\params\WakeUp,ParamDesc,,%WakeUp%
+HKR,Ndi\params\WakeUp,default,,"0"
+HKR,Ndi\params\WakeUp,type,,"enum"
+HKR,Ndi\params\WakeUp\enum,0,,%Disable%
+HKR,Ndi\params\WakeUp\enum,2,,%LinkUp%
+HKR,Ndi\params\WakeUp\enum,4,,%MagicPacket%
+HKR,Ndi\params\WakeUp\enum,8,,%WakeUpFrame%
+HKR,Ndi\params\WakeUp\enum,6,,%LinkUp-MagicPacket%
+HKR,Ndi\params\WakeUp\enum,10,,%LinkUp-WakeUpFrame%
+HKR,Ndi\params\WakeUp\enum,12,,%MagicPacket-WakeUpFrame%
+HKR,Ndi\params\WakeUp\enum,14,,%All%
+
+;Wake Up Frame
+HKR,Ndi\params\WakeUpFrameType,ParamDesc,,%WakeUpFrameType%
+HKR,Ndi\params\WakeUpFrameType,default,,"0"
+HKR,Ndi\params\WakeUpFrameType,type,,"enum"
+HKR,Ndi\params\WakeUpFrameType\enum,0,,%WindowsDefault%
+HKR,Ndi\params\WakeUpFrameType\enum,1,,%PING%
+HKR,Ndi\params\WakeUpFrameType\enum,2,,%ARP%
+HKR,Ndi\params\WakeUpFrameType\enum,3,,%PING-ARP%
+
+; Qos Packet Tagging
+HKR,Ndi\params\QosTag,ParamDesc,,%QoSTagging%
+HKR,Ndi\params\QosTag,default,,"0"
+HKR,Ndi\params\QosTag,type,,"enum"
+HKR,Ndi\params\QosTag\enum,0,,%Disable%
+HKR,Ndi\params\QosTag\enum,1,,%Enable%
+
+;VLAN ID
+HKR, Ndi\Params\VLAN_ID,  ParamDesc,  , %VLANID%
+HKR, Ndi\Params\VLAN_ID,  Type,       , "int"
+HKR, Ndi\Params\VLAN_ID,  Default,    , "0"
+HKR, Ndi\params\VLAN_ID,  min,        , "0"
+HKR, Ndi\params\VLAN_ID,  max,        , "4095"
+HKR, Ndi\params\VLAN_ID,  step,       , "1"
+HKR, NDI\params\VLAN_ID,  UpperCase,  , "1"
+HKR, NDI\params\VLAN_ID,  optional,   , "1"
+
+;****************************************************************
+; Install section for Windows NT 5
+;****************************************************************
+[AX88772.NT.Reg]
+; Interfaces
+HKR, Ndi\Interfaces, LowerRange, 0, "ethernet"
+HKR, Ndi\Interfaces, UpperRange, 0, "ndis5"
+HKR, Ndi,            Service,    0, "AX88772"
+
+HKR,,LogErrorMessages, 0, "1"
+
+[AX88772.Service]
+DisplayName    = %AX88772.DeviceDesc%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\ax88772.sys
+LoadOrderGroup = NDIS
+
+[Common.EventLog]
+AddReg = Common.AddEventLog.Reg
+
+[Common.AddEventLog.Reg]
+HKR, , EventMessageFile, 0x00020000,"%%SystemRoot%%\System32\netevent.dll;%%SystemRoot%%\system32\drivers\ax88772.sys"
+HKR, , TypesSupported  , 0x00010001, 7
+
+[CopyFile.Sys]
+ax88772.sys,,,2
+
+;****************************************************************
+; WDF Coinstaller installation section
+;****************************************************************
+[AX88772.Ndi.CoInstallers]
+AddReg=AX88772.CoInstaller.AddReg
+CopyFiles=AX88772.CoInstaller.CopyFiles
+
+[AX88772A.Ndi.CoInstallers]
+AddReg=AX88772.CoInstaller.AddReg
+CopyFiles=AX88772.CoInstaller.CopyFiles
+
+[AX88772.CoInstaller.AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[AX88772.CoInstaller.CopyFiles]
+WdfCoInstaller01009.dll
+
+[AX88772.Ndi.Wdf]
+KmdfService = AX88772, AX88772.wdfsect
+
+[AX88772A.Ndi.Wdf]
+KmdfService = AX88772, AX88772.wdfsect
+
+[AX88772.wdfsect]
+KmdfLibraryVersion = 1.9
+
+;**********************************************************************
+; Destination directories
+;**********************************************************************
+[DestinationDirs]
+CopyFile.Sys	= 12
+AX88772.CoInstaller.CopyFiles = 11
+
+[SourceDisksNames]
+1=%AX88772.DiskName%,,
+
+[SourceDisksFiles]
+ax88772.sys=1,,ax88772.sys,10000
+WdfCoInstaller01009.dll = 1
+
+;**********************************************************************
+; Localizable strings
+;**********************************************************************
+[Strings]
+ASIX = "ASIX"
+AX88772.DiskName = "USB2.0 to Fast Ethernet Driver Diskette"
+AX88772.DeviceDesc = "ASIX AX88772 USB2.0 to Fast Ethernet Adapter"
+AX88772A.DeviceDesc = "ASIX AX88772A USB2.0 to Fast Ethernet Adapter"
+MSI.DeviceDesc = "MSI USB Network Controller"
+Nokia.DeviceDesc = "Nokia Connectivity Adapter for USB to LAN AD-73"
+AX88772.DisplayName = "USB2.0 to Fast Ethernet Adapter"
+
+ConnectionType         = "Connection Type"
+AutoSense              = "AutoSense"
+10Half                 = "10BaseT Half_Duplex"
+10Full                 = "10BaseT Full_Duplex"
+100Half                = "100BaseTx Half_Duplex"
+100Full                = "100BaseTx Full_Duplex"
+NetworkAddress         = "NetworkAddress"
+FlowControl            = "Flow Control"
+Disable                = "Disable"
+Enable                 = "Enable"
+TxEnable               = "Tx Enable"
+RxEnable               = "Rx Enable"
+AllEnable              = "Rx & Tx Enable"
+WakeUp                 = "Wake Up"
+LinkUp                 = "Link Up"
+MagicPacket            = "Magic Packet"
+WakeUpFrame            = "Wake-Up Frame"
+LinkUp-MagicPacket     = "Link Up/Magic Packet"
+LinkUp-WakeUpFrame     = "Link Up/Wake-Up Frame"
+MagicPacket-WakeUpFrame= "Magic Packet/Wake-Up Frame"
+All                    = "All"
+Both                   = "Both"
+QoSTagging             = "QoS Packet Tagging"
+WakeUpFrameType        = "Wake-Up Frame Type"
+WindowsDefault         = "Windows Default"
+PING                   = "PING"
+ARP                    = "ARP"
+PING-ARP               = "PING/ARP"
+VLANID                 = "VLAN ID"

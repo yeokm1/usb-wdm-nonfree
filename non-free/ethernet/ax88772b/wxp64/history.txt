@@ -1,0 +1,21 @@
+//======================================================================
+// ASIX AX88772B Windows XP 64-bit driver
+// Revision History
+//
+// This document describes the major changes, additions and bug fixes made 
+// to the driver between released versions. 
+//======================================================================
+
+Version	5.6.3.0 (2010-05-21)
+1. Reduce TX CPU utilization.
+
+Version	5.6.2.0 (2010-05-10)
+1. Use WDF instead of WDM.
+2. Solve BSOD issue when plug device into NEC USB 3.0 adapter.
+
+Version	5.6.1.0 (2010-04-23)
+1. Fix Ethernet link can't change to 10mbps after sleep, when set WoL link
+   speed to 10mbps and forces connection speed.
+
+Version 5.6.0.0 (2010-04-15)
+1. First release.

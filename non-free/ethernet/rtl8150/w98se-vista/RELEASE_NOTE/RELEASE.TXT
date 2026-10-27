@@ -1,0 +1,252 @@
+################################################################################
+
+
+  Name:          RTSUSBNT.101
+
+  Version:       V1.01
+
+  Released By:   Owen Wei
+
+  Release Date:  2001.01.31
+
+  Changed File:       
+
+  Command: 1. First released NDIS5 driver for RTL8150.
+
+################################################################################
+
+
+  Name:          RTSUSBNT.102
+
+  Version:       V1.02
+
+  Released By:   Owen Wei
+
+  Release Date:  2001.03.08
+
+  Changed File:       
+
+  Command: 1. Release for WHQL logo.
+
+################################################################################
+
+
+ Name:          RTSUSBNT.104
+
+  Version:       V1.04
+
+  Released By:   Owen Wei
+
+  Release Date:  2001.05.23
+
+  Changed File:       
+
+  Command: 1. Let RTL8150D pass the HCT test.
+	   2. Windows 98 First Edition with RTL8150 plugged can be shutdown or 
+	      restarted properly.
+	   3. RTL8150 can be hot-unplugged from Windows 98 First Edition.
+	   4. RTL8150 can work properly with Windows XP with VIA or Intel chipset.
+	   5. Windows XP with RTL8150 plugged can be restarted properly.
+	   6. Set the default vaules of "Link Changed Wakeup Up", "Magic Packet
+              Wake Up" and "Wakkup Frame Wake Up" to be DISABLE.
+
+
+################################################################################
+ 
+  Name:         RTLUSBNT.111
+
+  Version:      V1.11
+
+  Released by:  Owen Wei
+
+  Release Date: 2002.01.22
+
+  Changed file:
+
+  Command:      1. Improve the Tx/Rx performance in dual-processor environment.
+                2. Get Windows XP logo on 2002.01.21
+
+################################################################################
+
+  Name:         RTLUSBNT.112
+
+  Version:      V1.12
+
+  Released by:  Owen Wei
+
+  Release Date: 2002.02.08
+
+  Changed file:
+
+  Command:      1. v1.11 can not work properly with Sis(OHCI) chipset, this
+                   version fixs it.
+
+################################################################################
+
+  Name:         RTLUSBNT.113
+
+  Version:      V1.13
+
+  Released by:  Owen Wei
+
+  Release Date: 2002.02.21
+
+  Changed file:
+
+  Command:      1. Get the WHQL Windows XP logo.
+
+################################################################################
+
+  Name:         RTLUSBNT.115
+
+  Version:      V1.15
+
+  Released by:  Owen Wei
+
+  Release Date: 2002.5.10
+
+  Changed file:
+
+  Command:      1. Fix the "halt" issue of hot-unplugging in Windows 98 and
+                   Windows ME.
+                2. Pass HCT 10.5 in Windows XP.
+
+################################################################################
+
+  Name:         RTLUSBNT.116
+
+  Version:      V1.16
+
+  Released by:  Owen Wei
+
+  Release Date: 2002.06.07
+
+  Changed file:
+
+  Command:      1. Modify the force-mode algorithm for dual-speed hub.
+
+################################################################################
+
+  Name:         RTLUSBNT.118
+
+  Version:      V1.18
+
+  Released by:  Owen Wei
+
+  Release Date: 2003.05.22
+
+  Changed file:
+
+  Command:      1. Pass thw Windows 2000 HCT test with NdisTest 4.03.0030.
+
+################################################################################
+
+  Name:         RTLUSBNT.119
+
+  Version:      V1.19
+
+  Released by:  Owen Wei
+
+  Release Date: 2003.08.01
+
+  Changed file:
+
+  Command:      1. Fix the issue: the Mitac NB ML900 crash after waking up from standby.
+
+################################################################################
+
+  Name:         RTLUSBNT.120
+
+  Version:      V1.20
+
+  Released by:  Owen Wei
+
+  Release Date: 2004.12.08
+
+  Changed file:
+
+  Command:      1. Fix the issue: The driver can not been loaded successfully
+		   in Windows 98 SE & Windows ME.
+
+################################################################################
+
+  Name:         RTLUSBNT.121
+
+  Version:      V1.21
+
+  Released by:  Chai-Ling Lu
+
+  Release Date: 2005.10.13
+
+  Changed file:
+
+  Command:      1. Reading MediaStst Register unexactly in initializeAndStartNIC function
+		   causes disconnection problem
+		2. Zero padding in NdisToUsbPacket function
+		3. Modify ConfigureDevice function to prevent bulescreen problem
+
+PS. SYS file is 1194 version
+    INF file is 120 version
+
+###################################################################################
+
+  Name:         RTLUSBNT.122
+
+  Version:      V1.22
+
+  Released by:  Hsin-I Wu
+
+  Release Date: 2006.4.28
+
+  Changed file:
+
+  Command:      1. fix on some dual cpu system packet receive will stop when 
+		   bulk-in IRP return an error number
+		2. fix memory spin lock problem to prevent windows crash
+
+###################################################################################
+
+  Name:         RTLUSBNT.124
+
+  Version:      V1.24
+
+  Released by:  Hsin-I Wu
+
+  Release Date: 2006.7.24
+
+  Changed file:
+
+  Command:      
+                1. fix on some dual cpu system packet send will drop packet		 
+		2. change TX send architecture
+
+###################################################################################
+
+  Name:         RTLUSBNT.125
+
+  Version:      V1.25
+
+  Released by:  Realtek SW
+
+  Release Date: 2007.8.31
+
+  Changed file:
+
+  Command:      
+                1. Add support for vista
+
+###################################################################################
+
+  Name:         RTLUSBNT.126
+
+  Version:      V1.26
+
+  Released by:  Realtek SW
+
+  Release Date: 2008.4.11
+
+  Changed file:
+
+  Command:      
+                1. Fix XP/VISTA may not receive any packet after re-start
+

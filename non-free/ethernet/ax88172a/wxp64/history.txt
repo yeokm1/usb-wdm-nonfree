@@ -1,0 +1,29 @@
+//======================================================================
+// ASIX AX88172A Windows XP 64-bit driver
+// Revision History
+//
+// This document describes the major changes, additions and bug fixes made 
+// to the driver between released versions. 
+//======================================================================
+
+Version 1.6.0.6 (2010-06-02)
+1. Support Sigma Designs's AX88172A PHY mode. EEPROM offset 0x17 value is 0x4011.
+2. Modify the inf file. Let the driver only can be installed on Windows XP and 2003.
+
+Version 1.6.0.5 (2008-11-21)
+1. Add IOCTL I2C & SPI interface API.
+2. Change interrupt in interval from 160ms to 128ms.
+
+Version 1.6.0.4 (2008-06-05)
+1. Support fiber phy.
+
+Version 1.6.0.3 (2007-11-16)
+1. Stop send request when usb driver return error.
+2. Add IOCTL UART interface API.
+
+Version 1.6.0.2 (2007-11-13)
+1. Fix phy mode always setting to Reverse-MII bug.
+
+Version 1.6.0.1 (2007-10-11)
+1. Initial release.
+

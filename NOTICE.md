@@ -6,7 +6,8 @@ Every file under `non-free/` belongs to its authors, not to the owner of this
 repository, and so does every file in `nusb33/w98se/` (below). Each
 folder under `non-free/` has its table below, and each package its
 provenance record (README.md, "Where each package comes from"); a package
-added later adds both. Searches recorded below were made on 2026-10-20.
+added later adds both. Searches recorded below were made on 2026-10-20,
+except where a package says otherwise.
 
 ### `nusb33/`, kept apart
 
@@ -33,9 +34,21 @@ separately (owner, 2026-10-22).
 | All 73 files in `rtl815x/wxp/` | Realtek Semiconductor Corp.; its setup engine (`setup.exe`, `ISSetup.dll`, `data1.cab` and the files with them) is Flexera's InstallShield, as Realtek ships it | 5.23 (`rtuxp.INF` `DriverVer` 01/23/2018,5.23.0123.2018) |
 | All 73 files in `rtl815x/wvista/` | as `rtl815x/wxp/` | 6.27 (`rtux86lh.INF` `DriverVer` 12/12/2017,6.27.1212.2017) |
 | All 92 files in `rtl815x/w7/` | as `rtl815x/wxp/` | 7.61.20 (`rtump62x86sta.INF` `DriverVer` 11/02/2021,7.61.20.1102) |
+| All 3 files in `ax88772/wxp64/`, all 4 in `ax88772/wvista64/`; in `ax88772/wvista/`, `w7/` and `w7_64/` all files but the co-installer | ASIX Electronics Corporation | 3.6.3.18 (XP x64), 3.8.3.22 (Vista), 3.10.3.14 (Vista x64), 3.12.3.2 (7), 3.14.3.2 (7 x64) |
+| `ax88772/wvista/WdfCoInstaller01007.dll` | Microsoft Corporation, the KMDF 1.7 co-installer, as ASIX ships it with that driver | 1.7.6001.0 |
+| `ax88772/w7/WdfCoInstaller01009.dll`, `ax88772/w7_64/WdfCoInstaller01009.dll` | Microsoft Corporation, the KMDF 1.9 co-installer, as ASIX ships it with that driver | 1.9.7100.0 |
+| All 6 files in each of `ax88772b/w2k-xp/`, `wxp64/`, `wvista/`, `wvista64/`, all 4 in each of `ax88772b/w7/`, `w7_64/` | ASIX Electronics Corporation (`WdfCoInstaller01007.dll`, 1.7.6001.0: Microsoft Corporation, as ASIX ships it) | 5.4.3.0, 5.6.3.0, 5.8.2.0, 5.10.2.0, 5.12.12.0, 5.14.12.0 |
+| Both files in `ax88178/w98se-me/`, all 4 in each of `w2k-xp/`, `wxp64/`, all 5 in each of `wvista/`, `wvista64/`, `w7/`, `w7_64/` | ASIX Electronics Corporation (`WdfCoInstaller01007.dll`, 1.7.6001.0, and `WdfCoInstaller01009.dll`, 1.9.7600.16385: Microsoft Corporation, as ASIX ships them) | 1.0.3.46, 1.4.3.64, 1.6.3.64, 1.8.3.14, 1.10.3.14, 1.12.6.0, 1.14.6.0 |
+| Both files in `ax88172/w98se-me/`, all 3 in each of `w2k/`, `wxp/` | ASIX Electronics Corporation | 1.0.0.11, 2.3.0.2, 2.0.0.5 |
+| All 4 files in each of `ax88172a/w2k-xp/`, `wxp64/`, all 5 in each of `wvista/`, `wvista64/`, `w7/`, `w7_64/` | ASIX Electronics Corporation (`WdfCoInstaller01007.dll`, 1.7.6001.0, and `WdfCoInstaller01009.dll`, 1.9.7600.16385: Microsoft Corporation, as ASIX ships them) | 1.4.0.6, 1.6.0.6, 1.8.0.5, 1.10.0.5, 1.12.0.2, 1.14.0.2 |
+| All 5 files in `mcs7830/w98se-xp/`, all 4 in each of `wxp64/`, `wvista/`, `wvista64/`, all 3 in each of `w7/`, `w7_64/` | ASIX Electronics Corporation, for MosChip Semiconductor's line (`WdfCoInstaller01009.dll`, 1.9.7600.16385: Microsoft Corporation, as shipped) | 1.49.0.0, 1.49.0.0, 1.0.0.18, 1.0.0.18, 1.0.0.17, 1.0.0.17 (`DriverVer`) |
+| All 35 files in `rtl8150/w98se-vista/` | Realtek Semiconductor Corp.; its setup engine (`SETUP.EXE`, `ISSetup.dll`, `_Setup.dll`, `DATA1.CAB` and the files with them) is Flexera's InstallShield, as Realtek ships it | 5.126 (`WINXP\NET8150.INF` `DriverVer` 04/11/2008,5.126.0411.2008; `WIN98` and `WINME` 03/19/2004,5.1191.0319.2004) |
+| All 3 files in `dm96xx/w98se-2k/`, all 4 in `dm96xx/wxp/` | DAVICOM Semiconductor, Inc. | 5.0.1.0; 1.90 (`DriverVer` 03/12/2002,1.90.0312.2002) |
+| All 32 files in `dm96xx/wxp-7/` | DAVICOM Semiconductor, Inc. (`WdfCoInstaller01009.dll` in each folder, 1.9.7600.16385: Microsoft Corporation, as Davicom ships it) | V1.0.4.0 (`DriverVer` 5.0.2.0709 XP, 5.0.2.0406 Vista, 5.0.3.0703 7, 3.0.2.0416 2000) |
 
-They are ASIX's driver packages as released, unmodified. `SHA256.TXT`
-lists each file's hash.
+They are their makers' driver packages as released, unmodified, apart
+from `dm96xx/wxp-7/` (unpacked from Davicom's installer, below).
+`SHA256.TXT` lists each file's hash.
 
 Provenance of `ax88772/w98se-me/`:
 
@@ -212,6 +225,360 @@ Provenance of `rtl815x/` (`wxp/`, `wvista/`, `w7/`):
 - **Name:** the long names listed in README.md keep Realtek's names, as
   its INFs and setup name them.
 - **Modification:** none.
+
+Common to the packages added on 2026-10-27 (`ax88772/` XP x64 to 7,
+`ax88772b/`, `ax88178/`, `ax88172/`, `ax88172a/`, `mcs7830/`,
+`rtl8150/`, `dm96xx/`): the archives were found and fetched on
+2026-10-27 for the xHCI98 project's USB Ethernet survey, from the URLs
+given, into a scratch folder. They were unpacked with 7-Zip, and no
+installer or program in them was run. Each archive's SHA-256 below is
+of the file as fetched. Where a zip holds one folder named after itself
+(or a version folder), its files are copied without that folder. None of
+these archives holds a licence or EULA file, except Realtek's RTL8150
+package (below). The repository owner decided on 2026-10-27 that
+packages which carry only their maker's copyright, and no licence text,
+are added on the same basis as the ASIX and Realtek packages above.
+
+Provenance of `ax88772/wxp64/`, `wvista/`, `wvista64/`, `w7/`, `w7_64/`:
+
+- **Vendor:** ASIX Electronics Corporation (`WdfCoInstaller01007.dll`
+  and `WdfCoInstaller01009.dll`: Microsoft Corporation, shipped by ASIX
+  in the packages).
+- **Packages:** ASIX's AX88772/AX88772A drivers for XP x64 (3.6.3.18,
+  `DriverVer` 2007-09-21), Vista 32-bit (3.8.3.22, 2009-10-02), Vista
+  64-bit (3.10.3.14, 2008-11-18), 7 32-bit (3.12.3.2, 2009-06-10) and 7
+  64-bit (3.14.3.2, 2009-06-10), all marked WHQL in their names. ASIX's
+  archived AX88760/AX88772A driver page (2010) listed newer builds, XP
+  x64 3.6.3.38 and Vista 3.8.3.23 and 3.10.3.23. No copy of those files
+  could be found, so these older builds are carried (owner, 2026-10-27).
+- **Original download location:** ASIX's official URLs under
+  `http://www.asix.com.tw/FrootAttach/driver/`, which no longer serve
+  them. Archived copies, the ones used:
+  - <https://web.archive.org/web/20110802222733/http://www.asix.com.tw/FrootAttach/driver/AX88772_772A_WinXP2K3_64bit_Driver_v3.6.3.18_WHQL.zip>
+  - <https://web.archive.org/web/20111127002545/http://www.asix.com.tw/FrootAttach/driver/AX88772_772A_760_Vista_32bit_Driver_v3.8.3.22_WHQL.zip>
+  - <https://web.archive.org/web/20140703183417/http://www.asix.com.tw/FrootAttach/driver/AX88772_772A_Vista_64bit_Driver_v3.10.3.14_WHQL.zip>
+  - <https://web.archive.org/web/20111127002136/http://www.asix.com.tw/FrootAttach/driver/AX88772_772A_760_Win7_32bit_Driver_v3.12.3.2_WHQL.zip>
+  - <https://web.archive.org/web/20111214235701/http://www.asix.com.tw/FrootAttach/driver/AX88772_772A_760_Win7_64bit_Driver_v3.14.3.2_WHQL.zip>
+- **Obtained:** 2026-10-27, from the archived copies above.
+- **Archives:**
+  - `AX88772_772A_WinXP2K3_64bit_Driver_v3.6.3.18_WHQL.zip`, 26,708
+    bytes, SHA-256
+    `ce31fc3a8119d9d7df38edd8b40bb828da41498f3f6bc3bd791cee7cfffa06a7`
+  - `AX88772_772A_760_Vista_32bit_Driver_v3.8.3.22_WHQL.zip`, 1,105,293
+    bytes, SHA-256
+    `b49f0fb05a8ccf5a33d843bbbb38bfeafb530ed861a6c18a4f570cf376b7a364`
+  - `AX88772_772A_Vista_64bit_Driver_v3.10.3.14_WHQL.zip`, 33,026 bytes,
+    SHA-256
+    `c1b167f1b6f9dea416355e938aa1abcf4f4dac00ecc43df700fd47fe29804ba5`
+  - `AX88772_772A_760_Win7_32bit_Driver_v3.12.3.2_WHQL.zip`, 1,166,729
+    bytes, SHA-256
+    `16e4309bfa3bb04ad182de1a600b03ce0b065e94efc5f3e010195e0cf6c64ee0`
+  - `AX88772_772A_760_Win7_64bit_Driver_v3.14.3.2_WHQL.zip`, 1,428,346
+    bytes, SHA-256
+    `b512266a949ec00177dd0972c941f9dc156869935b1069e16055c0105882ba2c`
+- **Licence:** none found. The INFs carry "Copyright 2003-2007" (XP
+  x64), "Copyright 2003-2008" (Vista x64) and "Copyright 2003-2009" (the
+  others), "ASIX Electronics Corporation".
+- **Name:** these keep ASIX's names: `ax88772ex.cat`,
+  `history_Vista64.txt` and the co-installers are not 8.3.
+- **Modification:** none.
+
+Provenance of `ax88772b/`:
+
+- **Vendor:** ASIX Electronics Corporation (`WdfCoInstaller01007.dll`:
+  Microsoft Corporation, shipped by ASIX in the packages).
+- **Packages:** ASIX's AX88772B drivers for 2000 and XP 32-bit (5.4.3.0),
+  XP x64 (5.6.3.0), Vista 32-bit (5.8.2.0) and Vista 64-bit (5.10.2.0),
+  all `DriverVer` 2010-05-21 and marked WHQL; and ASIX's AX88772C/AX88772B
+  drivers for 7 32-bit (5.12.12.0) and 64-bit (5.14.12.0), `DriverVer`
+  2015-05-14, marked WHCK, the ones ASIX's AX88772C page lists today.
+- **Original download location:** for 2000 to Vista, ASIX's official URLs
+  under `http://www.asix.com.tw/FrootAttach/driver/`, which no longer
+  serve them. Archived copies, the ones used:
+  - <https://web.archive.org/web/20111106121911/http://www.asix.com.tw/FrootAttach/driver/AX88772B_XP2K_32bit_Driver_v5.4.3.0_WHQL.zip>
+  - <https://web.archive.org/web/20111106122513/http://www.asix.com.tw/FrootAttach/driver/AX88772B_XP2K3_64bit_Driver_v5.6.3.0_WHQL.zip>
+  - <https://web.archive.org/web/20111106121035/http://www.asix.com.tw/FrootAttach/driver/AX88772B_Vista_32bit_Driver_v5.8.2.0_WHQL.zip>
+  - <https://web.archive.org/web/20111106121442/http://www.asix.com.tw/FrootAttach/driver/AX88772B_Vista_64bit_Driver_v5.10.2.0_WHQL.zip>
+
+  For 7, ASIX's live official URLs, each served with the zip's name in
+  `Content-Disposition`: `https://www.asix.com.tw/en/support/download/file/241`
+  (32-bit) and `https://www.asix.com.tw/en/support/download/file/242`
+  (64-bit), from ASIX's AX88772C product page.
+- **Obtained:** 2026-10-27: 2000 to Vista from the archived copies, 7
+  from ASIX's live URLs.
+- **Archives:**
+  - `AX88772B_XP2K_32bit_Driver_v5.4.3.0_WHQL.zip`, 1,108,220 bytes,
+    SHA-256
+    `3ee77b145333e671614519ba81789c1467b6772c3a6e6e7103c00167b2f6f367`
+  - `AX88772B_XP2K3_64bit_Driver_v5.6.3.0_WHQL.zip`, 1,488,097 bytes,
+    SHA-256
+    `f120b772fce256fb0bfbe91da7396767b17f44954663a986cc319766a5095645`
+  - `AX88772B_Vista_32bit_Driver_v5.8.2.0_WHQL.zip`, 1,113,184 bytes,
+    SHA-256
+    `e3b2ceb8f1cf689af666bb7099f2b48d318a0baa6c0e176d2febff3319f924b4`
+  - `AX88772B_Vista_64bit_Driver_v5.10.2.0_WHQL.zip`, 1,493,165 bytes,
+    SHA-256
+    `19cdc77be51490383d90625048a96ff7513f76234713b8547ec99dcd944762eb`
+  - `AX88772C_772B_Win7_32bit_Driver_v5.12.12.0_WHCK.zip`, 51,395 bytes,
+    SHA-256
+    `959f783ebe0d160b5b2693fd99b2c146de41ad0f82a1daeb24c414f75f05b370`
+  - `AX88772C_772B_Win7_64bit_Driver_v5.14.12.0_WHCK.zip`, 59,790 bytes,
+    SHA-256
+    `79aa9496bffb0cb409c2f57539e077b47c142f12888c1358c2e53793f36f2fea`
+- **Licence:** none found. The INFs carry "Copyright 2010, ASIX
+  Electronics Corporation" (2010-2015 for 7); `readme.txt` or
+  `Readme.txt` describes the driver's settings and `history.txt` is
+  ASIX's change log. ASIX's download page states no terms.
+- **Name:** these keep ASIX's names: `ax88772bex.cat` and the
+  co-installer are not 8.3.
+- **Modification:** none.
+
+Provenance of `ax88178/`:
+
+- **Vendor:** ASIX Electronics Corporation (the KMDF co-installers:
+  Microsoft Corporation, shipped by ASIX in the packages).
+- **Packages:** ASIX's AX88178 drivers for 98 SE and ME (1.0.3.46,
+  `DriverVer` 2005-01-18), 2000 and XP 32-bit (1.4.3.64), XP x64
+  (1.6.3.64), Vista 32-bit (1.8.3.14) and 64-bit (1.10.3.14), all
+  2010-11-24 and marked WHQL, and 7 (and 8) 32-bit (1.12.6.0) and 64-bit
+  (1.14.6.0), 2013-07-12, marked WHCK.
+- **Original download location:** ASIX's official URLs under
+  `http://www.asix.com.tw/FrootAttach/driver/` (98 SE and ME) and
+  `http://asix.com.tw/FrootAttach/driver/` (the others), which no longer
+  serve them. Archived copies, the ones used:
+  - <https://web.archive.org/web/20060507062610/http://www.asix.com.tw:80/FrootAttach/driver/AX88178_WinME98_v1.0.3.46.zip>
+  - <https://web.archive.org/web/20171108160114/http://asix.com.tw/FrootAttach/driver/AX88178_XP2K_32bit_Driver_v1.4.3.64_WHQL.zip>
+  - <https://web.archive.org/web/20171108200702/http://asix.com.tw/FrootAttach/driver/AX88178_XP2K3_64bit_Driver_v1.6.3.64_WHQL.zip>
+  - <https://web.archive.org/web/20171108213820/http://asix.com.tw/FrootAttach/driver/AX88178_Vista_32bit_Driver_v1.8.3.14_WHQL.zip>
+  - <https://web.archive.org/web/20171108183405/http://asix.com.tw/FrootAttach/driver/AX88178_Vista_64bit_Driver_v1.10.3.14_WHQL.zip>
+  - <https://web.archive.org/web/20171108154804/http://asix.com.tw/FrootAttach/driver/AX88178_Win7_Win8.x_32bit_Driver_v1.12.6.0_WHCK.zip>
+  - <https://web.archive.org/web/20171108231631/http://asix.com.tw/FrootAttach/driver/AX88178_Win7_Win8.x_64bit_Driver_v1.14.6.0_WHCK.zip>
+- **Obtained:** 2026-10-27, from the archived copies above.
+- **Archives:** the 98 SE and ME zip holds its two files at its root.
+  - `AX88178_WinME98_v1.0.3.46.zip`, 13,974 bytes, SHA-256
+    `ad44af1ac38a60c0769bf63a63592699b04c5dde29192be1b69de1f6a1b20666`
+  - `AX88178_XP2K_32bit_Driver_v1.4.3.64_WHQL.zip`, 28,087 bytes,
+    SHA-256
+    `f957ae8c8e3f72c973fe5b76fa7a710b54d1f91458cc38276c735f69b7dc790c`
+  - `AX88178_XP2K3_64bit_Driver_v1.6.3.64_WHQL.zip`, 35,037 bytes,
+    SHA-256
+    `e4b72e43bca21894a97051469c0441f24539250db78d362c95e9bb84ac7298f6`
+  - `AX88178_Vista_32bit_Driver_v1.8.3.14_WHQL.zip`, 1,100,080 bytes,
+    SHA-256
+    `796de3d5e29cd2c9e6e485e9b717dada8597eb62fea7f4cc8d5775afa394290e`
+  - `AX88178_Vista_64bit_Driver_v1.10.3.14_WHQL.zip`, 1,477,896 bytes,
+    SHA-256
+    `891b94d5a4bdbf8fdeb29cfe88b750977ca284a80450611d978a87b109e9e95b`
+  - `AX88178_Win7_Win8.x_32bit_Driver_v1.12.6.0_WHCK.zip`, 1,454,326
+    bytes, SHA-256
+    `6a3dde95aa1d2f5bccd63ca69167e00cd0b523689b40049a7259681333f5a6f2`
+  - `AX88178_Win7_Win8.x_64bit_Driver_v1.14.6.0_WHCK.zip`, 1,714,600
+    bytes, SHA-256
+    `6220bb36412d6cef7b772e74ef907b3a90f166fdb3a77da159a21f0012ba1583`
+- **Licence:** none found. The INFs carry "Copyright 2004-2005" (98 SE
+  and ME), "Copyright 2004-2010" (2000 to XP x64), "Copyright 2003-2010"
+  (Vista) and "Copyright 2003-2013" (7), "ASIX Electronics Corporation".
+- **Name:** these keep ASIX's names: `ax88178ex.cat` and the
+  co-installers are not 8.3.
+- **Modification:** none.
+
+Provenance of `ax88172/`:
+
+- **Vendor:** ASIX Electronics Corporation.
+- **Packages:** ASIX's AX88172 drivers for 98 and ME (1.0.0.11,
+  `DriverVer` 2003-07-04), 2000 (2.3.0.2, 2003-07-02, WHQL) and XP
+  (2.0.0.5, 2003-05-22, WHQL). The 98 and ME INF's `Signature` reads
+  `"$Windows NT$"`. This project checked on 2026-10-27, in a Windows 98
+  SE virtual machine with no adapter, that 98 SE reads the INF (README.md,
+  the AX88172 paragraph); the driver itself has not been run.
+- **Original download location:** ASIX's official URLs under
+  `http://www.asix.com.tw/FrootAttach/driver/`, which no longer serve
+  them. Archived copies, the ones used:
+  - <https://web.archive.org/web/20060523201836/http://www.asix.com.tw:80/FrootAttach/driver/AX88172_WinME98_v1.0.0.11.zip>
+  - <https://web.archive.org/web/20060523201824/http://www.asix.com.tw:80/FrootAttach/driver/AX88172_Win2K_v2.3.0.2_WHQL.zip>
+  - <https://web.archive.org/web/20060523201904/http://www.asix.com.tw:80/FrootAttach/driver/AX88172_WinXP_v2.0.0.5_WHQL.zip>
+- **Obtained:** 2026-10-27, from the archived copies above.
+- **Archives:** each zip holds its files in a version folder
+  (`v1.0.0.11/`, `v2.3.0.2_WHQL/`, `v2.0.0.5_WHQL/`), copied without it.
+  - `AX88172_WinME98_v1.0.0.11.zip`, 8,811 bytes, SHA-256
+    `943c46dcb0a1cec68563222962a65d49f5b072df2ae806c2edf85069d22b329b`
+  - `AX88172_Win2K_v2.3.0.2_WHQL.zip`, 13,045 bytes, SHA-256
+    `0df00da45898719691167faa08ccdeaeffb0b68496c2967ddd13c9c2d779af86`
+  - `AX88172_WinXP_v2.0.0.5_WHQL.zip`, 12,951 bytes, SHA-256
+    `eb03c248f8ea7dbc4933cd6efaa3c2426f4fabfacca76e584dde6acb473458f5`
+- **Licence:** none found. The INFs carry "Copyright 2001-2003, ASIX
+  Electronics Corporation".
+- **Name:** these keep ASIX's names: `ax881722k.cat` and
+  `ax88172xp.cat` are not 8.3.
+- **Modification:** none.
+
+Provenance of `ax88172a/`:
+
+- **Vendor:** ASIX Electronics Corporation (the KMDF co-installers:
+  Microsoft Corporation, shipped by ASIX in the packages).
+- **Packages:** ASIX's AX88172A drivers for 2000 and XP 32-bit
+  (1.4.0.6), XP x64 (1.6.0.6), Vista 32-bit (1.8.0.5) and 64-bit
+  (1.10.0.5), and 7 32-bit (1.12.0.2) and 64-bit (1.14.0.2), all
+  `DriverVer` 2010-06-02 and marked WHQL. ASIX's AX88172A product page is
+  live and lists no Windows driver.
+- **Original download location:** ASIX's official URLs under
+  `http://asix.com.tw/FrootAttach/driver/`, which no longer serve them.
+  Archived copies, the ones used:
+  - <https://web.archive.org/web/20171109030053/http://asix.com.tw/FrootAttach/driver/AX88172A_XP2K_32bit_Driver_v1.4.0.6_WHQL.zip>
+  - <https://web.archive.org/web/20171109040410/http://asix.com.tw/FrootAttach/driver/AX88172A_XP2K3_64bit_Driver_v1.6.0.6_WHQL.zip>
+  - <https://web.archive.org/web/20171109005925/http://asix.com.tw/FrootAttach/driver/AX88172A_Vista_32bit_Driver_v1.8.0.5_WHQL.zip>
+  - <https://web.archive.org/web/20171109052754/http://asix.com.tw/FrootAttach/driver/AX88172A_Vista_64bit_Driver_v1.10.0.5_WHQL.zip>
+  - <https://web.archive.org/web/20171109070729/http://asix.com.tw/FrootAttach/driver/AX88172A_Win7_32bit_Driver_v1.12.0.2_WHQL.zip>
+  - <https://web.archive.org/web/20171109015339/http://asix.com.tw/FrootAttach/driver/AX88172A_Win7_64bit_Driver_v1.14.0.2_WHQL.zip>
+- **Obtained:** 2026-10-27, from the archived copies above.
+- **Archives:**
+  - `AX88172A_XP2K_32bit_Driver_v1.4.0.6_WHQL.zip`, 33,119 bytes,
+    SHA-256
+    `180a608be8ea7a1c3946a1fcc4eaf5ae5d50d5a1ba15f7da8e5c42b9afec13e5`
+  - `AX88172A_XP2K3_64bit_Driver_v1.6.0.6_WHQL.zip`, 41,548 bytes,
+    SHA-256
+    `bf9164547e6ef05c2afd311fb8c26dfbf864ff01f03d433d25dbdc755370e817`
+  - `AX88172A_Vista_32bit_Driver_v1.8.0.5_WHQL.zip`, 1,106,187 bytes,
+    SHA-256
+    `a729958ecaea1edd7634b5662305b64ffddc86bb05b898e06974520394e809c9`
+  - `AX88172A_Vista_64bit_Driver_v1.10.0.5_WHQL.zip`, 1,484,548 bytes,
+    SHA-256
+    `898bde6066be1d53334cc4fbf97a0ba945a9260622a3e4652d71d744d71c4d40`
+  - `AX88172A_Win7_32bit_Driver_v1.12.0.2_WHQL.zip`, 1,458,056 bytes,
+    SHA-256
+    `ca1c4a8d804c4c4071f46b58e7a297d0a76e6c2416ce62e6707fc387fcba34c9`
+  - `AX88172A_Win7_64bit_Driver_v1.14.0.2_WHQL.zip`, 1,718,450 bytes,
+    SHA-256
+    `c17f856a8768ac0f73568b3694213c8c3477cf5825e74f9e91d151a8a31af98a`
+- **Licence:** none found. The INFs carry "Copyright 2007-2010, ASIX
+  Electronics Corporation".
+- **Name:** these keep ASIX's names: `ax88172aex.cat` and the
+  co-installers are not 8.3.
+- **Modification:** none.
+
+Provenance of `mcs7830/`:
+
+- **Vendor:** ASIX Electronics Corporation, which took over MosChip
+  Semiconductor's USB Ethernet line (`WdfCoInstaller01009.dll`:
+  Microsoft Corporation, shipped in the Vista packages).
+- **Packages:** the MCS7830/7832/7730 drivers on ASIX's old download
+  server: "Windows XP/2000 32-bit Driver v1.49.0.0" (one INF that also
+  serves 98 SE and ME, with `mosmac98.sys`) and "Windows XP/2003 64-bit
+  Driver v1.49.0.0", both 2012-05-25, Vista 32- and 64-bit 1.0.0.18
+  (2011-08-09) and 7 32- and 64-bit 1.0.0.17 (2010-06-01), as ASIX's
+  archived MCS7830 driver page (2014) lists them.
+- **Original download location:** ASIX's official URLs under
+  `http://asix.com.tw/FrootAttach/driver/`, which no longer serve them.
+  Archived copies, the ones used:
+  - <https://web.archive.org/web/20171031193523/http://asix.com.tw/FrootAttach/driver/MCS783x_Windows_XP_32bit_Driver_v1.49.0.0_WHQL.zip>
+  - <https://web.archive.org/web/20171031185302/http://asix.com.tw/FrootAttach/driver/MCS783x_Windows_XP_64bit_Driver_v1.49.0.0_WHQL.zip>
+  - <https://web.archive.org/web/20171101010524/http://asix.com.tw/FrootAttach/driver/MCS783x_Vista_32bit_driver_v1.0.0.18_WHQL_20110902.zip>
+  - <https://web.archive.org/web/20171101021713/http://asix.com.tw/FrootAttach/driver/MCS783x_Vista_64bit_driver_v1.0.0.18_WHQL_20110902.zip>
+  - <https://web.archive.org/web/20171031191755/http://asix.com.tw/FrootAttach/driver/MCS783x_Win7_32bit_driver_v1.0.0.17_WHQL_20110902.zip>
+  - <https://web.archive.org/web/20171031164337/http://asix.com.tw/FrootAttach/driver/MCS783x_Win7_64bit_driver_v1.0.0.17_WHQL_20110902.zip>
+- **Obtained:** 2026-10-27, from the archived copies above.
+- **Archives:**
+  - `MCS783x_Windows_XP_32bit_Driver_v1.49.0.0_WHQL.zip`, 47,610 bytes,
+    SHA-256
+    `f8632cac2c506c34dfb7299c88c6a66f0545d2c8ec957c0b9e63a8787f7e1d8f`
+  - `MCS783x_Windows_XP_64bit_Driver_v1.49.0.0_WHQL.zip`, 34,040 bytes,
+    SHA-256
+    `dfcbd8258abb0f526ecae49399c15b3b18b80de20054d711103b861a491ea226`
+  - `MCS783x_Vista_32bit_driver_v1.0.0.18_WHQL_20110902.zip`, 1,451,221
+    bytes, SHA-256
+    `5747144fc5f2886dcf2710b79bd5f61adf7ea12fdf807ea799281501c7e7f333`
+  - `MCS783x_Vista_64bit_driver_v1.0.0.18_WHQL_20110902.zip`, 1,711,105
+    bytes, SHA-256
+    `4e5355b3f5ef3aac513aed5d19f506c8bd3861f6f723acf49ab86eaa6fcf19df`
+  - `MCS783x_Win7_32bit_driver_v1.0.0.17_WHQL_20110902.zip`, 32,275
+    bytes, SHA-256
+    `0f31509b36580d37bcbd435a67c29220a08f65b87a8eb291b7aee91b14483710`
+  - `MCS783x_Win7_64bit_driver_v1.0.0.17_WHQL_20110902.zip`, 36,370
+    bytes, SHA-256
+    `cd179d486b2d1c5bf8201db4a15bb5ef1f1e795c7bb8d3b57f8786ab88a4cebd`
+- **Licence:** none found. The INFs carry "(c) Copyright 2002 - 2012",
+  "2002-2012", "2002" or "2004", with no holder named; they name
+  "MosChip" as provider (XP x64: "ASIX Electronics Corporation").
+- **Name:** these keep the vendor's names: `usbmac_64.cat` and the
+  co-installer are not 8.3.
+- **Modification:** none.
+
+Provenance of `rtl8150/w98se-vista/`:
+
+- **Vendor:** Realtek Semiconductor Corp. The setup engine in the package
+  is InstallShield's, as Realtek ships it.
+- **Package:** "Windows Driver (Support Win98SE/WinME/Win2K/WinXP/Vista)",
+  listed on Realtek's RTL8150 software page with version 1.26 and the date
+  2008/04/28 (archived at
+  <https://web.archive.org/web/20210126192000/https://www.realtek.com/en/component/zoo/category/rtl8150l-m-software>);
+  the INFs' `DriverVer` is 5.126 (2008-04-11) for 2000 to Vista and
+  5.1191 (2004-03-19) for 98 SE and ME. Realtek lists no driver for 7.
+  This pack also offers the Vista INFs for 7 (owner, 2026-10-27; README.md).
+- **Original download location:** Realtek's own file server,
+  `https://www.realtek.com/rtdrivers/cn/nic/0001-8150_INST_5_126.zip`.
+  Archived copy, the one used:
+  <https://web.archive.org/web/20240219063703/https://www.realtek.com/rtdrivers/cn/nic/0001-8150_INST_5_126.zip>.
+- **Obtained:** 2026-10-27, from the archived copy above.
+- **Archive:** `0001-8150_INST_5_126.zip`, 4,215,806 bytes, SHA-256
+  `b8d07d77df1593484c7ebe2d45de6a75a0b937f083769ef4cef674ea4ffaa4ff`. It
+  holds the 35 files in a folder `8150_INST_5_126/`; they are copied
+  without that folder.
+- **Licence:** none found. `LICENSE/LICENSE.RTF` is InstallShield's
+  placeholder: "Please edit this file to add license message". The INFs
+  carry "Copyright 1996-2008, Realtek Semiconductor Corporation"
+  (1996-2003 for 98 SE and ME). `RELEASE_NOTE/RELEASE.TXT` is Realtek's
+  change log.
+- **Name:** these keep Realtek's names: `rtl8150x64.sys`, `ISSetup.dll`,
+  `_Setup.dll`, `InstCtrl.txt`, `Lanset2.dat`, `LANSETV6.DAT` and the
+  others named by its setup are carried as they are.
+- **Modification:** none.
+
+Provenance of `dm96xx/`:
+
+- **Vendor:** DAVICOM Semiconductor, Inc. (`WdfCoInstaller01009.dll`:
+  Microsoft Corporation, shipped by Davicom in the installer).
+- **Packages:**
+  - `w98se-2k/`: "DM9621A_Win982KV5.0.1.0", one INF for 98, ME and 2000,
+    5.0.1.0 (2012-11-21), with Davicom's `history.txt`.
+  - `wxp/`: Davicom's DM9601 "XP Logo" driver 1.90 (`DriverVer`
+    2002-03-12), with its catalog and Microsoft's logo submission file
+    `riverLanguageMap.xml` (the name as Davicom's zip has it).
+  - `wxp-7/`: "DM96xx Driver V1.0.4.0", which Davicom released as a
+    single installer program (2013). XP and XP x64 5.0.2.0709, Vista
+    5.0.2.0406, 7 5.0.3.0703, 2000 3.0.2.0416.
+- **Original download location:** Davicom's official URLs under
+  `http://www.davicom.com.tw/userfile/24247/`, which no longer serve
+  them. Archived copies, the ones used:
+  - <https://web.archive.org/web/20130528124624/http://www.davicom.com.tw/userfile/24247/DM9621A_Win982KV5.0.1.0.rar>
+  - <https://web.archive.org/web/20130528120714/http://www.davicom.com.tw/userfile/24247/DM9601_XP_Logo_Driver_587532_1.zip>
+  - <https://web.archive.org/web/20130528120023/http://www.davicom.com.tw/userfile/24247/DM96xx_Driver_V1.0.4.0.zip>
+- **Obtained:** 2026-10-27, from the archived copies above.
+- **Archives:** the RAR and the XP zip hold their files at their root.
+  - `DM9621A_Win982KV5.0.1.0.rar`, 20,219 bytes, SHA-256
+    `3b10033f48da265123c49b7cbb7b55d4057d70078947b3a3a7294ca69969f31e`
+  - `DM9601_XP_Logo_Driver_587532_1.zip`, 19,303 bytes, SHA-256
+    `2b81dfe45d027baa6007277951ecb2de2338acf6a49eae53c268c575c460efc4`
+  - `DM96xx_Driver_V1.0.4.0.zip`, 16,475,943 bytes, SHA-256
+    `dcc2552409ef13e92225e49818c01595c6d5897df92a40a9ee8e2ea01854d497`.
+    It holds one file, `DM96xx_Driver V1.0.4.0.exe` (16,667,819 bytes,
+    SHA-256
+    `22e2dcd3304c1b888f999f44940ca95532a718f54c107ea6822019133af7dc9e`),
+    an installer with a zip archive inside.
+- **Licence:** none found. The INFs carry no copyright line; they name
+  "DAVICOM Semiconductor, Inc." as provider.
+- **Name:** these keep Davicom's names: `riverLanguageMap.xml`, the
+  folders `Vista_x86/`, `Vista_x64/` and the co-installer are not 8.3.
+- **Modification:** `w98se-2k/` and `wxp/`: none. `wxp-7/`: the folders
+  were unpacked from Davicom's installer by this project, with 7-Zip,
+  without running it, and are otherwise unchanged (owner, 2026-10-27).
+  Of the installer's `Application Folder`, only the seven per-system
+  driver folders `Win2k`, `Winxp`, `XP_x64`, `Vista_x86`, `Vista_x64`,
+  `Win7_x86` and `Win7_x64` are carried, each with all its files
+  (including Davicom's `.pdb` symbol files). Left out: the installer
+  itself, its `DPInst*.exe` setup programs, the `Install_*.bat` and
+  `Uninstall_*.bat` files, the `WdfCoInstaller01009.dll` at its top, the
+  `Win8_x86` and `Win8_x64` folders (Windows 8 is outside this pack), its
+  empty folders (`Win98` and others) and its `SimpleInstaller.si`.
 
 ### `non-free/serial/`
 

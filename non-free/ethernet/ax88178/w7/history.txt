@@ -1,0 +1,54 @@
+//======================================================================
+// ASIX AX88178 Windows 7 32-bit driver
+// Revision History
+//
+// This document describes the major changes, additions and bug fixes made 
+// to the driver between released versions. 
+//======================================================================
+Version 1.12.6.0 (2013-07-12)
+1. Fixed Jumbo Frame failed issue.
+
+Version 1.12.5.0 (2013-02-04)
+1. Fixed Oid_Multicast_List failed issue.
+
+Version 1.12.4.0 (2012-10-15)
+1. Fixed TX/RX DPC timeout issue on Windows 8
+2. Changed numbering rule.
+
+Version 1.12.3.8 (2010-11-24)
+1. Support GMII MAC to MAC mode.
+2. Support Vitesse VSC8601 GigaPHY.
+3. Support Goodway's AX2300 X2 (Realtek RTL8211CL) GigaPHY LED setting.
+
+Version 1.12.3.7 (2009-10-02)
+1. Modify to support new Netronix's AX88178 + Realtek RTL8211CL GigaPHY LED setting.
+
+Version 1.12.3.6 (2009-09-28)
+1. Change the speed mode setting as the same as the AX88772/772A driver.
+
+Version 1.12.3.5 (2009-09-25)
+1. Fix the media mode setting after resume from suspend mode.
+
+Version 1.12.3.4 (2009-09-16)
+1. Fix the RGMII setting for Realtek RTL8211CL, RTL8211BN & RTL8251CL GigaPHY.
+2. Do software reset when initialize Realtek RTL8211CL, RTL8211BN & RTL8251CL GigaPHY.
+
+Version 1.12.3.3 (2009-09-11)
+1. Fix the link speed detection function when force PHY link speed.
+
+Version 1.12.3.2 (2009-08-27)
+1. Fix TX failure if unplug Ethernet cable and then plug Ethernet cable when network traffic is heavy.
+
+Version 1.12.3.1 (2009-08-12)
+1. Initial release for WIndows 7. (Modified from AX88178 Vista 32-bit driver v1.8.3.5)
+2. Support Realtek RTL8211CL, RTL8211BN & RTL8251CL GigaPHY solutions.
+3. Modify to support new Edimax's AX88178 + Marvell 88E1111 GigaPHY LED setting.
+4. Add USB error handling policy to process specific USB error.
+5. Add DisplayLink USB bandwidth solution.
+
+
+Note:
+Please double check the following driver parameters settings for normal operation 
+when the "Jumbo Packet" parameter was enabled (i.e. set to "4088 Bytes" or "9014 Bytes"), 
+1. Set the "Connection Type" parameter to "1000BaseT Full_Duplex".
+2. Enable the "Flow Control" parameter.

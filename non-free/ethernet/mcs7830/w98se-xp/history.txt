@@ -1,0 +1,12 @@
+//=============================================================================
+// ASIX MCS7830 Windows XP driver
+// Revision History
+//
+// This document describes the major changes, additions and bug fixes made to 
+// the driver between released versions. 
+//=============================================================================
+
+Release 1.49.0.0 : 25th May 2012
+=================================
+1) Fixed a bug which may run out the RX buffer descriptors.
+2) Added VLAN Processing support.

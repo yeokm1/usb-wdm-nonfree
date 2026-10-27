@@ -1,0 +1,13 @@
+//======================================================================
+// ASIX AX88772/AX88772A Windows 7 64-bit driver
+// Revision History
+//
+// This document describes the major changes, additions and bug fixes made 
+// to the driver between released versions. 
+//======================================================================
+
+Version	3.14.3.2 (2009-06-10)
+1. Restore the PHY Select Register after resume from hibernate.
+
+Version	3.14.3.1 (2009-06-05)
+1. First release. Modify from Vista driver v3.10.3.19.

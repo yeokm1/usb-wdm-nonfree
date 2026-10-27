@@ -1,0 +1,27 @@
+//======================================================================
+// ASIX AX88172A Windows Vista 64-bit driver
+// Revision History
+//
+// This document describes the major changes, additions and bug fixes made 
+// to the driver between released versions. 
+//======================================================================
+
+Version 1.10.0.5 (2010-06-02)
+1. Add error handling for USB and WDF.
+2. Modify the inf file. Let the driver only can be installed on Windows Vista.
+3. Support Sigma Designs's AX88172A PHY mode. EEPROM offset 0x17 value is 0x4011.
+
+Version 1.10.0.4 (2008-11-21)
+1. Add WMI I2C & SPI interface API.
+2. Change interrupt in interval from 160ms to 128ms.
+3. Solve the issue that driver stops working after remove USB memory stick.
+
+Version 1.10.0.3 (2008-07-10)
+1. Support fiber phy.
+
+Version 1.10.0.2 (2007-12-21)
+1. Add WMI UART interface API.
+
+Version 1.10.0.1 (2007-11-20)
+1. Initial release.
+

@@ -20,9 +20,18 @@ the box; the brand on the dongle often differs from the chip inside.
 | Device | Chip / model | 98 SE | ME | 2000 | XP | XP x64 | Vista | 7 |
 |---|---|---|---|---|---|---|---|---|
 | USB flash drives, card readers and USB disks | any standard USB storage device | Yes | built in | built in | built in | built in | built in | built in |
-| USB 2.0 Ethernet adapter | ASIX AX88772, AX88772A | Yes | Yes | Yes | Yes | - | - | - |
+| USB 2.0 Ethernet adapter | ASIX AX88772, AX88772A | Yes | Yes | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB 2.0 Ethernet adapter | ASIX AX88772B, AX88772C | - | - | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB 2.0 Gigabit Ethernet adapter | ASIX AX88178 | Yes | Yes | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB 2.0 Ethernet adapter | ASIX AX88172 | Yes | Yes | Yes | Yes | - | - | - |
+| USB 2.0 Ethernet adapter | ASIX AX88172A | - | - | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
 | USB 3.0 Gigabit Ethernet adapter | ASIX AX88179, AX88178A | - | - | - | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
 | USB Ethernet adapter (most USB-C dongles) | Realtek RTL8152, RTL8153 (on 7 also RTL8156) | - | - | - | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB 1.1 Ethernet adapter | Realtek RTL8150 | Yes | Yes | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit), Vista's driver, not listed by Realtek for 7 |
+| USB 2.0 Ethernet adapter | MosChip (now ASIX) MCS7830, MCS7832, MCS7730 | Yes | Yes | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB 1.1 Ethernet adapter | Davicom DM9601 | Yes | Yes | Yes | Yes | - | - | - |
+| USB 2.0 Ethernet adapter | Davicom DM9620, DM9621, DM9621A | Yes | Yes | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB Ethernet adapter | Davicom DM9622 | Yes | Yes | Yes | - | - | Yes (32/64-bit) | - |
 | USB serial adapter | FTDI FT232R, FT232BM, FT245R/BM, FT8U232AM | Yes | Yes | Yes | - | - | - | - |
 | USB serial adapter, dual port | FTDI FT2232D | Yes | Yes | Yes (FT2232, FT4232H) | - | - | - | - |
 | USB serial adapter (cheap Arduino clones) | WCH CH340, CH341 | Yes | Yes | Yes | Yes | - | - | - |
@@ -31,7 +40,31 @@ the box; the brand on the dongle often differs from the chip inside.
 
 Not here because their licences forbid passing them on, so download them
 from the maker (links below, under "Not shipped"): Silicon Labs CP210x,
-Prolific PL2303 and M-Audio MidiSport.
+Prolific PL2303 and M-Audio MidiSport. Microchip's LAN9500 and LAN7800
+Ethernet drivers are not here either. Their terms could not be read.
+Links to them are under "Not shipped" too.
+
+**Not covered:** no driver for these USB Ethernet chips on the systems
+named was found, here or at their makers:
+
+- ASIX AX88772E and AX88279A, on 98 SE to 7. ASIX offers drivers for
+  Windows 8 or 10 and later only.
+- ASIX AX88179A, AX88772D and AX88279, on 98 SE to 7. ASIX offers
+  drivers for Windows 8 and later only. The AX88179 drivers here match
+  their USB ID, but whether they run these chips is not known. ASIX
+  documents these chips as standard CDC-NCM devices too. The separate
+  `usb-wdm-free` repository has a CDC-NCM driver, not tried with them.
+- Realtek RTL8157 and RTL8159, on 98 SE to 7. Realtek offers drivers for
+  Windows 10 and later only.
+- Realtek RTL8156, RTL8156B, RTL8155 and RTL8153D, on 98 SE to Vista.
+  The Windows 7 driver here covers them on 7.
+- CoreChips SR9700 and SR9800, and WCH CH9200, on 98 SE to 7.
+- Microchip LAN7500 and LAN7505, on 98 SE to 7.
+- ASIX AX88772B and AX88772C, on 98 SE and ME.
+- ASIX AX88172A, on 98 SE and ME.
+- ASIX AX88172, on XP x64, Vista and 7.
+- Davicom DM9601, on XP x64, Vista and 7.
+- Davicom DM9622, on XP, XP x64 and 7.
 
 **How to install:** plug the device in, and when Windows asks for a driver
 (or in Device Manager: the device, Update Driver), point it at the folder
@@ -39,10 +72,12 @@ for your system, listed in that device's section below. Each folder is a
 complete driver; keep its files together and don't rename them.
 
 **Status:** the drivers under `non-free/` are carried exactly as their
-makers released them and are not tested by this project, on real or
+makers released them (Davicom's `dm96xx/wxp-7/` was unpacked from its
+installer, see its section) and are not tested by this project, on real or
 virtual machines (the repository owner's decision, 2026-10-22). Only
 NUSB 3.3's USB storage files (`nusb33/`) have been tried here, on
-Windows 98 SE.
+Windows 98 SE. One INF check was also made: Windows 98 SE reads ASIX's
+AX88172 INF for 98 SE and ME (2026-10-27, see that chip's section).
 
 **Letting Windows find them at the first plug:** [STAGE.TXT](STAGE.TXT)
 lists which INF may be staged on which Windows, one line per INF, for an
@@ -60,7 +95,9 @@ Drivers are in `non-free/<type>/<driver>/<system>/`, apart from NUSB
 3.3's storage files, which are in `nusb33/w98se/` (below). The last folder
 names the Windows it is for: `w98se-me` is 98 SE and ME, `w2k` is 2000,
 `wxp` is XP, `wxpvis` is XP and Vista, `w7` is 7, and `64` at the end
-means 64-bit.
+means 64-bit. A folder named for two systems with a dash between them,
+such as `w2k-xp` or `w98se-vista`, serves a range of systems. Each
+driver's section below lists them exactly.
 
 File names are kept as each vendor shipped them. Don't rename them: the
 drivers' INF files refer to them by name.
@@ -127,6 +164,11 @@ folder per system, each as ASIX released it:
 |---|---|---|---|
 | `ax88772/w98se-me/` | Windows 98 SE and ME | `AX88772.SYS` 3.0.3.12 (2004-04-08) | AX88772, AX88772A |
 | `ax88772/w2k-xp/` | Windows 2000 and XP, 32-bit | `ax88772.sys` 3.4.3.38 (2010-08-04) | AX88772, AX88772A, AX88760 |
+| `ax88772/wxp64/` | Windows XP x64 | `ax88772.sys` 3.6.3.18 (2007-09-21) | AX88772, AX88772A |
+| `ax88772/wvista/` | Windows Vista, 32-bit | `ax88772.sys` 3.8.3.22 (2009-10-02) | AX88772, AX88772A, AX88760 |
+| `ax88772/wvista64/` | Windows Vista, 64-bit | `ax88772.sys` 3.10.3.14 (2008-11-18) | AX88772, AX88772A |
+| `ax88772/w7/` | Windows 7, 32-bit | `ax88772.sys` 3.12.3.2 (2009-06-10) | AX88772, AX88772A, AX88760 |
+| `ax88772/w7_64/` | Windows 7, 64-bit | `ax88772.sys` 3.14.3.2 (2009-06-10) | AX88772, AX88772A, AX88760 |
 | `ax88179/wxpvis/` | Windows XP and Vista, 32-bit | `ax88179_178a.sys` 1.4.2.0 (2013-05-24) | AX88179, AX88178A |
 | `ax88179/wxpvis64/` | Windows XP and Vista, 64-bit | `ax88179_178a.sys` 1.6.2.0 (2013-05-24) | AX88179, AX88178A |
 | `ax88179/w7/` | Windows 7, 32-bit | `AX88179_178a.sys` 1.12.11.0 (2018-01-19) | AX88179, AX88178A |
@@ -159,6 +201,62 @@ adapter, at the folder for your system. Read the chipset, not the
 packaging: most modern USB-C Ethernet dongles use a Realtek RTL8153, for
 which Realtek's drivers below serve XP, Vista and 7, and which has no
 driver for 98 SE, ME or 2000.
+
+The AX88772 drivers for XP x64, Vista and 7 are older builds. ASIX's
+page once listed newer ones (XP x64 3.6.3.38, Vista 3.8.3.23 and
+3.10.3.23). No copy of those could be found, so the newest archived
+builds are here. The Vista 32-bit driver is a KMDF 1.7 driver and the 7
+drivers are KMDF 1.9 drivers. Each folder carries the co-installer its
+INF needs. What the INFs match:
+
+- XP x64: `0B95:7720` (AX88772) and `0B95:772A` (AX88772A).
+- Vista 32-bit: those two, MSI `0DB0:A877`, `0421:772A` and `125E:180D`.
+- Vista 64-bit: `0B95:7720`, `0B95:772A` and MSI `0DB0:A877`.
+- 7: `0B95:7720`, `0B95:772A`, MSI `0DB0:A877` and `0421:772A`.
+
+ASIX's other USB 2.0 chips, one folder per system, each as ASIX
+released it:
+
+| Folder | Systems | Driver | Chips (VID:PID) |
+|---|---|---|---|
+| `ax88772b/w2k-xp/` | Windows 2000 and XP, 32-bit | `ax88772b.sys` 5.4.3.0 (2010-05-21) | AX88772B (`0B95:772B`) |
+| `ax88772b/wxp64/` | Windows XP x64 | `ax88772b.sys` 5.6.3.0 (2010-05-21) | AX88772B |
+| `ax88772b/wvista/` | Windows Vista, 32-bit | `ax88772b.sys` 5.8.2.0 (2010-05-21) | AX88772B |
+| `ax88772b/wvista64/` | Windows Vista, 64-bit | `ax88772b.sys` 5.10.2.0 (2010-05-21) | AX88772B |
+| `ax88772b/w7/` | Windows 7, 32-bit | `ax88772b.sys` 5.12.12.0 (2015-05-14) | AX88772B and AX88772C (`0B95:772B` revisions `0001` and `0002`, `0B95:7E2B`), D-Link `2001:1A02` |
+| `ax88772b/w7_64/` | Windows 7, 64-bit | `ax88772b.sys` 5.14.12.0 (2015-05-14) | as `w7/` |
+| `ax88178/w98se-me/` | Windows 98 SE and ME | `ax88178.sys` 1.0.3.46 (2005-01-18) | AX88178 (`0B95:1780`) |
+| `ax88178/w2k-xp/` | Windows 2000 and XP, 32-bit | `ax88178.sys` 1.4.3.64 (2010-11-24) | AX88178 |
+| `ax88178/wxp64/` | Windows XP x64 | `ax88178.sys` 1.6.3.64 (2010-11-24) | AX88178 |
+| `ax88178/wvista/` | Windows Vista, 32-bit | `ax88178.sys` 1.8.3.14 (2010-11-24) | AX88178 |
+| `ax88178/wvista64/` | Windows Vista, 64-bit | `ax88178.sys` 1.10.3.14 (2010-11-24) | AX88178 |
+| `ax88178/w7/` | Windows 7, 32-bit | `ax88178.sys` 1.12.6.0 (2013-07-12) | AX88178 |
+| `ax88178/w7_64/` | Windows 7, 64-bit | `ax88178.sys` 1.14.6.0 (2013-07-12) | AX88178 |
+| `ax88172/w98se-me/` | Windows 98 SE and ME | `ax88172.sys` 1.0.0.11 (2003-07-04) | AX88172 (`0B95:1720`) |
+| `ax88172/w2k/` | Windows 2000 | `ax88172.sys` 2.3.0.2 (2003-07-02) | AX88172 |
+| `ax88172/wxp/` | Windows XP, 32-bit | `AX88172.SYS` 2.0.0.5 (2003-05-22) | AX88172 |
+| `ax88172a/w2k-xp/` | Windows 2000 and XP, 32-bit | `AX88172A.sys` 1.4.0.6 (2010-06-02) | AX88172A (`0B95:172A`) |
+| `ax88172a/wxp64/` | Windows XP x64 | `AX88172A.sys` 1.6.0.6 (2010-06-02) | AX88172A |
+| `ax88172a/wvista/` | Windows Vista, 32-bit | `AX88172A.sys` 1.8.0.5 (2010-06-02) | AX88172A |
+| `ax88172a/wvista64/` | Windows Vista, 64-bit | `AX88172A.sys` 1.10.0.5 (2010-06-02) | AX88172A |
+| `ax88172a/w7/` | Windows 7, 32-bit | `AX88172A.sys` 1.12.0.2 (2010-06-02) | AX88172A |
+| `ax88172a/w7_64/` | Windows 7, 64-bit | `AX88172A.sys` 1.14.0.2 (2010-06-02) | AX88172A |
+
+Where a folder has a `WdfCoInstaller` DLL, its driver needs Microsoft's
+KMDF and the INF installs it from that DLL. Keep the folder's files
+together. The AX88772B drivers for 2000 to Vista match `0B95:772B` at
+any revision, so Windows offers them for an AX88772C too. ASIX lists the
+AX88772C only for its Windows 7 driver. Whether the older drivers run it
+is not known. ASIX's AX88772C driver for 7 is still on ASIX's site. The
+other drivers here came from ASIX's old download server, as archived.
+
+ASIX's AX88172 INF for 98 SE and ME begins as an NT INF does. This
+project checked that Windows 98 SE reads it (2026-10-27, in a virtual
+machine, with no adapter). Windows did not refuse the INF. The model
+does not show in the Add New Hardware list, because ASIX's INF hides it
+from manual choice, as ASIX's other 98 SE INFs do. Plug the adapter in
+and point Windows at the folder when it asks for a driver. The driver
+itself has not been run here.
 
 Realtek's drivers for its USB Ethernet controllers, one folder per
 system, each Realtek's whole "Auto Installation Program" as released,
@@ -194,6 +292,71 @@ which all three INFs list; that mapping is not Realtek's and has not been
 checked here. The Windows 7 driver itself has code paths named for the
 RTL8153B/C ("RT8153BC") and RTL8156B; the XP and Vista drivers carry no
 such names. None has been tried with an adapter here.
+
+Realtek's driver for its older USB 1.1 chip, the RTL8150, is in
+`rtl8150/w98se-vista/`. It is Realtek's whole package 5.126 as released,
+with one folder per system:
+
+| INF folder | Systems | Driver |
+|---|---|---|
+| `WIN98\` | Windows 98 SE | `RTL8150.SYS` 5.120 (`DriverVer` 2004-03-19) |
+| `WINME\` | Windows ME | `RTL8150.SYS` 5.120 (`DriverVer` 2004-03-19) |
+| `WIN2000\` | Windows 2000 | `RTL8150.SYS` 5.126 (`DriverVer` 2008-04-11) |
+| `WINXP\` | Windows XP, 32- and 64-bit | `RTL8150.SYS` and `rtl8150x64.sys` 5.126 |
+| `WINVISTA\32\` | Windows Vista, 32-bit. Also offered here for 7, 32-bit | `RTL8150.SYS` 5.126 |
+| `WINVISTA\64\` | Windows Vista, 64-bit. Also offered here for 7, 64-bit | `rtl8150x64.sys` 5.126 |
+
+Every INF matches Realtek's `0BDA:8150` only. Adapters sold under other
+makers' USB IDs are not matched. Realtek lists the package for 98 SE to
+Vista and offers no driver for 7. Its Vista INFs do not exclude 7, so
+this pack also offers them for 7. That use is not Realtek's and has not
+been tried. Install by pointing Update Driver at the INF's folder. The
+package's `SETUP.EXE` is Realtek's InstallShield setup and has not been
+tried here.
+
+### `mcs7830/` - MosChip MCS7830, MCS7832, MCS7730
+
+The MosChip line is now ASIX's. These are the drivers ASIX offered for
+it, one folder per system, each as released:
+
+| Folder | Systems | Driver |
+|---|---|---|
+| `mcs7830/w98se-xp/` | Windows 98 SE, ME, 2000 and XP, 32-bit | 1.49.0.0 (2012-05-25). One INF, `netmosu.inf`. It installs `MOSMAC98.SYS` on 98 SE and ME and `mosumac.sys` on 2000 and XP |
+| `mcs7830/wxp64/` | Windows XP x64 | `USBMAC64.sys` 1.49.0.0 (2012-05-25) |
+| `mcs7830/wvista/` | Windows Vista, 32-bit | `mosumac.sys`, `DriverVer` 1.0.0.18 (2011-08-09), KMDF 1.9 |
+| `mcs7830/wvista64/` | Windows Vista, 64-bit | `USBMAC64.sys`, `DriverVer` 1.0.0.18 (2011-08-09), KMDF 1.9 |
+| `mcs7830/w7/` | Windows 7, 32-bit | `mosumac.sys`, `DriverVer` 1.0.0.17 (2010-06-01) |
+| `mcs7830/w7_64/` | Windows 7, 64-bit | `USBMAC64.sys`, `DriverVer` 1.0.0.17 (2010-06-01) |
+
+Every INF matches `9710:7830` (MCS7830), `9710:7832` (MCS7832) and
+`9710:7730` (MCS7730). Install by pointing Update Driver at the folder.
+
+### `dm96xx/` - Davicom DM9601 and DM962x
+
+Davicom's drivers, as released, except `wxp-7/` (below):
+
+| Folder | Systems | Driver | VID:PIDs |
+|---|---|---|---|
+| `dm96xx/w98se-2k/` | Windows 98 SE, ME and 2000 | `DM9USB.sys` 5.0.1.0 (2012-11-21). One INF for all three | `0A46:9601`, `9620`, `9621`, `9622`, `0269`, `1269` |
+| `dm96xx/wxp/` | Windows XP, 32-bit | `DM9USB.SYS` 1.90 (2002-03-12) | `0A46:9601` only |
+| `dm96xx/wxp-7/Winxp/` | Windows XP, 32-bit | `DM9USB.sys`, `DriverVer` 5.0.2.0709 (2012-07-09), KMDF 1.9 | `0A46:9620`, `9621`, `0267`, `0268`, `0269`, `1267`, `1268`, `1269` |
+| `dm96xx/wxp-7/XP_x64/` | Windows XP x64 | as `Winxp/` | as `Winxp/` |
+| `dm96xx/wxp-7/Vista_x86/` | Windows Vista, 32-bit | `DM9USB.sys`, `DriverVer` 5.0.2.0406 (2012-04-06), KMDF 1.9 | `0A46:9620`, `9621`, `9622`, `0267`, `0268`, `1267`, `1268`, `1269` |
+| `dm96xx/wxp-7/Vista_x64/` | Windows Vista, 64-bit | as `Vista_x86/` | as `Vista_x86/` |
+| `dm96xx/wxp-7/Win7_x86/` | Windows 7, 32-bit | `DM9USB.sys`, `DriverVer` 5.0.3.0703 (2012-07-03), KMDF 1.9 | as `Winxp/` |
+| `dm96xx/wxp-7/Win7_x64/` | Windows 7, 64-bit | as `Win7_x86/` | as `Winxp/` |
+| `dm96xx/wxp-7/Win2k/` | Windows 2000 | `DM9USB.sys`, `DriverVer` 3.0.2.0416 (2010-04-16) | `0A46:9601`, `9620`, `9621`, `9622` |
+
+`0A46:9601` is the DM9601. The others are the DM9620, DM9621, DM9621A
+and DM9622 and their variants. The INFs do not name each chip. On 2000,
+use `w98se-2k/`. It is newer than `wxp-7/Win2k/` and matches more IDs.
+
+`wxp-7/` comes from Davicom's "DM96xx Driver V1.0.4.0", which Davicom
+released as one installer program. This project unpacked the installer
+with 7-Zip, without running it, and keeps only its per-system driver
+folders, otherwise unchanged. The installer itself, its setup programs
+and its Windows 8 folders are not here. Install by pointing Update
+Driver at the folder for your system.
 
 ## `non-free/serial/` - USB serial bridges
 
@@ -345,7 +508,8 @@ These drivers exist at their vendors' official URLs, as archived by the
 Internet Archive and found on 2026-10-20, but their licences rule out
 shipping them here. Download each from the archived URL yourself, check
 it against the size and SHA-256 given, and read its licence before using
-it.
+it. Microchip's Ethernet drivers (the last section) are left out for
+another reason: their terms could not be read.
 
 ### Silicon Labs CP210x, Windows 98 SE
 
@@ -410,6 +574,28 @@ Why not shipped: M-Audio's driver licence
 says "You may NOT publish, display, disclose, rent, lease, modify, loan,
 distribute, or create derivative works based on the Software or any part
 thereof."
+
+### Microchip LAN9500 and LAN7800 families, Windows XP to 7
+
+Microchip's (formerly SMSC's) Windows driver packages for its USB
+Ethernet chips. Each zip holds drivers for several systems, including 8
+and 10:
+
+- LAN9500 family (`0424:9500`, `9505`, `9530`, `9535`, `9730`, `9735`,
+  `9900` to `9906`, `9E00`, `9E01`, `9E08`, `9E09`, `EC00`): XP 32- and
+  64-bit 2.6.5.0, Vista 2.11.0.0, 7 2.17.0.0.
+  `lan9500-wdf-v18.12.18.0.zip`, 13,380,608 bytes, SHA-256
+  `a2728876845a4476a51004119d193faa21cf86206d5ad35ccefc5af684404ee5`:
+  <https://web.archive.org/web/20200816184737/http://ww1.microchip.com/downloads/en//softwarelibrary/obj-lan95xx-windows/lan9500-wdf-v18.12.18.0.zip>
+- LAN7800 family (`0424:7800`, `7801`, `780A`, `7850`): Vista 3.5.2.0,
+  7 3.8.4.0. No XP driver.
+  `lan7800-wdf-v18.12.14.0.zip`, 10,380,378 bytes, SHA-256
+  `01b50282c8a129cdee586b9c59f0999e9a217b4fe8059a97b4bd1f0a0b59234e`:
+  <https://web.archive.org/web/20200816184807/http://ww1.microchip.com/downloads/en//softwarelibrary/obj-lan78xx-windows/lan7800-wdf-v18.12.14.0.zip>
+
+Why not shipped: no licence file is in either zip. Microchip's download
+pages refused this project's requests (2026-10-27), so any terms they
+show were not read (the repository owner's decision, 2026-10-27).
 
 ## Checking the files
 

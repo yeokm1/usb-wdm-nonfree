@@ -47,8 +47,14 @@
 # INFs (2026-10-22); those marked "owner to confirm" await the owner.
 
 # ---- Ethernet: ASIX AX88772 / AX88772A (USB 2.0, 100 Mbit/s)
+# XP x64 to 7: older archived builds (ASIX's newer ones are no longer downloadable)
 STAGE | W98SE WME        | non-free/ethernet/ax88772/w98se-me/Ax88772.inf | AX88772 3.0.3.12; its undecorated [Models] would also match on 2000-7: there w2k-xp wins
 STAGE | W2K WXP          | non-free/ethernet/ax88772/w2k-xp/Ax88772.inf   | AX88772 3.4.3.38, KMDF 1.7; wins over w98se-me on 2000 and XP (newer, NT driver, catalog)
+STAGE | WXP64            | non-free/ethernet/ax88772/wxp64/Ax88772.inf    | 3.6.3.18; its NTamd64 [Models] would also match on Vista and 7 x64: there wvista64 and w7_64 win
+STAGE | WVISTA           | non-free/ethernet/ax88772/wvista/Ax88772.inf   | 3.8.3.22, KMDF 1.7; its undecorated [Models] would also match on 2000, XP and 7: there w2k-xp and w7 win
+STAGE | WVISTA64         | non-free/ethernet/ax88772/wvista64/Ax88772.inf | 3.10.3.14; on 7 x64 w7_64 wins
+STAGE | W7               | non-free/ethernet/ax88772/w7/Ax88772.inf       | 3.12.3.2, KMDF 1.9; undecorated [Models], staged on 7 only
+STAGE | W7X64            | non-free/ethernet/ax88772/w7_64/Ax88772.inf    | 3.14.3.2, KMDF 1.9
 
 # ---- Ethernet: ASIX AX88179 / AX88178A (USB 3.0, Gigabit)
 STAGE | WXP WVISTA       | non-free/ethernet/ax88179/wxpvis/Ax88179_178a.inf   | 1.4.2.0; its undecorated [Models] would also match on 7: there w7 wins
@@ -68,6 +74,66 @@ STAGE | W7               | non-free/ethernet/rtl815x/w7/WIN7/32/rtump62x86sta.IN
 STAGE | W7X64            | non-free/ethernet/rtl815x/w7/WIN7/64/rtump62x64sta.INF      | 7.61.20 (2021)
 COPY  | W7               | non-free/ethernet/rtl815x/w7/WIN7/WinPE/32/rtump62x86sta.INF | Realtek's WinPE copy, byte-identical INF to WIN7/32's; WIN7/32 is staged
 COPY  | W7X64            | non-free/ethernet/rtl815x/w7/WIN7/WinPE/64/rtump62x64sta.INF | Realtek's WinPE copy; WIN7/64 is staged
+
+# ---- Ethernet: ASIX AX88772B / AX88772C (0B95:772B; on 7 also 0B95:7E2B, 2001:1A02)
+# The 2000-XP and Vista INFs declare empty .6.0/.6.1 [Models] sections, so
+# they match nothing on the later systems.
+STAGE | W2K WXP          | non-free/ethernet/ax88772b/w2k-xp/Ax88772b.inf   | 5.4.3.0, KMDF 1.7; its NTx86.6.0/.6.1 sections are empty
+STAGE | WXP64            | non-free/ethernet/ax88772b/wxp64/Ax88772b.inf    | 5.6.3.0, KMDF 1.7; its NTamd64 [Models] would also match on Vista and 7 x64: there wvista64 and w7_64 win
+STAGE | WVISTA           | non-free/ethernet/ax88772b/wvista/Ax88772b.inf   | 5.8.2.0, KMDF 1.7; NTx86.6.0 only (its .6.1 section is empty)
+STAGE | WVISTA64         | non-free/ethernet/ax88772b/wvista64/Ax88772b.inf | 5.10.2.0, KMDF 1.7; NTamd64.6.0 only
+STAGE | W7               | non-free/ethernet/ax88772b/w7/Ax88772b.inf       | 5.12.12.0 (2015); NTx86.6.1
+STAGE | W7X64            | non-free/ethernet/ax88772b/w7_64/Ax88772b.inf    | 5.14.12.0 (2015); NTamd64.6.1
+
+# ---- Ethernet: ASIX AX88178 (0B95:1780)
+STAGE | W98SE WME        | non-free/ethernet/ax88178/w98se-me/Ax88178.inf | 1.0.3.46; $CHICAGO$, its undecorated [Models] would also match on 2000-7: there the NT builds win
+STAGE | W2K WXP          | non-free/ethernet/ax88178/w2k-xp/Ax88178.inf   | 1.4.3.64; its NTx86.6.0/.6.1 sections are empty
+STAGE | WXP64            | non-free/ethernet/ax88178/wxp64/Ax88178.inf    | 1.6.3.64; its NTamd64 [Models] would also match on Vista and 7 x64: there wvista64 and w7_64 win
+STAGE | WVISTA           | non-free/ethernet/ax88178/wvista/Ax88178.inf   | 1.8.3.14, KMDF 1.7; NTx86.6.0 only
+STAGE | WVISTA64         | non-free/ethernet/ax88178/wvista64/Ax88178.inf | 1.10.3.14, KMDF 1.7; NTamd64.6.0 only
+STAGE | W7               | non-free/ethernet/ax88178/w7/Ax88178.inf       | 1.12.6.0, KMDF 1.9; NTx86.6.1
+STAGE | W7X64            | non-free/ethernet/ax88178/w7_64/Ax88178.inf    | 1.14.6.0, KMDF 1.9; NTamd64.6.1
+
+# ---- Ethernet: ASIX AX88172 (0B95:1720)
+STAGE | W98SE WME        | non-free/ethernet/ax88172/w98se-me/AX88172.INF | 1.0.0.11; Signature $Windows NT$, read by 98 SE (checked 2026-10-27); would also match on 2000 and XP: there w2k and wxp win
+STAGE | W2K              | non-free/ethernet/ax88172/w2k/ax88172.inf      | 2.3.0.2; undecorated, would also match on XP: there wxp wins
+STAGE | WXP              | non-free/ethernet/ax88172/wxp/AX88172.INF      | 2.0.0.5
+
+# ---- Ethernet: ASIX AX88172A (0B95:172A)
+STAGE | W2K WXP          | non-free/ethernet/ax88172a/w2k-xp/AX88172A.inf   | 1.4.0.6; its NTx86.6.0/.6.1 sections are empty
+STAGE | WXP64            | non-free/ethernet/ax88172a/wxp64/AX88172A.inf    | 1.6.0.6; its NTamd64.6.0/.6.1 sections are empty
+STAGE | WVISTA           | non-free/ethernet/ax88172a/wvista/AX88172A.inf   | 1.8.0.5, KMDF 1.7; NTx86.6.0 only
+STAGE | WVISTA64         | non-free/ethernet/ax88172a/wvista64/AX88172A.inf | 1.10.0.5, KMDF 1.7; NTamd64.6.0 only
+STAGE | W7               | non-free/ethernet/ax88172a/w7/AX88172A.inf       | 1.12.0.2, KMDF 1.9; NTx86.6.1
+STAGE | W7X64            | non-free/ethernet/ax88172a/w7_64/AX88172A.inf    | 1.14.0.2, KMDF 1.9; NTamd64.6.1
+
+# ---- Ethernet: MosChip (ASIX) MCS7830 / MCS7832 / MCS7730 (9710:7830, 7832, 7730)
+STAGE | W98SE WME W2K WXP | non-free/ethernet/mcs7830/w98se-xp/netmosu.inf | 1.49.0.0; one $CHICAGO$ INF with 9x and NT sections
+STAGE | WXP64            | non-free/ethernet/mcs7830/wxp64/USBMAC64.inf    | 1.49.0.0; its NTamd64 [Models] would also match on Vista and 7 x64: there wvista64 and w7_64 win
+STAGE | WVISTA           | non-free/ethernet/mcs7830/wvista/netmosu.inf    | 1.0.0.18, KMDF 1.9; undecorated, would also match on 2000-7: there w98se-xp and w7 win
+STAGE | WVISTA64         | non-free/ethernet/mcs7830/wvista64/USBMAC64.inf | 1.0.0.18, KMDF 1.9
+STAGE | W7               | non-free/ethernet/mcs7830/w7/netmosu.inf        | 1.0.0.17
+STAGE | W7X64            | non-free/ethernet/mcs7830/w7_64/USBMAC64.inf    | 1.0.0.17
+
+# ---- Ethernet: Realtek RTL8150 (0BDA:8150), package 5.126
+STAGE | W98SE            | non-free/ethernet/rtl8150/w98se-vista/WIN98/NET8150.INF       | 5.1191 (2004)
+STAGE | WME              | non-free/ethernet/rtl8150/w98se-vista/WINME/NET8150.INF       | 5.1191 (2004); differs from WIN98's INF
+STAGE | W2K              | non-free/ethernet/rtl8150/w98se-vista/WIN2000/NET8150.INF     | 5.126 (2008); same INF as WINXP's, this folder has the 32-bit driver only
+STAGE | WXP WXP64        | non-free/ethernet/rtl8150/w98se-vista/WINXP/NET8150.INF       | 5.126; 32- and 64-bit drivers in one folder (NTx86.5.1, NTamd64)
+STAGE | WVISTA W7        | non-free/ethernet/rtl8150/w98se-vista/WINVISTA/32/NET8150.INF | 5.126; NTx86. On 7: not listed by Realtek for 7, untested (owner, 2026-10-27)
+STAGE | WVISTA64 W7X64   | non-free/ethernet/rtl8150/w98se-vista/WINVISTA/64/NET8150.INF | 5.126; NTamd64. On 7 x64: as the 32/ line
+
+# ---- Ethernet: Davicom DM9601 / DM962x (0A46)
+# wxp-7/ is unpacked from Davicom's V1.0.4.0 installer (its driver folders only).
+STAGE | W98SE WME W2K    | non-free/ethernet/dm96xx/w98se-2k/DM9USB.inf        | 5.0.1.0 (2012); 9601, 9620, 9621, 9622, 0269, 1269; wins on 2000 over wxp-7/Win2k
+STAGE | WXP              | non-free/ethernet/dm96xx/wxp/Dm9usb.inf             | 1.90 (2002), 0A46:9601 only; the DM962x ids are in wxp-7/Winxp (no clash)
+STAGE | WXP              | non-free/ethernet/dm96xx/wxp-7/Winxp/DM9USB.inf     | 5.0.2.0709, KMDF 1.9; DM962x, no 9601
+STAGE | WXP64            | non-free/ethernet/dm96xx/wxp-7/XP_x64/DM9USB.inf    | 5.0.2.0709, KMDF 1.9
+STAGE | WVISTA           | non-free/ethernet/dm96xx/wxp-7/Vista_x86/DM9USB.inf | 5.0.2.0406, KMDF 1.9; lists NTx86 and NTamd64, this folder has the 32-bit driver
+STAGE | WVISTA64         | non-free/ethernet/dm96xx/wxp-7/Vista_x64/DM9USB.inf | 5.0.2.0406; this folder has the 64-bit driver
+STAGE | W7               | non-free/ethernet/dm96xx/wxp-7/Win7_x86/DM9USB.inf  | 5.0.3.0703, KMDF 1.9; lists NTx86 and NTamd64, this folder has the 32-bit driver
+STAGE | W7X64            | non-free/ethernet/dm96xx/wxp-7/Win7_x64/DM9USB.inf  | 5.0.3.0703; this folder has the 64-bit driver
+COPY  | W2K              | non-free/ethernet/dm96xx/wxp-7/Win2k/DM9USB.inf     | 3.0.2.0416 (2010); w98se-2k is staged on 2000 (newer, more ids)
 
 # ---- Serial: FTDI VCP 1.09.06, 98 SE and ME (FT232R/BM, FT245R/BM, FT8U232AM)
 STAGE | W98SE WME        | non-free/serial/ftdi/w98se-me/FTDIBUS.INF  | the USB device; on 2000 ftdi/w2k wins (0403:6001)

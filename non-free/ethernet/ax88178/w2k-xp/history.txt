@@ -1,0 +1,48 @@
+//======================================================================
+// ASIX AX88178 Windows XP 32-bit driver
+// Revision History
+//
+// This document describes the major changes, additions and bug fixes made 
+// to the driver between released versions. 
+//======================================================================
+
+Version 1.4.3.64 (2010-11-24)
+1. Support GMII MAC to MAC mode.
+2. Support Vitesse VSC8601 GigaPHY.
+3. Support Goodway's AX2300 X2 (Realtek RTL8211CL) GigaPHY LED setting.
+
+Version 1.4.3.63 (2009-10-02)
+1. Modify to support new Netronix's AX88178 + Realtek RTL8211CL GigaPHY LED setting.
+
+Version 1.4.3.62 (2009-09-28)
+1. Change the speed mode setting as the same as the AX88772/772A driver.
+
+Version 1.4.3.61 (2009-09-16)
+1. Don't deregister endpoints if there are pending IRPs.
+2. Fix the RGMII setting for Realtek RTL8211CL, RTL8211BN & RTL8251CL GigaPHY.
+3. Do software reset when initialize Realtek RTL8211CL, RTL8211BN & RTL8251CL GigaPHY.
+
+Version 1.4.3.60 (2009-08-27)
+1. Fix TX failure if unplug Ethernet cable and then plug Ethernet cable when network traffic is heavy.
+
+Version 1.4.3.59 (2009-08-12)
+1. Support Realtek RTL8211CL, RTL8211BN & RTL8251CL GigaPHY solutions.
+2. Modify to support new Edimax's AX88178 + Marvell 88E1111 GigaPHY LED setting.
+3. Add USB error handling policy to process specific USB error.
+4. Add DisplayLink USB bandwidth solution.
+
+Version 1.4.3.58 (2007-09-05)
+1. Fix Magic packet WOL issue.
+
+Version 1.4.3.57 (2007-08-28)
+1. Modify Rx function for DTM test tool
+
+Version 1.4.3.56 (2007-02-02)
+1. Fix the bug of driver's transmitting queue.
+
+
+Note:
+Please double check the following driver parameters settings for normal operation 
+when the "Jumbo Packet" parameter was enabled (i.e. set to "4088 Bytes" or "9014 Bytes"), 
+1. Set the "Connection Type" parameter to "1000BaseT Full_Duplex".
+2. Enable the "Flow Control" parameter.

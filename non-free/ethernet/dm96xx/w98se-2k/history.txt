@@ -1,0 +1,12 @@
+//======================================================================
+// DAVICOM DM9621/DM9621A Windows 7 64-bit driver
+// Revision History
+//
+// This document describes the major changes, additions and bug fixes made 
+// to the driver between released versions. 
+//======================================================================
+
+
+
+Version	5.0.1.0 (2012-11-21)
+1. Add DM9621A support
