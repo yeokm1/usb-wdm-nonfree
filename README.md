@@ -849,3 +849,12 @@ here, in the commit after the tag (a zip cannot hold its own hash):
 |---|---|---|---|---|
 | 1.0.0 | `v1.0.0` (commit `128106f`) | `usb-wdm-nonfree-v1.0.0.zip` | 40,860,928 | `31756d03326ea003c10c4b17f52f38883c8f4675aa629f03e93e46eb9b07ece9` |
 | 1.1.0 | `v1.1.0` (commit `565d11b`) | `usb-wdm-nonfree-v1.1.0.zip` | 185,097,979 | `44f22200fd4f60292923cbac95460f88b3b0ea607129346c6d88fb8dd64072e1` |
+
+## Changelog
+
+Each tag is a release. The zip of each is in the table above.
+
+- **v1.1.0** (2026-10-28):
+  - More USB Ethernet drivers: ASIX AX88172, AX88172A, AX88178, AX88772B and AX88772C, MosChip MCS7830, Realtek RTL8150 and Davicom DM96xx.
+  - USB Wi-Fi drivers: Realtek (RTL8187, RTL8187B, RTL8192SU, RTL8192CU and later chips), Atheros AR9170 and AR9271 (TP-Link), and Linksys AE1200 and AE2500. Realtek's RTL8187L setup and utility for 98 SE, ME and 2000.
+- **v1.0.0** (2026-10-24): the first release: USB Ethernet (ASIX AX88179 and AX88772, Realtek RTL8152 and RTL8153), USB serial (WCH CH340 and CH341, FTDI), Xbox 360 controller drivers, and NUSB 3.3's Windows 98 SE storage files.
