@@ -6,6 +6,9 @@ drivers (and, for Xbox 360 pads, a well-known independent author's),
 exactly as they released them. They are not ours to license: see
 [NOTICE.md](NOTICE.md) for who owns each one and where it came from.
 
+Free (GPL) USB class drivers this project writes itself are in the companion
+repository [usb-wdm-free](https://github.com/yeokm1/usb-wdm-free).
+
 This collection is gathered for the [xHCI98](https://github.com/yeokm1/xhci98)
 project, a USB 3 host controller driver for the same systems, and its
 release downloads can carry it. The drivers can also be used on their
