@@ -40,15 +40,15 @@
 #     beside some of them (Realtek's setup.exe, WCH's SETUP.EXE and
 #     DRVSETUP64.exe, FTDI's uninstallers, Morii's x360csai.exe,
 #     x360wcsai.exe and x360csa.exe, TP-Link's Setup.exe and QSS.exe,
-#     Realtek's Wi-Fi Setup.exe in rtl8187/w98se-vista/) are copied,
-#     never run.
+#     Realtek's Wi-Fi Setup.exe in rtl8187/w98se-vista/, TASCAM's
+#     SETUP.EXE in us122/w98se-me/) are copied, never run.
 #   - SYSTEMS follows README.md's table of which folder serves which
 #     Windows, not every system an INF's own decorations would accept.
 #
 # The drivers here are carried as their makers released them and have not
 # been tested by this project. The choices below were made by reading the
-# INFs (2026-10-22, the Wi-Fi lines 2026-10-27). Those marked "owner to
-# confirm" await the owner.
+# INFs (2026-10-22, the Wi-Fi lines 2026-10-27, the audio line 2026-11-02).
+# Those marked "owner to confirm" await the owner.
 
 # ---- Ethernet: ASIX AX88772 / AX88772A (USB 2.0, 100 Mbit/s)
 # XP x64 to 7: older archived builds (ASIX's newer ones are no longer downloadable)
@@ -269,3 +269,9 @@ STAGE | W7X64            | non-free/wifi/ar9170/w2k-7/Driver Files/Windows 7 64b
 STAGE | WXP WXP64        | non-free/wifi/ae2500/wxp/bcmwlhigh5.inf     | 5.100.68.46. Undecorated and NTamd64, would also match on Vista and 7: there wvista and w7 win
 STAGE | WVISTA WVISTA64  | non-free/wifi/ae2500/wvista/bcmwlhigh6.inf  | 5.100.243.6. .6.0 sections only (its .6.1 sections are missing)
 STAGE | W7 W7X64         | non-free/wifi/ae2500/w7/bcmwlhigh6.inf      | 5.100.68.46. .6.1 sections only
+
+# ---- Audio: TASCAM US-122 (USB 1.1 audio and MIDI interface)
+# One INF for both of the device's IDs: 1604:8006 (no firmware yet:
+# US122DL.sys loads it) and 1604:8007 (running: US122.sys). The same INF
+# installs US122Wdm.sys, the audio and MIDI device *FDG0006.
+STAGE | W98SE WME        | non-free/audio/us122/w98se-me/Us122.inf | 3.24 (2003). Its undecorated [Tascam] would also match on 2000 to 7 (it has .NT sections); this pack offers it for 98 SE and ME only, so it is staged there only

@@ -1,0 +1,362 @@
+;
+; FILE:   US122.INF
+; INSTALLS: Tascam US-122
+; Version: 3.24
+; Copyright 1999-2003, Frontier Design Group LLC
+;
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+DriverVer=12/19/2003,3.2.4.0
+Provider=%Tascam%
+LayoutFile=layout.inf, layout1.inf, layout2.inf
+
+[Manufacturer]
+%Tascam%=Tascam
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+US122DL.Files.Ext = 10,System32\Drivers
+US122.Files.Ext = 10,System32\Drivers
+US122Wdm.Files.Ext = 10,System32\Drivers
+
+[SourceDisksFiles]
+us122.sys=1
+us122dl.sys=1
+us122wdm.sys=1
+US122cp.cpl=1
+U122_A16.dll=1
+U122_A24.dll=1
+
+[SourceDisksNames]
+1=%INSTDISK%,,,
+
+
+[Tascam]
+;
+; Device ID/Driver associations for the US-122. 
+;
+; When the device comes online, the driver that 
+; is loaded depends on the VID/PID numbers 
+; reported by the device.
+;
+
+%USB\VID_1604&PID_8006.DeviceDesc%=US122DL, USB\VID_1604&PID_8006
+
+%USB\VID_1604&PID_8007.DeviceDesc%=US122, USB\VID_1604&PID_8007
+
+
+; Load the US-122 WDM Driver
+;
+
+"US-122 WDM Interface"=US122WdmInstall,*FDG0006
+
+
+
+[ControlFlags]
+ExcludeFromSelect=*             ; removes all device here from the device installer list
+
+;
+; Download firmware driver
+;
+
+; Win9x
+
+[US122DL]
+CopyFiles=US122DL.Files.Ext
+AddReg=US122DL.AddReg
+
+[US122DL.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,US122DL.sys
+
+[US122DL.Files.Ext]
+US122DL.sys
+
+; Win2K
+
+[US122DL.NT]
+CopyFiles=US122DL.Files.Ext
+AddReg=US122DL.NT.AddReg
+
+[US122DL.NT.Services]
+Addservice= US122DL, 0x00000002, US122DL_AddService
+
+[US122DL_AddService]
+DisplayName	= %US122DL_SvcDesc%
+ServiceType	= 1
+StartType	= 3
+ErrorControl	= 1
+ServiceBinary	= %10%\System32\Drivers\US122DL.sys
+
+[US122DL.NT.AddReg]
+HKLM, "System\CurrentControlSet\Services\US122DL\Parameters"\
+	"BreakOnEntry", 0x00010001, 0
+	
+
+;
+; Run-time driver
+;
+
+; Win9x
+
+[US122]
+CopyFiles=US122.Files.Ext, US122.Files.Asio, US122.Files.Cpl, US122Wdm.Files.Ext, US122DL.Files.Ext
+AddReg=US122.AddReg, Asio_AddReg
+
+
+[US122.AddReg]
+;; Usb audio specific regestry update sutff
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,US122.sys
+
+; Win2K
+
+[US122.NT]
+CopyFiles=US122.Files.Ext, US122.Files.Asio, US122.Files.Cpl, US122Wdm.Files.Ext, US122DL.Files.Ext
+AddReg=US122.NT.AddReg, Asio_AddReg
+
+[US122.NT.Services]
+AddService = US122, 0x00000002, US122_AddService
+
+[US122_AddService]
+DisplayName	= %US122_SvcDesc%
+ServiceType	= 1
+StartType	= 3
+ErrorControl	= 1
+ServiceBinary	= %10%\System32\Drivers\US122.sys
+
+[US122.NT.AddReg]
+HKLM, "System\CurrentControlSet\Services\US122\Parameters"\
+	"BreakOnEntry", 0x00010001, 0
+
+;------------------------------------------------------------------------------
+
+[Asio_AddReg]
+;
+; 24-bit ASIO
+;
+HKLM,SOFTWARE\ASIO\%US122AsioStr%,CLSID,0,%US122AsioCLSID%
+HKLM,SOFTWARE\ASIO\%US122AsioStr%,Description,0,%US122AsioDesc%
+HKCR,CLSID\%US122AsioCLSID%,,0,%US122AsioStr%
+HKCR,CLSID\%US122AsioCLSID%\InProcServer32,,0,%11%\U122_A24.dll
+HKCR,CLSID\%US122AsioCLSID%\InProcServer32,ThreadingModel,0,Apartment
+;
+; 16-bit ASIO
+;
+HKLM,SOFTWARE\ASIO\%US122Asio16Str%,CLSID,0,%US122Asio16CLSID%
+HKLM,SOFTWARE\ASIO\%US122Asio16Str%,Description,0,%US122Asio16Desc%
+HKCR,CLSID\%US122Asio16CLSID%,,0,%US122Asio16Str%
+HKCR,CLSID\%US122Asio16CLSID%\InProcServer32,,0,%11%\U122_A16.dll
+HKCR,CLSID\%US122Asio16CLSID%\InProcServer32,ThreadingModel,0,Apartment
+
+;------------------------------------------------------------------------------
+
+[US122.Files.Ext]
+US122.sys
+
+[US122.Files.Asio]
+U122_A24.dll
+U122_A16.dll
+
+[US122.Files.Cpl]
+US122cp.cpl
+
+;===== WDM ====================================================================
+
+; Win9x
+
+[US122WdmInstall]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+AddReg=US122WdmAddReg
+CopyFiles=US122Wdm.Files.Ext
+
+[US122WdmAddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,US122Wdm.sys
+HKR,,AssociatedFilters,,"wdmaud"
+HKR,,Driver,,US122Wdm.sys
+; need 'mixer' to support topo?
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+;HKR,Drivers,SubClasses,,"midi"
+;HKR,Drivers,SubClasses,,"wave,midi"
+;
+HKR,Drivers\wave\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv,External,1,01,00,00,00
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+;
+HKR,Drivers\wave\wdmaud.drv,Description,,%US122.DeviceDesc%
+HKR,Drivers\midi\wdmaud.drv, Description,,%US122.DeviceDesc%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%US122.DeviceDesc%
+
+[US122WdmInstall.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_WAVE1%,WDM.Interface.Wave1
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_WAVE1%,WDM.Interface.Wave1
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_WAVE1%,WDM.Interface.Wave1
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_WAVE2%,WDM.Interface.Wave2
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_WAVE2%,WDM.Interface.Wave2
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_WAVE2%,WDM.Interface.Wave2
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_WAVE3%,WDM.Interface.Wave3
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_WAVE3%,WDM.Interface.Wave3
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_WAVE3%,WDM.Interface.Wave3
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,WDM.Interface.Topology
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_MIDI1%,WDM.Interface.MIDI1
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_MIDI1%,WDM.Interface.MIDI1
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_MIDI1%,WDM.Interface.MIDI1
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_MIDI2%,WDM.Interface.MIDI2
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_MIDI2%,WDM.Interface.MIDI2
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_MIDI2%,WDM.Interface.MIDI2
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_MIDIC%,WDM.Interface.MIDIC
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_MIDIC%,WDM.Interface.MIDIC
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_MIDIC%,WDM.Interface.MIDIC
+
+;------------------------------------------------------------------------------
+; Win2K
+
+[US122WdmInstall.NT]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+AddReg=US122Wdm.NT.AddReg
+CopyFiles=US122Wdm.Files.Ext
+
+[US122Wdm.NT.AddReg]
+;???HKR,,Driver,,US122Wdm.sys
+; need 'mixer' to support topo?
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+;
+HKR,Drivers\wave\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv,External,1,01,00,00,00
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+;
+HKR,Drivers\wave\wdmaud.drv,Description,,%US122.DeviceDesc%
+HKR,Drivers\midi\wdmaud.drv, Description,,%US122.DeviceDesc%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%US122.DeviceDesc%
+
+[US122WdmInstall.NT.Services]
+AddService= Us122WdmService, 0x00000002, US122WDM_AddService
+
+[US122WDM_AddService]
+DisplayName	= %US122Wdm_SvcDesc%
+ServiceType	= 1
+StartType	= 3
+ErrorControl	= 1
+ServiceBinary	= %10%\System32\Drivers\US122Wdm.sys
+
+[US122WdmInstall.NT.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_WAVE1%,WDM.Interface.Wave1
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_WAVE1%,WDM.Interface.Wave1
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_WAVE1%,WDM.Interface.Wave1
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_WAVE2%,WDM.Interface.Wave2
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_WAVE2%,WDM.Interface.Wave2
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_WAVE2%,WDM.Interface.Wave2
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_WAVE3%,WDM.Interface.Wave3
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_WAVE3%,WDM.Interface.Wave3
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_WAVE3%,WDM.Interface.Wave3
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,WDM.Interface.Topology
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_MIDI1%,WDM.Interface.MIDI1
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_MIDI1%,WDM.Interface.MIDI1
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_MIDI1%,WDM.Interface.MIDI1
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_MIDI2%,WDM.Interface.MIDI2
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_MIDI2%,WDM.Interface.MIDI2
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_MIDI2%,WDM.Interface.MIDI2
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_MIDIC%,WDM.Interface.MIDIC
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_MIDIC%,WDM.Interface.MIDIC
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_MIDIC%,WDM.Interface.MIDIC
+
+;------------------------------------------------------------------------------
+
+; common
+
+[US122Wdm.Files.Ext]
+US122Wdm.sys
+
+[WDM.Interface.Wave1]
+AddReg=WDM.Interface.Wave1.AddReg
+[WDM.Interface.Wave1.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM.WAVE1.szPname%
+
+[WDM.Interface.Wave2]
+AddReg=WDM.Interface.Wave2.AddReg
+[WDM.Interface.Wave2.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM.WAVE2.szPname%
+
+[WDM.Interface.Wave3]
+AddReg=WDM.Interface.Wave3.AddReg
+[WDM.Interface.Wave3.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM.WAVE3.szPname%
+
+[WDM.Interface.Topology]
+AddReg=WDM.Interface.Topo.AddReg
+;; warning!! must be "Topo" because "Topology" is too long
+[WDM.Interface.Topo.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM.Topology.szPname%
+
+[WDM.Interface.MIDI1]
+AddReg=WDM.Interface.MIDI1.AddReg
+[WDM.Interface.MIDI1.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM.MIDI1.szPname%
+
+[WDM.Interface.MIDI2]
+AddReg=WDM.Interface.MIDI2.AddReg
+[WDM.Interface.MIDI2.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM.MIDI2.szPname%
+
+[WDM.Interface.MIDIC]
+AddReg=WDM.Interface.MIDIC.AddReg
+[WDM.Interface.MIDIC.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM.MIDIC.szPname%
+
+;----
+
+[Strings]
+Tascam="Tascam"
+INSTDISK="US-122 Windows Installation Disc"
+USB\VID_1604&PID_8006.DeviceDesc="TASCAM US-122 (firmware download)"
+USB\VID_1604&PID_8007.DeviceDesc="TASCAM US-122"
+;
+US122AsioCLSID="{9B1395A1-AC90-41fc-B410-1872F04A831C}"
+US122AsioDesc="ASIO US-122 (24 bit)"
+US122AsioStr="Asio US-122 (24)"
+;
+US122Asio16CLSID="{ACEA8E73-19A4-4af9-A44F-3C9971FAE2CF}"
+US122Asio16Desc="ASIO US-122 (16 bit)"
+US122Asio16Str="Asio US-122 (16)"
+;
+US122.DeviceDesc="US-122"
+Proxy.CLSID=        "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSNAME_WAVE1="Wave1"
+WDM.WAVE1.szPname="US-122 A:B"
+KSNAME_WAVE2="Wave2"
+WDM.WAVE2.szPname="US-122 Out"
+KSNAME_WAVE3="Wave3"
+WDM.WAVE3.szPname="US-122 C:D"
+KSNAME_MIDI1="Midi1"
+WDM.MIDI1.szPname="US-122 MIDI Port"
+KSNAME_MIDI2="Midi2"
+WDM.MIDI2.szPname="US-122 Port 2"
+KSNAME_MIDIC="MidiC"
+WDM.MIDIC.szPname="US-122 Control"
+KSNAME_Topology="Topology"
+WDM.Topology.szPname="US-122"
+;
+US122DL_SvcDesc="US122 Firmware Downloader"
+US122_SvcDesc="US122 Driver"
+US122Wdm_SvcDesc="US122 Wdm Audio"

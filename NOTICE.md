@@ -1278,6 +1278,65 @@ Provenance of `ae2500/` (`wxp/`, `wvista/`, `w7/`):
   are not 8.3.
 - **Modification:** none.
 
+### `non-free/audio/`
+
+| File | Whose | Version |
+|---|---|---|
+| All 21 files in `us122/w98se-me/` | TEAC Corporation (TASCAM); the driver files are Frontier Design Group, LLC's, for TASCAM (`US122.sys` and `US122Wdm.sys` also carry Compuware Corporation's DriverWorks copyright line); its setup engine (`SETUP.EXE`, `_INST32I.EX_`, `_ISDEL.EXE`, `_setup.dll`, the cabinets and the files with them) is InstallShield, as TASCAM ships it | 3.24 (`Us122.inf` `DriverVer` 12/19/2003,3.2.4.0) |
+
+Provenance of `us122/w98se-me/` (found and added on 2026-11-02):
+
+- **Vendor:** TEAC Corporation, under its TASCAM brand.
+- **Package:** "US-122 Windows Drivers: Windows 95/98 driver", v. 3.24,
+  as TASCAM's US-122 download page lists it (dated there 2007-07-17).
+  TASCAM's owner's manual names this installer for Windows 98 SE and ME.
+- **Original download location:** TASCAM's official URLs, in turn:
+  `http://www.tascam.com/Products/US-122/software_downloads/us122_win9x_install_3_24.exe`
+  (archived 2004-03-14), then
+  `http://tascam.com/content/downloads/products/311/us122_win9x_install_3_24.exe`
+  (archived 2011 to 2016), then
+  `https://tascam.jp/wp-content/uploads/downloads/products/old/311/us122_win9x_install_3_24.exe`,
+  which TASCAM's page <https://tascam.jp/int/product/us-122/download>
+  still links but which returns HTTP 404 as of 2026-11-02. The Internet
+  Archive records one content digest for every capture of the file at
+  the two tascam.com URLs (2004 to 2016). Archived copy:
+  <https://web.archive.org/web/20110811140828/http://tascam.com/content/downloads/products/311/us122_win9x_install_3_24.exe>.
+- **Obtained:** passed to the repository owner, and checked on 2026-11-02
+  against the archived copy above: byte-identical.
+- **Archive:** `us122_win9x_install_3_24.exe`, 985,600 bytes, SHA-256
+  `a0f8e7cccd5231c8be0798dbc301c0c8bf61aab7ad90b734c61996d498086740`, a
+  WinZip self-extractor. Its 21 files were unpacked with 7-Zip, without
+  running it, and are copied without a folder.
+- **Licence:** none in the package. `setup.ins` calls InstallShield's
+  licence dialog, but the package holds no licence text. `Us122.inf`
+  reads "Copyright 1999-2003, Frontier Design Group LLC"; the driver
+  binaries' version resources read "Copyright (C) 2000-2002 Frontier
+  Design Group, LLC." TASCAM's download page states no terms. Its
+  "Terms" link leads to TEAC's site terms
+  (<https://www.teac.co.jp/int/terms>, "Last updated: April 1, 2016"),
+  which cover the content of TEAC's websites and read: "Copyrights to
+  the texts, images, sounds, programs, and other works contained in this
+  website
+  (hereinafter collectively referred to as "Content") are owned by the
+  Company, the respective original authors, or other right holders
+  thereof." and "Other than for personal use or other fair use
+  explicitly allowed by law, you are prohibited to use the Content
+  (including downloading, reproduction, change, uploading, posting,
+  transmission, distribution, licensing, sale, and publication) without
+  obtaining the Company's prior written permission." This file is no
+  longer on TASCAM's site (HTTP 404, checked 2026-11-02). The repository
+  owner's view is that those terms, which are about the site's content,
+  no longer cover it (owner, 2026-11-02); the terms themselves say
+  nothing about content once removed, so that is not established. Either
+  way it grants nothing: no licence to
+  redistribute the files has been found, no permission has been sought
+  or given, and their copyright stays with TEAC and Frontier Design
+  Group. The repository owner carries the package because TASCAM no
+  longer offers it, at the owner's own risk (owner, 2026-11-02). TASCAM's driver 3.40 for XP and Vista,
+  which its page still offers, is not carried (README.md).
+- **Name:** all 8.3.
+- **Modification:** none.
+
 ## Every file under `non-free/`
 
 The owner of this repository claims no rights in these files and grants no

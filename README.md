@@ -48,6 +48,7 @@ the box; the brand on the dongle often differs from the chip inside.
 | USB serial adapter (cheap Arduino clones) | WCH CH340, CH341 | Yes | Yes | Yes | Yes | - | - | - |
 | Xbox 360 wired controller | Microsoft and 24 Logitech, Saitek, Mad Catz and HORI pads (list below) | Yes | Yes | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
 | Xbox 360 Wireless Gaming Receiver | Microsoft receiver | - | - | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB audio and MIDI interface | TASCAM US-122 (not the US-122L or US-122MKII) | Yes | Yes | - | - | - | - | - |
 
 Not here because their licences forbid passing them on, so download them
 from the maker (links below, under "Not shipped"): Silicon Labs CP210x,
@@ -125,7 +126,9 @@ makers released them and are not tested by this project, on real or
 virtual machines (the repository owner's decision, 2026-10-22). Only
 NUSB 3.3's USB storage files (`nusb33/`) have been tried here, on
 Windows 98 SE. Some folders are exceptions to "as released". Davicom's
-`dm96xx/wxp-7/` was unpacked from Davicom's installer. The Realtek Wi-Fi
+`dm96xx/wxp-7/` was unpacked from Davicom's installer. TASCAM's
+`us122/w98se-me/` is the whole of TASCAM's self-extracting installer,
+unpacked. The Realtek Wi-Fi
 folders hold only the driver folders of Realtek's packages, except
 `rtl8187/w98se-vista/`, which is Realtek's whole package. TP-Link's
 `ar9271/wxp-7/` lacks its Windows 8 and 8.1 folders. NOTICE.md lists
@@ -691,6 +694,58 @@ effect-direction force feedback are not supported; XInput and the Xbox
 stays pressed after replacing Microsoft's driver, the DirectInput
 calibration needs resetting in Game Controllers.
 
+## `non-free/audio/` - USB audio interfaces
+
+TASCAM's driver for its US-122 USB audio and MIDI interface, as TASCAM
+released it:
+
+| Folder | Systems | Driver | VID:PIDs |
+|---|---|---|---|
+| `us122/w98se-me/` | Windows 98 SE and ME | TASCAM US-122 driver 3.24 (`Us122.inf` `DriverVer` 12/19/2003,3.2.4.0) | `1604:8006` (before its firmware is loaded), `1604:8007` |
+
+The INF lists the device under two IDs: `1604:8006`, "TASCAM US-122
+(firmware download)", which installs `US122DL.sys`, TASCAM's "US122
+Firmware Downloader", and `1604:8007`, "TASCAM US-122", which installs
+the driver itself, `US122.sys`. The same INF installs `US122Wdm.sys`
+(the Windows audio and MIDI ports, "US-122 A:B", "US-122 MIDI Port"
+and others), the ASIO drivers `U122_A24.dll` and `U122_A16.dll`, and
+the control panel `US122cp.cpl`. It lists no other IDs, so it does not
+match the later US-122L or US-122MKII.
+
+TASCAM shipped the driver as a self-extracting installer,
+`us122_win9x_install_3_24.exe`. This project unpacked it with 7-Zip
+(it is a WinZip self-extractor), without running it. The folder holds
+every file in it, unchanged: the driver files and INF, and TASCAM's
+InstallShield setup (`SETUP.EXE`, the cabinets and the files with them).
+
+**How to install:** TASCAM's owner's manual says to run the installer
+with the US-122 not connected, then connect it and let the Add New
+Hardware wizard find the files. Here that means running `SETUP.EXE` in
+the folder. The manual adds that TASCAM's CD also carried the driver
+files on their own, and that the installer is recommended because it
+also finds and removes files of older US-122 drivers; pointing Update
+Driver at the folder is the other way. It also says Windows 98 SE may
+need Microsoft's hotfix Q269601, and that the first edition of Windows
+98 is not recommended. `SETUP.INI` names the "Tascam US-224
+Driver-3.08" as the application. That is how TASCAM shipped it; the
+rest of the setup's strings name the US-122 and 3.24.
+
+TASCAM also released driver 3.24 for Windows 2000 and XP
+(`us122_win2k_install_3_24.exe`), and later 3.30 for XP and 3.40 for XP
+and Vista. They are not here. TASCAM's own page
+(<https://tascam.jp/int/product/us-122/download>) still offers 3.40,
+for 32- and 64-bit XP SP2 and Vista; its links to 3.24 and 3.30 return
+"not found" (both checked on 2026-11-02). For XP and Vista, download
+3.40 from TASCAM:
+
+- `us122_win_3.40f.zip`, 1,266,697 bytes, SHA-256
+  `ea3d05fa66e49e997b264820757890eff837b1247abbe376376f2acbebe9ec10`
+  (checked 2026-11-02):
+  <https://tascam.jp/wp-content/uploads/downloads/products/old/311/us122_win_3.40f.zip>.
+  It holds TASCAM's installer, `US122_Win_3.40f.exe`, and the release
+  notes, which are also at
+  <https://tascam.jp/wp-content/uploads/downloads/products/old/311/us-122_win_driver_3_40_notes_e.pdf>.
+
 ## Where each package comes from
 
 Each driver was taken unmodified from its maker's official download (or,
@@ -857,6 +912,8 @@ here, in the commit after the tag (a zip cannot hold its own hash):
 
 Each tag is a release. The zip of each is in the table above.
 
+- **v1.2.0** (2026-11-02):
+  - USB audio: TASCAM's US-122 driver 3.24 for Windows 98 SE and ME, no longer offered by TASCAM.
 - **v1.1.0** (2026-10-28):
   - More USB Ethernet drivers: ASIX AX88172, AX88172A, AX88178, AX88772B and AX88772C, MosChip MCS7830, Realtek RTL8150 and Davicom DM96xx.
   - USB Wi-Fi drivers: Realtek (RTL8187, RTL8187B, RTL8192SU, RTL8192CU and later chips), Atheros AR9170 and AR9271 (TP-Link), and Linksys AE1200 and AE2500. Realtek's RTL8187L setup and utility for 98 SE, ME and 2000.
