@@ -907,6 +907,7 @@ here, in the commit after the tag (a zip cannot hold its own hash):
 |---|---|---|---|---|
 | 1.0.0 | `v1.0.0` (commit `128106f`) | `usb-wdm-nonfree-v1.0.0.zip` | 40,860,928 | `31756d03326ea003c10c4b17f52f38883c8f4675aa629f03e93e46eb9b07ece9` |
 | 1.1.0 | `v1.1.0` (commit `565d11b`) | `usb-wdm-nonfree-v1.1.0.zip` | 185,097,979 | `44f22200fd4f60292923cbac95460f88b3b0ea607129346c6d88fb8dd64072e1` |
+| 1.2.0 | `v1.2.0` (commit `c40ad7e`) | `usb-wdm-nonfree-v1.2.0.zip` | 186,057,286 | `88a6f4d350e976e4ace05b9204d1fa0ac1e891202a55b0e468f6ed5eab4bb1c8` |
 
 ## Changelog
 
