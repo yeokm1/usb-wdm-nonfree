@@ -58,6 +58,11 @@ Links to them are under "Not shipped" too. MediaTek's Wi-Fi driver for
 the RT2870 to MT7612U chips is not here. Its licence allows copies only
 with your own product. ZyDAS's ZD1211 Wi-Fi driver is not here either
 (the owner's decision, 2026-10-27). Both are under "Not shipped".
+Wacom's tablet driver 4.78-6 for 98, ME, 2000 and XP (the PenPartner and
+the tablets of its time) is not here: its licence forbids copying. It is
+under "Not shipped", with the touch screen makers whose terms could not
+be read. Microsoft's USB smart card reader driver for 2000 and XP is
+there too: Microsoft still offers it, and no licence text comes with it.
 
 **Not covered:** no driver for these USB Ethernet chips on the systems
 named was found, here or at their makers:
@@ -762,7 +767,9 @@ it against the size and SHA-256 given, and read its licence before using
 it. Microchip's Ethernet drivers (the last section) are left out for
 another reason: their terms could not be read. MediaTek's and ZyDAS's
 Wi-Fi drivers were found on 2026-10-27. ZyDAS's is left out by the
-owner's decision. Its section says why.
+owner's decision. Its section says why. Wacom's tablet driver, the
+touch screen makers' drivers and Microsoft's smart card reader driver
+were looked for on 2026-11-06.
 
 ### Silicon Labs CP210x, Windows 98 SE
 
@@ -886,6 +893,71 @@ driver file by itself. The setup program places them. Its utility,
 Why not shipped: the owner's decision (2026-10-27). No licence text was
 found for it. Its utility bundles OpenSSL's DLLs (`libeay32.dll`,
 `ssleay32.dll`) and `openssl.exe` without OpenSSL's licence text.
+
+### Wacom tablet driver 4.78-6, Windows 98, ME, NT 4.0, 2000 and XP
+
+Wacom's "Wacom Tablet System, driver version 4.78" (2004), a
+self-extracting zip holding `Read Me.rtf` and an InstallShield
+`WSetup.exe`. Its `USBtab.inf` matches the USB PenPartner (`056A:0000`)
+and Wacom's USB tablets up to `056A:0045` (Graphire, Intuos, Intuos2);
+the Read Me names the PenPartner (CT), Graphire and Graphire2 (ET),
+Intuos and Intuos2 (GD, XD), ArtPad, ArtZ, PL and Cintiq, and says "USB
+tablets require Windows 98, 2000, Me, or Windows XP". Wacom's own site no
+longer offers it (2026-11-06: its driver page lists Windows 10 and 11
+only, and the file's URL answers 403).
+
+- `pc478-6-X_en.exe`, 2,556,416 bytes, SHA-256
+  `1ef908bc9b4222bbde7fcb562ae00984f62dea18ad9c0393fde2829817d3ff93`:
+  <https://web.archive.org/web/20170922110355/http://downloadeu.wacom.com/pub/WINDOWS/pc478-6-X_en.exe>.
+
+Why not shipped: its `English\License.txt` (read from `WSetup.exe` with
+7-Zip, without running it) grants "a non-exclusive right to use this copy
+of the Software in conjunction with a Wacom product at a single location"
+and says "Unauthorized copying of the Software is expressly forbidden."
+
+### Touch screen makers: Elo, EETI (eGalax), 3M MicroTouch
+
+Their drivers for old Windows were looked for on 2026-11-06 and none is
+carried here: the files or their terms could not be read.
+
+- Elo Touch Solutions lists a USB driver for 98 and ME (SW500917, also
+  for 2000) and one for 2000 and XP (sw500756) in its driver archive,
+  <https://support.elotouch.com/technicalsupport/DriverArchive/>. Its
+  pages refused this project's requests, so the files and any terms they
+  show were not read.
+- EETI offers eGalaxTouch 5.14 for 2000 to 11 (and a PS/2 driver for 2000,
+  XP and Vista) at <https://www.eeti.com/drivers_Win.html>, nothing for
+  98 or ME. The page states no licence or terms; the package was not
+  downloaded.
+- 3M's touch pages (<https://www.3m.com/touch>) refused this project's
+  requests. 3M's manuals name TouchWare 5.x for 95 to XP and MT 7 for
+  2000 and XP.
+
+### Microsoft USB smart card reader (CCID) driver, Windows 2000 and XP
+
+Microsoft's class driver for USB smart card readers that follow the CCID
+class (interface class `0B`), `usbccid.sys`, offered through the
+Microsoft Update Catalog (read 2026-11-06). The smart card service it
+serves is in 2000 and XP themselves. Neither cab was installed or tried
+here.
+
+- "USB Smart Card reader", for 2000, XP and Server 2003 (2005-05-17,
+  update `8a9785ae-b679-4da9-a627-1c84424d556d`): `usbccid.sys`
+  5.2.3790.2444, matching `USB\Class_0B&SubClass_00`. The cab
+  `10373903_41f8f3383ea94733495ae519f7cf458edb85de77.cab`, 25,886 bytes,
+  SHA-256 `3cf8d69b185f909a6012c34cbd7b3c84d3fd6cb676785fc270a235c011517f0d`,
+  from <https://www.catalog.update.microsoft.com/> (search "usbccid").
+- "Microsoft Usbccid Smartcard Reader (WUDF)" 6.0.6001.18176 for XP
+  (update `1ae5fdcc-7718-4991-a1bd-bc1c47d2f624`), 2,808,885 bytes,
+  SHA-256 `7a3af6572cf6ab953039f97e4960d87c7467178b2958c13261689dfc932a243d`:
+  a user-mode driver with Microsoft's driver framework installers.
+
+Why not shipped: no licence text comes with either cab. The catalog's
+FAQ says "Software updates you receive through the Microsoft Update
+Catalog are governed by any license terms that come with them. If no
+license terms come with them, they may be governed by the original
+license agreement." Whether this repository may carry them is the
+owner's question.
 
 ## Checking the files
 
