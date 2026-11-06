@@ -60,7 +60,8 @@ the RT2870 to MT7612U chips is not here. Its licence allows copies only
 with your own product. ZyDAS's ZD1211 Wi-Fi driver is not here either
 (the owner's decision, 2026-10-27). Both are under "Not shipped".
 Wacom's tablet driver 4.78-6 for 98, ME, 2000 and XP (the PenPartner and
-the tablets of its time) is not here: its licence forbids copying. It is
+the tablets of its time) is not here, by the owner's decision: its licence
+says "Unauthorized copying of the Software is expressly forbidden." It is
 under "Not shipped", with the touch screen makers whose terms could not
 be read.
 
@@ -919,22 +920,32 @@ found for it. Its utility bundles OpenSSL's DLLs (`libeay32.dll`,
 
 Wacom's "Wacom Tablet System, driver version 4.78" (2004), a
 self-extracting zip holding `Read Me.rtf` and an InstallShield
-`WSetup.exe`. Its `USBtab.inf` matches the USB PenPartner (`056A:0000`)
-and Wacom's USB tablets up to `056A:0045` (Graphire, Intuos, Intuos2);
-the Read Me names the PenPartner (CT), Graphire and Graphire2 (ET),
-Intuos and Intuos2 (GD, XD), ArtPad, ArtZ, PL and Cintiq, and says "USB
-tablets require Windows 98, 2000, Me, or Windows XP". Wacom's own site no
-longer offers it (2026-11-06: its driver page lists Windows 10 and 11
-only, and the file's URL answers 403).
+`WSetup.exe`. Its `USBtab.inf` matches the USB PenPartner (`056A:0000`),
+Wacom's USB tablets from `056A:0001` to `056A:0045` (Graphire, Intuos,
+Intuos2), `056A:0400` and `056A:4850`; the Read Me names the PenPartner
+(CT), Graphire and Graphire2 (ET), Intuos and Intuos2 (GD, XD), ArtPad,
+ArtZ, PL and Cintiq, and says "USB tablets require Windows 98, 2000, Me,
+or Windows XP". On 2026-11-06 the file's URL at Wacom answered 403 to this
+project's requests, and so did Wacom's driver page
+(<https://www.wacom.com/en-us/support/product-support/drivers>); whether Wacom still offers the file there was not
+established. Wacom's support article on 32-bit Windows points to a search
+for older driver versions
+(<https://support.wacom.com/hc/en-us/articles/1500006262281-Does-Wacom-support-Windows-32-bit-Operating-Systems>);
+that search was not tried here.
 
 - `pc478-6-X_en.exe`, 2,556,416 bytes, SHA-256
   `1ef908bc9b4222bbde7fcb562ae00984f62dea18ad9c0393fde2829817d3ff93`:
   <https://web.archive.org/web/20170922110355/http://downloadeu.wacom.com/pub/WINDOWS/pc478-6-X_en.exe>.
 
-Why not shipped: its `English\License.txt` (read from `WSetup.exe` with
-7-Zip, without running it) grants "a non-exclusive right to use this copy
-of the Software in conjunction with a Wacom product at a single location"
-and says "Unauthorized copying of the Software is expressly forbidden."
+Why not shipped: the owner's decision (2026-11-06), on its licence. Its
+`English\License.txt` (read from `WSetup.exe` with 7-Zip, without running
+it) grants "a non-exclusive right to use this copy of the Software in
+conjunction with a Wacom product at a single location", and its "Copy
+Restrictions" read "Unauthorized copying of the Software is expressly
+forbidden." The same file's European licence says the customer "may not
+without prior written authorization from WACOM copy, modify, transmit or
+edit the software, apart from the actions of copying necessary to create
+a backup copy" and the uses it lists.
 
 ### Touch screen makers: Elo, EETI (eGalax), 3M MicroTouch
 
