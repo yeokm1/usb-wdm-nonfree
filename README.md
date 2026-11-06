@@ -49,6 +49,7 @@ the box; the brand on the dongle often differs from the chip inside.
 | Xbox 360 wired controller | Microsoft and 24 Logitech, Saitek, Mad Catz and HORI pads (list below) | Yes | Yes | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
 | Xbox 360 Wireless Gaming Receiver | Microsoft receiver | - | - | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
 | USB audio and MIDI interface | TASCAM US-122 (not the US-122L or US-122MKII) | Yes | Yes | - | - | - | - | - |
+| USB smart card reader | any reader of the USB CCID class (Microsoft's class driver) | - | - | Yes | Yes | - | built in | built in |
 
 Not here because their licences forbid passing them on, so download them
 from the maker (links below, under "Not shipped"): Silicon Labs CP210x,
@@ -61,8 +62,7 @@ with your own product. ZyDAS's ZD1211 Wi-Fi driver is not here either
 Wacom's tablet driver 4.78-6 for 98, ME, 2000 and XP (the PenPartner and
 the tablets of its time) is not here: its licence forbids copying. It is
 under "Not shipped", with the touch screen makers whose terms could not
-be read. Microsoft's USB smart card reader driver for 2000 and XP is
-there too: Microsoft still offers it, and no licence text comes with it.
+be read.
 
 **Not covered:** no driver for these USB Ethernet chips on the systems
 named was found, here or at their makers:
@@ -751,6 +751,28 @@ for 32- and 64-bit XP SP2 and Vista; its links to 3.24 and 3.30 return
   notes, which are also at
   <https://tascam.jp/wp-content/uploads/downloads/products/old/311/us-122_win_driver_3_40_notes_e.pdf>.
 
+## `non-free/smartcard/` - USB smart card readers
+
+Microsoft's class driver for USB smart card readers of the CCID class
+(interface class `0B`), `usbccid.sys`, which Microsoft released for 2000
+and XP through Windows Update and still offers in the Microsoft Update
+Catalog. Each folder is one of the catalog's cabinets, unpacked with
+7-Zip, every file unchanged. They are carried by the owner's decision
+(2026-11-06); NOTICE.md says on what terms.
+
+| Folder | Systems | Driver | Matches |
+|---|---|---|---|
+| `usbccid/w2k-xp/` | Windows 2000 and XP, 32-bit | "USB Smart Card reader", `usbccid.sys` 5.2.3790.2444 (`usbccid.inf` `DriverVer` 05/17/2005), a kernel driver | `USB\Class_0B&SubClass_00`: every CCID reader |
+| `usbccid/wxp/` | Windows XP, 32-bit | "Microsoft Usbccid Smartcard Reader (WUDF)" 6.0.6001.18176 (`WUDFUsbCCidDriver.inf` `DriverVer` 12/04/2008), a user-mode driver, with Microsoft's framework installers (`WdfCoInstaller01007.dll`, `WUDFUpdate_01007.dll`, `winusbcoinstaller.dll`) | `USB\Class_0B&SubClass_00&Prot_01` and `&Prot_02` only: ICCD tokens, not ordinary readers |
+
+Both serve the smart card service that 2000 and XP have themselves
+("Smart Card", `SCardSvr`). Vista and 7 have a CCID driver of their own.
+
+**How to install:** plug the reader in; when Windows asks for a driver,
+point it at `usbccid/w2k-xp/`. `usbccid/wxp/` is for ICCD tokens on XP.
+A reader whose maker offers its own driver for the system may be better
+served by that driver.
+
 ## Where each package comes from
 
 Each driver was taken unmodified from its maker's official download (or,
@@ -767,9 +789,8 @@ it against the size and SHA-256 given, and read its licence before using
 it. Microchip's Ethernet drivers (the last section) are left out for
 another reason: their terms could not be read. MediaTek's and ZyDAS's
 Wi-Fi drivers were found on 2026-10-27. ZyDAS's is left out by the
-owner's decision. Its section says why. Wacom's tablet driver, the
-touch screen makers' drivers and Microsoft's smart card reader driver
-were looked for on 2026-11-06.
+owner's decision. Its section says why. Wacom's tablet driver and the
+touch screen makers' drivers were looked for on 2026-11-06.
 
 ### Silicon Labs CP210x, Windows 98 SE
 
@@ -932,32 +953,6 @@ carried here: the files or their terms could not be read.
 - 3M's touch pages (<https://www.3m.com/touch>) refused this project's
   requests. 3M's manuals name TouchWare 5.x for 95 to XP and MT 7 for
   2000 and XP.
-
-### Microsoft USB smart card reader (CCID) driver, Windows 2000 and XP
-
-Microsoft's class driver for USB smart card readers that follow the CCID
-class (interface class `0B`), `usbccid.sys`, offered through the
-Microsoft Update Catalog (read 2026-11-06). The smart card service it
-serves is in 2000 and XP themselves. Neither cab was installed or tried
-here.
-
-- "USB Smart Card reader", for 2000, XP and Server 2003 (2005-05-17,
-  update `8a9785ae-b679-4da9-a627-1c84424d556d`): `usbccid.sys`
-  5.2.3790.2444, matching `USB\Class_0B&SubClass_00`. The cab
-  `10373903_41f8f3383ea94733495ae519f7cf458edb85de77.cab`, 25,886 bytes,
-  SHA-256 `3cf8d69b185f909a6012c34cbd7b3c84d3fd6cb676785fc270a235c011517f0d`,
-  from <https://www.catalog.update.microsoft.com/> (search "usbccid").
-- "Microsoft Usbccid Smartcard Reader (WUDF)" 6.0.6001.18176 for XP
-  (update `1ae5fdcc-7718-4991-a1bd-bc1c47d2f624`), 2,808,885 bytes,
-  SHA-256 `7a3af6572cf6ab953039f97e4960d87c7467178b2958c13261689dfc932a243d`:
-  a user-mode driver with Microsoft's driver framework installers.
-
-Why not shipped: no licence text comes with either cab. The catalog's
-FAQ says "Software updates you receive through the Microsoft Update
-Catalog are governed by any license terms that come with them. If no
-license terms come with them, they may be governed by the original
-license agreement." Whether this repository may carry them is the
-owner's question.
 
 ## Checking the files
 
