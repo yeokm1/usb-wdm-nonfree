@@ -1337,6 +1337,56 @@ Provenance of `us122/w98se-me/` (found and added on 2026-11-02):
 - **Name:** all 8.3.
 - **Modification:** none.
 
+### `non-free/smartcard/`
+
+| File | Whose | Version |
+|---|---|---|
+| All 3 files in `usbccid/w2k-xp/` (`usbccid.sys`, `usbccid.inf`, `usbccid.cat`) | Microsoft Corporation | 5.2.3790.2444 (`usbccid.inf` `DriverVer` 05/17/2005) |
+| All 6 files in `usbccid/wxp/` (`WUDFUsbccidDriver.dll`, `WUDFUsbCCidDriver.inf`, `wudfusbcciddriver.cat`, `WdfCoInstaller01007.dll`, `WUDFUpdate_01007.dll`, `winusbcoinstaller.dll`) | Microsoft Corporation (the three co-installers as Microsoft ships them in that cabinet) | 6.0.6001.18176 (`WUDFUsbCCidDriver.inf` `DriverVer` 12/04/2008) |
+
+Each folder is one cabinet of the Microsoft Update Catalog, unpacked,
+every file unmodified. `SHA256.TXT` lists each file's hash.
+
+Provenance of `usbccid/w2k-xp/` and `usbccid/wxp/` (added on 2026-11-06):
+
+- **Vendor:** Microsoft Corporation.
+- **Packages:** two Microsoft Update Catalog updates:
+  - "USB Smart Card reader", for Windows 2000, XP and Server 2003, dated
+    2005-05-17, update `8a9785ae-b679-4da9-a627-1c84424d556d`
+    (<https://www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=8a9785ae-b679-4da9-a627-1c84424d556d>);
+  - "Microsoft Usbccid Smartcard Reader (WUDF)" 6.0.6001.18176, for
+    Windows XP, update `1ae5fdcc-7718-4991-a1bd-bc1c47d2f624`
+    (<https://www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=1ae5fdcc-7718-4991-a1bd-bc1c47d2f624>).
+- **Original download location:** the catalog's own download links for
+  those updates:
+  `https://catalog.s.download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/10373903_41f8f3383ea94733495ae519f7cf458edb85de77.cab`
+  and
+  `https://catalog.s.download.windowsupdate.com/msdownload/update/driver/drvs/2009/05/20264136_8813025738f1cb16f99bad1ed2056bc379068e27.cab`.
+- **Obtained:** downloaded on 2026-11-06 from those links, each into an
+  empty folder, never run.
+- **Archives:** `10373903_41f8f3383ea94733495ae519f7cf458edb85de77.cab`,
+  25,886 bytes, SHA-256
+  `3cf8d69b185f909a6012c34cbd7b3c84d3fd6cb676785fc270a235c011517f0d`
+  (to `usbccid/w2k-xp/`), and
+  `20264136_8813025738f1cb16f99bad1ed2056bc379068e27.cab`, 2,808,885
+  bytes, SHA-256
+  `7a3af6572cf6ab953039f97e4960d87c7467178b2958c13261689dfc932a243d`
+  (to `usbccid/wxp/`). Each was unpacked with 7-Zip; the cabinets
+  themselves are not carried.
+- **Licence:** none in either cabinet. The catalog's FAQ
+  (<https://www.catalog.update.microsoft.com/Faq.aspx>, read 2026-11-06)
+  says: "Software updates you receive through the Microsoft Update
+  Catalog are governed by any license terms that come with them. If no
+  license terms come with them, they may be governed by the original
+  license agreement for the software to which they apply." No licence
+  to redistribute them has been found, and their copyright stays with
+  Microsoft. Carried by the owner's decision, 2026-11-06.
+- **Names:** as in the cabinets (`WUDFUsbCCidDriver.inf`,
+  `WUDFUsbccidDriver.dll`, `wudfusbcciddriver.cat`,
+  `WdfCoInstaller01007.dll`, `WUDFUpdate_01007.dll` and
+  `winusbcoinstaller.dll` are not 8.3; the INF names them so).
+- **Modification:** none.
+
 ## Every file under `non-free/`
 
 The owner of this repository claims no rights in these files and grants no

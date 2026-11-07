@@ -49,6 +49,7 @@ the box; the brand on the dongle often differs from the chip inside.
 | Xbox 360 wired controller | Microsoft and 24 Logitech, Saitek, Mad Catz and HORI pads (list below) | Yes | Yes | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
 | Xbox 360 Wireless Gaming Receiver | Microsoft receiver | - | - | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
 | USB audio and MIDI interface | TASCAM US-122 (not the US-122L or US-122MKII) | Yes | Yes | - | - | - | - | - |
+| USB smart card reader | any reader of the USB CCID class (Microsoft's class driver) | - | - | Yes | Yes | - | built in | built in |
 
 Not here because their licences forbid passing them on, so download them
 from the maker (links below, under "Not shipped"): Silicon Labs CP210x,
@@ -58,6 +59,11 @@ Links to them are under "Not shipped" too. MediaTek's Wi-Fi driver for
 the RT2870 to MT7612U chips is not here. Its licence allows copies only
 with your own product. ZyDAS's ZD1211 Wi-Fi driver is not here either
 (the owner's decision, 2026-10-27). Both are under "Not shipped".
+Wacom's tablet driver 4.78-6 for 98, ME, 2000 and XP (the PenPartner and
+the tablets of its time) is not here, by the owner's decision: its licence
+says "Unauthorized copying of the Software is expressly forbidden." It is
+under "Not shipped", with the touch screen makers whose terms could not
+be read.
 
 **Not covered:** no driver for these USB Ethernet chips on the systems
 named was found, here or at their makers:
@@ -746,6 +752,28 @@ for 32- and 64-bit XP SP2 and Vista; its links to 3.24 and 3.30 return
   notes, which are also at
   <https://tascam.jp/wp-content/uploads/downloads/products/old/311/us-122_win_driver_3_40_notes_e.pdf>.
 
+## `non-free/smartcard/` - USB smart card readers
+
+Microsoft's class driver for USB smart card readers of the CCID class
+(interface class `0B`), `usbccid.sys`, which Microsoft released for 2000
+and XP through Windows Update and still offers in the Microsoft Update
+Catalog. Each folder is one of the catalog's cabinets, unpacked with
+7-Zip, every file unchanged. They are carried by the owner's decision
+(2026-11-06); NOTICE.md says on what terms.
+
+| Folder | Systems | Driver | Matches |
+|---|---|---|---|
+| `usbccid/w2k-xp/` | Windows 2000 and XP, 32-bit | "USB Smart Card reader", `usbccid.sys` 5.2.3790.2444 (`usbccid.inf` `DriverVer` 05/17/2005), a kernel driver | `USB\Class_0B&SubClass_00`: every CCID reader |
+| `usbccid/wxp/` | Windows XP, 32-bit | "Microsoft Usbccid Smartcard Reader (WUDF)" 6.0.6001.18176 (`WUDFUsbCCidDriver.inf` `DriverVer` 12/04/2008), a user-mode driver, with Microsoft's framework installers (`WdfCoInstaller01007.dll`, `WUDFUpdate_01007.dll`, `winusbcoinstaller.dll`) | `USB\Class_0B&SubClass_00&Prot_01` and `&Prot_02` only: ICCD tokens, not ordinary readers |
+
+Both serve the smart card service that 2000 and XP have themselves
+("Smart Card", `SCardSvr`). Vista and 7 have a CCID driver of their own.
+
+**How to install:** plug the reader in; when Windows asks for a driver,
+point it at `usbccid/w2k-xp/`. `usbccid/wxp/` is for ICCD tokens on XP.
+A reader whose maker offers its own driver for the system may be better
+served by that driver.
+
 ## Where each package comes from
 
 Each driver was taken unmodified from its maker's official download (or,
@@ -762,7 +790,8 @@ it against the size and SHA-256 given, and read its licence before using
 it. Microchip's Ethernet drivers (the last section) are left out for
 another reason: their terms could not be read. MediaTek's and ZyDAS's
 Wi-Fi drivers were found on 2026-10-27. ZyDAS's is left out by the
-owner's decision. Its section says why.
+owner's decision. Its section says why. Wacom's tablet driver and the
+touch screen makers' drivers were looked for on 2026-11-06.
 
 ### Silicon Labs CP210x, Windows 98 SE
 
@@ -886,6 +915,55 @@ driver file by itself. The setup program places them. Its utility,
 Why not shipped: the owner's decision (2026-10-27). No licence text was
 found for it. Its utility bundles OpenSSL's DLLs (`libeay32.dll`,
 `ssleay32.dll`) and `openssl.exe` without OpenSSL's licence text.
+
+### Wacom tablet driver 4.78-6, Windows 98, ME, NT 4.0, 2000 and XP
+
+Wacom's "Wacom Tablet System, driver version 4.78" (2004), a
+self-extracting zip holding `Read Me.rtf` and an InstallShield
+`WSetup.exe`. Its `USBtab.inf` matches the USB PenPartner (`056A:0000`),
+Wacom's USB tablets from `056A:0001` to `056A:0045` (Graphire, Intuos,
+Intuos2), `056A:0400` and `056A:4850`; the Read Me names the PenPartner
+(CT), Graphire and Graphire2 (ET), Intuos and Intuos2 (GD, XD), ArtPad,
+ArtZ, PL and Cintiq, and says "USB tablets require Windows 98, 2000, Me,
+or Windows XP". On 2026-11-06 the file's URL at Wacom answered 403 to this
+project's requests, and so did Wacom's driver page
+(<https://www.wacom.com/en-us/support/product-support/drivers>); whether Wacom still offers the file there was not
+established. Wacom's support article on 32-bit Windows points to a search
+for older driver versions
+(<https://support.wacom.com/hc/en-us/articles/1500006262281-Does-Wacom-support-Windows-32-bit-Operating-Systems>);
+that search was not tried here.
+
+- `pc478-6-X_en.exe`, 2,556,416 bytes, SHA-256
+  `1ef908bc9b4222bbde7fcb562ae00984f62dea18ad9c0393fde2829817d3ff93`:
+  <https://web.archive.org/web/20170922110355/http://downloadeu.wacom.com/pub/WINDOWS/pc478-6-X_en.exe>.
+
+Why not shipped: the owner's decision (2026-11-06), on its licence. Its
+`English\License.txt` (read from `WSetup.exe` with 7-Zip, without running
+it) grants "a non-exclusive right to use this copy of the Software in
+conjunction with a Wacom product at a single location", and its "Copy
+Restrictions" read "Unauthorized copying of the Software is expressly
+forbidden." The same file's European licence says the customer "may not
+without prior written authorization from WACOM copy, modify, transmit or
+edit the software, apart from the actions of copying necessary to create
+a backup copy" and the uses it lists.
+
+### Touch screen makers: Elo, EETI (eGalax), 3M MicroTouch
+
+Their drivers for old Windows were looked for on 2026-11-06 and none is
+carried here: the files or their terms could not be read.
+
+- Elo Touch Solutions lists a USB driver for 98 and ME (SW500917, also
+  for 2000) and one for 2000 and XP (sw500756) in its driver archive,
+  <https://support.elotouch.com/technicalsupport/DriverArchive/>. Its
+  pages refused this project's requests, so the files and any terms they
+  show were not read.
+- EETI offers eGalaxTouch 5.14 for 2000 to 11 (and a PS/2 driver for 2000,
+  XP and Vista) at <https://www.eeti.com/drivers_Win.html>, nothing for
+  98 or ME. The page states no licence or terms; the package was not
+  downloaded.
+- 3M's touch pages (<https://www.3m.com/touch>) refused this project's
+  requests. 3M's manuals name TouchWare 5.x for 95 to XP and MT 7 for
+  2000 and XP.
 
 ## Checking the files
 
