@@ -791,7 +791,10 @@ it. Microchip's Ethernet drivers (the last section) are left out for
 another reason: their terms could not be read. MediaTek's and ZyDAS's
 Wi-Fi drivers were found on 2026-10-27. ZyDAS's is left out by the
 owner's decision. Its section says why. Wacom's tablet driver and the
-touch screen makers' drivers were looked for on 2026-11-06.
+touch screen makers' drivers were looked for on 2026-11-06. Logitech's
+iTouch software (the last section) was found on 2026-11-06 at
+Logitech's own site, not an archive, and is left out because no terms
+are stated for Logitech's software.
 
 ### Silicon Labs CP210x, Windows 98 SE
 
@@ -964,6 +967,30 @@ carried here: the files or their terms could not be read.
 - 3M's touch pages (<https://www.3m.com/touch>) refused this project's
   requests. 3M's manuals name TouchWare 5.x for 95 to XP and MT 7 for
   2000 and XP.
+
+### Logitech iTouch keyboard software, Windows 98 to XP
+
+Logitech's iTouch 2.22 build 289 (2010-03-30 on Logitech's page,
+"Windows XP (or older)"), one setup program. It makes the extra keys of
+Logitech's own keyboards work, media and launch keys included: its
+`Win98`, `WinME`, `Win2K_XP` and `WinNT4` folders hold Logitech's HID
+drivers for 43 Logitech USB devices (distinct `046D:xxxx` pairs in its
+INFs). Its README names Windows
+95, 98, 98 SE, ME, NT 4.0 (SP6), 2000 and XP, USB keyboards not on 95 or
+NT 4.0. Unlike the archived copies above, this one is still on
+Logitech's own site:
+
+- `it222enu.exe` (English), 4,429,593 bytes, SHA-256
+  `48208cedacb17398658f66ab8b4689cd23badefd905d6b57d075f030ce372a0c`:
+  <https://download01.logi.com/web/ftp/pub/techsupport/keyboards/itouch/it222enu.exe>
+  (linked from Logitech's iTouch page,
+  <https://support.logi.com/hc/en-ca/articles/360025121974-iTouch>).
+
+Why not shipped: no licence or redistribution terms for Logitech's
+software stated (read 2026-11-06) on that page or in the package's
+README (its file list and README read with 7-Zip, without running it).
+The package also holds two licence files of Microsoft's, `EULA.DOC` and
+`Redist/MSAA20_RDK/license.txt`.
 
 ## Checking the files
 
