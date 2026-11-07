@@ -772,7 +772,11 @@ Both serve the smart card service that 2000 and XP have themselves
 **How to install:** plug the reader in; when Windows asks for a driver,
 point it at `usbccid/w2k-xp/`. `usbccid/wxp/` is for ICCD tokens on XP.
 A reader whose maker offers its own driver for the system may be better
-served by that driver.
+served by that driver. Neither package has been installed in a test
+here. `WUDFUsbCCidDriver.inf` takes its WinUSB sections from
+`WINUSB.INF` (`Include`, `Needs`), which XP does not have of its own;
+whether its co-installers set WinUSB and the user-mode framework up on
+a clean XP was not tried.
 
 ## Where each package comes from
 
