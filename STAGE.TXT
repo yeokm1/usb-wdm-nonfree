@@ -185,8 +185,8 @@ STAGE | W7X64            | non-free/hid/x360wc/w7_64/x360wc.inf       |
 # The 2000/XP kernel driver matches every CCID reader by class; the XP UMDF
 # build matches ICCD tokens only (Prot_01, Prot_02), which the kernel INF's
 # class match also covers: neither is staged.
-COPY  | W2K WXP          | non-free/smartcard/usbccid/w2k-xp/usbccid.inf      | 5.2.3790.2444 (2005). USB\Class_0B&SubClass_00 - owner to confirm
-COPY  | WXP              | non-free/smartcard/usbccid/wxp/WUDFUsbCCidDriver.inf | 6.0.6001.18176 (2008). NTx86, USB\Class_0B&SubClass_00&Prot_01 and Prot_02 - owner to confirm
+COPY  | W2K WXP          | non-free/smartcard/usbccid/w2k-xp/usbccid.inf      | 5.2.3790.2444 (2005). USB\Class_0B&SubClass_00; copy only (owner, 2026-11-07)
+COPY  | WXP              | non-free/smartcard/usbccid/wxp/WUDFUsbCCidDriver.inf | 6.0.6001.18176 (2008). NTx86, USB\Class_0B&SubClass_00&Prot_01 and Prot_02; copy only (owner, 2026-11-07)
 
 # ---- Wi-Fi: Realtek RTL8187L (0BDA:8187 and brand ids, all REV_0100. On 7 also 145F:0161, 1B75:8187, 7392:7612)
 # REV_0100 keeps these apart from the RTL8187B's 0BDA:8187 REV_0200 below.
