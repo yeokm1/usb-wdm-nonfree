@@ -1,9 +1,12 @@
 # usb-wdm-nonfree
 
 Drivers for USB devices on old versions of Windows (98 SE, ME, 2000, XP,
-Vista and 7), collected in one place. These are the device makers' own
-drivers (and, for Xbox 360 pads, a well-known independent author's),
-exactly as they released them. They are not ours to license: see
+Vista and 7, and for Realtek's USB Ethernet chips also 8 and 8.1),
+collected in one place. These are the device makers' own drivers (and,
+for Xbox 360 pads, a well-known independent author's), exactly as they
+released them, except `non-free/ethernet/rtl8157/`: Realtek's INFs with
+commented-out lines enabled by this project (see its section). They are
+not ours to license: see
 [NOTICE.md](NOTICE.md) for who owns each one and where it came from.
 
 Free (GPL) USB class drivers this project writes itself are in the companion
@@ -30,6 +33,7 @@ the box; the brand on the dongle often differs from the chip inside.
 | USB 2.0 Ethernet adapter | ASIX AX88172A | - | - | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
 | USB 3.0 Gigabit Ethernet adapter | ASIX AX88179, AX88178A | - | - | - | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
 | USB Ethernet adapter (most USB-C dongles) | Realtek RTL8152, RTL8153 (on 7 also RTL8156) | - | - | - | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
+| USB 5 and 10 Gigabit Ethernet adapter | Realtek RTL8157, RTL8159 | - | - | - | - | - | - | Yes (32/64-bit), Realtek's INF changed here, unsigned |
 | USB 1.1 Ethernet adapter | Realtek RTL8150 | Yes | Yes | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit), Vista's driver, not listed by Realtek for 7 |
 | USB 2.0 Ethernet adapter | MosChip (now ASIX) MCS7830, MCS7832, MCS7730 | Yes | Yes | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
 | USB 1.1 Ethernet adapter | Davicom DM9601 | Yes | Yes | Yes | Yes | - | - | - |
@@ -50,6 +54,11 @@ the box; the brand on the dongle often differs from the chip inside.
 | Xbox 360 Wireless Gaming Receiver | Microsoft receiver | - | - | Yes | Yes | Yes | Yes (32/64-bit) | Yes (32/64-bit) |
 | USB audio and MIDI interface | TASCAM US-122 (not the US-122L or US-122MKII) | Yes | Yes | - | - | - | - | - |
 | USB smart card reader | any reader of the USB CCID class (Microsoft's class driver) | - | - | Yes | Yes | - | built in | built in |
+
+Windows 8 and 8.1 (32/64-bit): only Realtek's USB Ethernet drivers are
+here for them, for the RTL8152, RTL8153, RTL8155 and RTL8156
+(`rtl815x/w8/`) and, with Realtek's INF changed, the RTL8157 and RTL8159
+(`rtl8157/w8/`). Nothing else in this pack is for 8 or 8.1.
 
 Not here because their licences forbid passing them on, so download them
 from the maker (links below, under "Not shipped"): Silicon Labs CP210x,
@@ -75,8 +84,9 @@ named was found, here or at their makers:
   their USB ID, but whether they run these chips is not known. ASIX
   documents these chips as standard CDC-NCM devices too. The separate
   `usb-wdm-free` repository has a CDC-NCM driver, not tried with them.
-- Realtek RTL8157 and RTL8159, on 98 SE to 7. Realtek offers drivers for
-  Windows 10 and later only.
+- Realtek RTL8157 and RTL8159, on 98 SE to Vista. Realtek's INFs for 7
+  and 8 list them only in commented-out lines; `rtl8157/` has them
+  enabled (an INF changed here, unsigned).
 - Realtek RTL8156, RTL8156B, RTL8155 and RTL8153D, on 98 SE to Vista.
   The Windows 7 driver here covers them on 7.
 - CoreChips SR9700 and SR9800, and WCH CH9200, on 98 SE to 7.
@@ -138,7 +148,11 @@ unpacked. The Realtek Wi-Fi
 folders hold only the driver folders of Realtek's packages, except
 `rtl8187/w98se-vista/`, which is Realtek's whole package. TP-Link's
 `ar9271/wxp-7/` lacks its Windows 8 and 8.1 folders. NOTICE.md lists
-what was left out of each. One INF check was also made. Windows 98 SE reads ASIX's AX88172 INF for 98 SE and ME.
+what was left out of each. One folder is changed, not only cut down:
+`ethernet/rtl8157/` holds Realtek's INFs with six commented-out lines
+enabled by this project, beside Realtek's unchanged driver files (the
+owner's decision, 2026-11-11; its section says what changed and why).
+One INF check was also made. Windows 98 SE reads ASIX's AX88172 INF for 98 SE and ME.
 That chip's section has the details.
 
 **Letting Windows find them at the first plug:** [STAGE.TXT](STAGE.TXT)
@@ -156,7 +170,7 @@ Drivers this project writes itself, as free software, are in the separate
 Drivers are in `non-free/<type>/<driver>/<system>/`, apart from NUSB
 3.3's storage files, which are in `nusb33/w98se/` (below). The last folder
 names the Windows it is for: `w98se-me` is 98 SE and ME, `w2k` is 2000,
-`wxp` is XP, `wxpvis` is XP and Vista, `w7` is 7, and `64` at the end
+`wxp` is XP, `wxpvis` is XP and Vista, `w7` is 7, `w8` is 8 and 8.1, and `64` at the end
 means 64-bit. A folder named for two systems with a dash between them,
 such as `w2k-xp` or `w98se-vista`, serves a range of systems. Each
 driver's section below lists them exactly.
@@ -261,7 +275,7 @@ well.
 Install by pointing the Add New Hardware Wizard, or Update Driver on the
 adapter, at the folder for your system. Read the chipset, not the
 packaging: most modern USB-C Ethernet dongles use a Realtek RTL8153, for
-which Realtek's drivers below serve XP, Vista and 7, and which has no
+which Realtek's drivers below serve XP, Vista, 7, 8 and 8.1, and which has no
 driver for 98 SE, ME or 2000.
 
 The AX88772 drivers for XP x64, Vista and 7 are older builds. ASIX's
@@ -329,10 +343,13 @@ with its 32-bit and 64-bit drivers together:
 | `rtl815x/wxp/` | Windows XP, 32- and 64-bit | 5.23 (`DriverVer` 2018-01-23) | `WINXP\32\rtuxp.INF`, `WINXP\64\rtuxp.INF` |
 | `rtl815x/wvista/` | Windows Vista, 32- and 64-bit | 6.27 (`DriverVer` 2017-12-12) | `WINVISTA\32\rtux86lh.INF`, `WINVISTA\64\rtux64lh.INF` |
 | `rtl815x/w7/` | Windows 7, 32- and 64-bit | 7.61.20 (`DriverVer` 2021-11-02) | `WIN7\32\rtump62x86sta.INF`, `WIN7\64\rtump62x64sta.INF` |
+| `rtl815x/w8/` | Windows 8 and 8.1, 32- and 64-bit | 8.68.20 (`DriverVer` 2021-11-02) | `WIN8\32\rtump63x86sta.INF`, `WIN8\64\rtump63x64sta.INF` |
 
 Install by pointing Update Driver on the adapter at the INF's folder,
 for example `rtl815x\wxp\WINXP\32\`; or run the folder's `setup.exe`,
 Realtek's InstallShield setup, which has not been tried here.
+`rtl815x/w8/` is the only package in this pack for Windows 8 and 8.1,
+with `rtl8157/w8/` below; nothing else here is for 8 or 8.1.
 
 What the INFs match:
 
@@ -346,6 +363,10 @@ What the INFs match:
   `0BDA:8053` (`33xx`), `0BDA:8155`, and `0BDA:8156` and `0BDA:8056`
   (RTL8156, 2.5 Gigabit), with 67 adapter VID:PIDs from 29 other
   vendors.
+- 8 and 8.1: the same IDs as 7.
+- 7, 8 and 8.1: Realtek's INFs also list the RTL8157 and RTL8159, but
+  only in lines commented out with `;`, so Windows does not offer these
+  drivers for them. `rtl8157/`, below, has those lines enabled.
 
 The INFs give every RTL8153 revision the one name, "Realtek USB GbE
 Family Controller", and do not say which chip each revision is. The
@@ -375,6 +396,68 @@ this pack also offers them for 7. That use is not Realtek's and has not
 been tried. Install by pointing Update Driver at the INF's folder. The
 package's `SETUP.EXE` is Realtek's InstallShield setup and has not been
 tried here.
+
+### `rtl8157/` - Realtek RTL8157 and RTL8159, Realtek's INFs changed
+
+`rtl8157/` is the one place in this pack where a maker's file is
+changed. It holds Realtek's Windows 7 driver 7.61.20 and Windows 8 and
+8.1 driver 8.68.20, the same as in `rtl815x/w7/` and `rtl815x/w8/`, with
+one change to each INF: six lines that Realtek left commented out are
+enabled, by removing the `;` at their start. The driver files, the
+property-page DLLs and the catalogs are Realtek's, unchanged.
+
+| Folder | Systems | Driver | INFs |
+|---|---|---|---|
+| `rtl8157/w7/` | Windows 7, 32- and 64-bit | 7.61.20 (`DriverVer` 2021-11-02), INF changed | `WIN7\32\rtump62x86sta.INF`, `WIN7\64\rtump62x64sta.INF` |
+| `rtl8157/w8/` | Windows 8 and 8.1, 32- and 64-bit | 8.68.20 (`DriverVer` 2021-11-02), INF changed | `WIN8\32\rtump63x86sta.INF`, `WIN8\64\rtump63x64sta.INF` |
+
+The lines enabled, in each INF (the 32-bit INFs say `x86` for `x64`):
+
+```
+%RTL8157X.DeviceDesc% = RTL8157Xx64.ndi,USB\VID_0BDA&PID_8157
+%RTL8157X.DeviceDesc% = RTL8157Xx64.ndi,USB\VID_0BDA&PID_8057
+%RTL8157X.DeviceDesc% = RTL8157Xx64.ndi,USB\VID_0BDA&PID_A157
+%RTL815X.DeviceDesc% = RTL815Xx64.ndi,USB\VID_0BDA&PID_815A
+%RTL815X.DeviceDesc% = RTL815Xx64.ndi,USB\VID_0BDA&PID_805A
+%RTL815X.DeviceDesc% = RTL815Xx64.ndi,USB\VID_0BDA&PID_A15A
+```
+
+The first three are the RTL8157 (USB 5 Gigabit), named "Realtek(R) USB
+5GbE Family Controller". The last three are the RTL8159 (USB 10
+Gigabit). Their install section carries only Realtek's common settings,
+none for the chip itself (the RTL8157's has its own), and their name is
+the generic "Realtek(R) USB Ethernet Controller". They are enabled at the repository owner's choice
+(2026-11-11). Nobody has reported the RTL8159 lines working with these
+packages.
+
+The change follows the method published at
+<https://board.eclipse.cx/viewtopic.php?t=929>, "Realtek RTL8157 USB 5GbE
+Ethernet on Windows 7/8" (K4sum1, 2025-12-20), which enables the
+RTL8157 lines. Its author reports an RTL8157 in use on their main PC for
+over a month; the post does not say which Windows, and it names the
+32-bit folders as not tried. The RTL8159 lines were not tried there.
+The author later reported stop errors with the RTL8157 on one family of
+USB controllers and two faulty adapters out of four. Nobody in this
+project has run these drivers on any adapter.
+
+The changed INF no longer matches Realtek's catalog, so the package is
+unsigned. Install it by hand: Update Driver on the adapter, "Have Disk",
+and point it at the INF's folder. Windows warns that it cannot verify
+the driver's publisher.
+
+- 7, 32-bit: accept the warning to install.
+- 7, 64-bit: accept the warning. Windows also checks the driver file's
+  own signature when it loads it; if it refuses to start the driver,
+  start Windows with driver signature enforcement turned off (F8,
+  "Disable Driver Signature Enforcement") or in test-signing mode.
+- 8 and 8.1: the thread says that on Windows 8 the driver installs only
+  after a restart in "Disable driver signature enforcement" mode
+  (Advanced startup, Startup Settings).
+
+Use these only for an RTL8157 or RTL8159 adapter. For every other chip
+the unchanged, signed drivers in `rtl815x/` serve the same IDs. The
+xHCI98 installer never places `rtl8157/` for Windows to find by itself
+(STAGE.TXT lists it as copy only).
 
 ### `mcs7830/` - MosChip MCS7830, MCS7832, MCS7730
 
@@ -783,7 +866,9 @@ a clean XP was not tried.
 Each driver was taken unmodified from its maker's official download (or,
 where that no longer exists, an archived or author-approved copy). [NOTICE.md](NOTICE.md)
 gives the exact source, version, date and file hashes for every one.
-Where only part of a package is here, NOTICE.md says which part.
+Where only part of a package is here, NOTICE.md says which part. The one
+exception to "unmodified" is `ethernet/rtl8157/`, whose INFs were
+changed by this project; NOTICE.md records every changed line.
 
 ## Not shipped: download these from the vendor
 
