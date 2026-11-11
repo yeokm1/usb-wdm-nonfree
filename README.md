@@ -1102,11 +1102,18 @@ here, in the commit after the tag (a zip cannot hold its own hash):
 | 1.0.0 | `v1.0.0` (commit `128106f`) | `usb-wdm-nonfree-v1.0.0.zip` | 40,860,928 | `31756d03326ea003c10c4b17f52f38883c8f4675aa629f03e93e46eb9b07ece9` |
 | 1.1.0 | `v1.1.0` (commit `565d11b`) | `usb-wdm-nonfree-v1.1.0.zip` | 185,097,979 | `44f22200fd4f60292923cbac95460f88b3b0ea607129346c6d88fb8dd64072e1` |
 | 1.2.0 | `v1.2.0` (commit `c40ad7e`) | `usb-wdm-nonfree-v1.2.0.zip` | 186,057,286 | `88a6f4d350e976e4ace05b9204d1fa0ac1e891202a55b0e468f6ed5eab4bb1c8` |
+| 1.3.0 | `v1.3.0` (commit `d2f7a26`) | `usb-wdm-nonfree-v1.3.0.zip` | 188,944,803 | `0c4dec427d7f0255f7a88fa96b68c5b951e0172885b8fb2bbe529f1a19979914` |
 
 ## Changelog
 
 Each tag is a release. The zip of each is in the table above.
 
+- **v1.4.0** (2026-11-11):
+  - USB Ethernet, Realtek RTL8157 (5 Gigabit) and RTL8159 (10 Gigabit) on Windows 7, 8 and 8.1: `rtl8157/`, Realtek's INFs with their six commented-out lines for these chips enabled, beside Realtek's unchanged files, after the method published at https://board.eclipse.cx/viewtopic.php?t=929. The changed INFs are unsigned and are copied only. Nobody in this project has run them on an adapter, and nobody has reported the RTL8159 lines working.
+  - Realtek's USB Ethernet package 8.68.20 for Windows 8 and 8.1, unchanged (`rtl815x/w8/`). These are the only drivers in the pack for 8 and 8.1.
+- **v1.3.0** (2026-11-07):
+  - USB smart card readers: Microsoft's USB CCID class driver for Windows 2000 and XP (`usbccid/`), copied only.
+  - "Not shipped" gains Wacom's tablet driver 4.78-6, touch screen makers and Logitech iTouch 2.22.
 - **v1.2.0** (2026-11-02):
   - USB audio: TASCAM's US-122 driver 3.24 for Windows 98 SE and ME, no longer offered by TASCAM.
 - **v1.1.0** (2026-10-28):
