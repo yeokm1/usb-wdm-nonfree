@@ -18,10 +18,12 @@
 #            COPY   copy-only: never staged by the box, on any system (the
 #                   files are still copied with the rest of the pack).
 #   SYSTEMS  one or more of these tokens, separated by spaces:
-#            W98SE WME W2K WXP WXP64 WVISTA WVISTA64 W7 W7X64
-#            (WXP64 is Windows XP Professional x64 Edition; WVISTA64 and
-#            W7X64 the 64-bit editions). On a COPY line, the systems the
-#            folder is for, for information only.
+#            W98SE WME W2K WXP WXP64 WVISTA WVISTA64 W7 W7X64 W8 W8X64
+#            (WXP64 is Windows XP Professional x64 Edition; WVISTA64,
+#            W7X64 and W8X64 the 64-bit editions; W8 and W8X64 are
+#            Windows 8 and 8.1). On a COPY line, the systems the folder
+#            is for, for information only. W8 and W8X64 appear on COPY
+#            lines only: nothing in the pack is staged on 8 or 8.1.
 #   INF      the INF's path from the pack's top, '/' separated, exactly as
 #            in SHA256.TXT (case as the vendor shipped it; may hold spaces).
 #   NOTE     free text, why; may be empty.
@@ -45,9 +47,13 @@
 #   - SYSTEMS follows README.md's table of which folder serves which
 #     Windows, not every system an INF's own decorations would accept.
 #
-# The drivers here are carried as their makers released them and have not
-# been tested by this project. The choices below were made by reading the
-# INFs (2026-10-22, the Wi-Fi lines 2026-10-27, the audio line 2026-11-02).
+# The drivers here are carried as their makers released them (except
+# rtl8157/: Realtek's INFs with six commented-out lines enabled by this
+# project; README.md, NOTICE.md), and none has been tested by this
+# project. The
+# choices below were made by reading the INFs (2026-10-22, the Wi-Fi
+# lines 2026-10-27, the audio line 2026-11-02, the rtl8157/ and
+# rtl815x/w8/ lines 2026-11-11).
 # Those marked "owner to confirm" await the owner.
 
 # ---- Ethernet: ASIX AX88772 / AX88772A (USB 2.0, 100 Mbit/s)
@@ -78,6 +84,23 @@ STAGE | W7               | non-free/ethernet/rtl815x/w7/WIN7/32/rtump62x86sta.IN
 STAGE | W7X64            | non-free/ethernet/rtl815x/w7/WIN7/64/rtump62x64sta.INF      | 7.61.20 (2021)
 COPY  | W7               | non-free/ethernet/rtl815x/w7/WIN7/WinPE/32/rtump62x86sta.INF | Realtek's WinPE copy, byte-identical INF to WIN7/32's; WIN7/32 is staged
 COPY  | W7X64            | non-free/ethernet/rtl815x/w7/WIN7/WinPE/64/rtump62x64sta.INF | Realtek's WinPE copy; WIN7/64 is staged
+# Windows 8 and 8.1: Realtek's 8.68.20 as released, copy only (owner,
+# 2026-11-11): the pack stages nothing on 8 or 8.1.
+COPY  | W8               | non-free/ethernet/rtl815x/w8/WIN8/32/rtump63x86sta.INF      | 8.68.20 (2021); install by hand (Update Driver)
+COPY  | W8X64            | non-free/ethernet/rtl815x/w8/WIN8/64/rtump63x64sta.INF      | 8.68.20 (2021)
+COPY  | W8               | non-free/ethernet/rtl815x/w8/WIN8/WinPE/32/rtump63x86sta.INF | Realtek's WinPE copy, byte-identical INF to WIN8/32's
+COPY  | W8X64            | non-free/ethernet/rtl815x/w8/WIN8/WinPE/64/rtump63x64sta.INF | Realtek's WinPE copy, byte-identical INF to WIN8/64's
+
+# ---- Ethernet: Realtek RTL8157 / RTL8159 (0BDA:8157, 8057, A157; 815A, 805A, A15A)
+# rtl8157/ is Realtek's 7.61.20 and 8.68.20 INFs with six commented-out
+# lines enabled by this project, so the packages are unsigned. Copy only:
+# each INF also lists every RTL8152/8153/8155/8156 ID the rtl815x/ INFs
+# list (on 7 those are staged from rtl815x/w7/), and an unsigned package is
+# installed by hand, never staged.
+COPY  | W7               | non-free/ethernet/rtl8157/w7/WIN7/32/rtump62x86sta.INF      | 7.61.20 changed: RTL8157 and RTL8159 lines enabled; unsigned
+COPY  | W7X64            | non-free/ethernet/rtl8157/w7/WIN7/64/rtump62x64sta.INF      | 7.61.20 changed; unsigned
+COPY  | W8               | non-free/ethernet/rtl8157/w8/WIN8/32/rtump63x86sta.INF      | 8.68.20 changed: RTL8157 and RTL8159 lines enabled; unsigned
+COPY  | W8X64            | non-free/ethernet/rtl8157/w8/WIN8/64/rtump63x64sta.INF      | 8.68.20 changed; unsigned
 
 # ---- Ethernet: ASIX AX88772B / AX88772C (0B95:772B; on 7 also 0B95:7E2B, 2001:1A02)
 # The 2000-XP and Vista INFs declare empty .6.0/.6.1 [Models] sections, so

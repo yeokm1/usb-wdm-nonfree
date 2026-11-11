@@ -34,6 +34,8 @@ separately (owner, 2026-10-22).
 | All 73 files in `rtl815x/wxp/` | Realtek Semiconductor Corp.; its setup engine (`setup.exe`, `ISSetup.dll`, `data1.cab` and the files with them) is Flexera's InstallShield, as Realtek ships it | 5.23 (`rtuxp.INF` `DriverVer` 01/23/2018,5.23.0123.2018) |
 | All 73 files in `rtl815x/wvista/` | as `rtl815x/wxp/` | 6.27 (`rtux86lh.INF` `DriverVer` 12/12/2017,6.27.1212.2017) |
 | All 92 files in `rtl815x/w7/` | as `rtl815x/wxp/` | 7.61.20 (`rtump62x86sta.INF` `DriverVer` 11/02/2021,7.61.20.1102) |
+| All 92 files in `rtl815x/w8/` | as `rtl815x/wxp/` | 8.68.20 (`rtump63x86sta.INF` `DriverVer` 11/02/2021,8.68.20.1102) |
+| All 8 files in `rtl8157/w7/` and all 8 in `rtl8157/w8/` | Realtek Semiconductor Corp.; the four INFs changed by this project (below) | 7.61.20 and 8.68.20, as `rtl815x/w7/` and `rtl815x/w8/` |
 | All 3 files in `ax88772/wxp64/`, all 4 in `ax88772/wvista64/`; in `ax88772/wvista/`, `w7/` and `w7_64/` all files but the co-installer | ASIX Electronics Corporation | 3.6.3.18 (XP x64), 3.8.3.22 (Vista), 3.10.3.14 (Vista x64), 3.12.3.2 (7), 3.14.3.2 (7 x64) |
 | `ax88772/wvista/WdfCoInstaller01007.dll` | Microsoft Corporation, the KMDF 1.7 co-installer, as ASIX ships it with that driver | 1.7.6001.0 |
 | `ax88772/w7/WdfCoInstaller01009.dll`, `ax88772/w7_64/WdfCoInstaller01009.dll` | Microsoft Corporation, the KMDF 1.9 co-installer, as ASIX ships it with that driver | 1.9.7100.0 |
@@ -47,7 +49,9 @@ separately (owner, 2026-10-22).
 | All 32 files in `dm96xx/wxp-7/` | DAVICOM Semiconductor, Inc. (`WdfCoInstaller01009.dll` in every folder but `Win2k/`, 1.9.7600.16385: Microsoft Corporation, as Davicom ships it) | V1.0.4.0 (`DriverVer` 5.0.2.0709 XP, 5.0.2.0406 Vista, 5.0.3.0703 7, 3.0.2.0416 2000) |
 
 They are their makers' driver packages as released, unmodified, apart
-from `dm96xx/wxp-7/` (unpacked from Davicom's installer, below).
+from `dm96xx/wxp-7/` (unpacked from Davicom's installer, below) and
+`rtl8157/` (Realtek's INFs with six commented-out lines enabled by this
+project, below).
 `SHA256.TXT` lists each file's hash.
 
 Provenance of `ax88772/w98se-me/`:
@@ -225,6 +229,97 @@ Provenance of `rtl815x/` (`wxp/`, `wvista/`, `w7/`):
 - **Name:** the long names listed in README.md keep Realtek's names, as
   its INFs and setup name them.
 - **Modification:** none.
+
+Provenance of `rtl815x/w8/` (added 2026-11-11):
+
+- **Vendor:** Realtek Semiconductor Corp. The setup engine is
+  InstallShield's, as Realtek ships it.
+- **Package:** "Win8, Win8.1 and Server 2012 Auto Installation Program",
+  8.68.20, listed with the date 2021/12/28 on Realtek's page
+  (`https://www.realtek.com/Download/List?cate_id=585`, read
+  2026-11-11, download id 3612), the latest for 8 and 8.1 there.
+- **Original download location:** Realtek's download page, behind its
+  captcha (above). The copy used is the repository owner's download,
+  handed to this project on 2026-11-11. No archived copy on Realtek's
+  file server could be looked up that day.
+- **Archive:** `Install_USB_Win8_8.1_8068.20_12232021.zip`, 5,525,876
+  bytes, SHA-256
+  `d85403da83bff91e10b3ce88cacb45f3ea9c36072cbe450cf094c5cd2b68d3b3`.
+  It holds one file, `Install_USB_Win8_8.1_8068.20_12232021.exe`
+  (5,718,120 bytes, SHA-256
+  `9f430dc2be462f92cef4c146d879cdc6571d988689fb0555be2de3e1be34e7fd`),
+  a 7-Zip self-extracting archive. Its 92 files were unpacked with 7-Zip
+  26.01, without running it, and are copied as they are. It also holds
+  an empty folder `PATCH/`, which git does not keep. The owner's copy of
+  the Windows 7 package (`Install_USB_Win7_7061.20_12232021.zip`, the
+  same day) has the SHA-256 recorded above for `rtl815x/w7/`, and its 92
+  files are byte-identical to that folder's.
+- **Licence:** none found, as for the packages above: `data1.cab`'s
+  `license.rtf` (read with unshield 1.6.2, the setup not run) is
+  InstallShield's placeholder, and the INFs carry "COPYRIGHT (C)
+  2007-2021 Realtek CORPORATION". It is added on the basis of the
+  owner's decision of 2026-10-27 (below) for packages that carry only
+  their maker's copyright (owner, 2026-11-11).
+- **Name:** as `rtl815x/w7/`.
+- **Modification:** none.
+
+Provenance of `rtl8157/` (`w7/`, `w8/`, added 2026-11-11):
+
+- **Vendor:** Realtek Semiconductor Corp.
+- **Source:** the driver folders `WIN7\32\` and `WIN7\64\` of
+  `rtl815x/w7/` (7.61.20) and `WIN8\32\` and `WIN8\64\` of `rtl815x/w8/`
+  (8.68.20), above, four files each. Realtek's driver (`.sys`), property
+  page DLL (`RTNicProp32.dll`, `RTNicProp64.dll`) and catalog (`.cat`)
+  are copied unchanged. The rest of each package (its setup, `WinPE\`
+  copies, metadata and tools) is not repeated here: it is in
+  `rtl815x/w7/` and `rtl815x/w8/`, which also keep Realtek's original
+  INFs.
+- **Licence:** none found (above). Realtek's packages state no terms
+  for a changed file. The repository owner decided on 2026-11-11 to
+  carry these INFs, with the comment markers removed, beside Realtek's
+  unchanged files, accepting that risk.
+- **Name:** Realtek's names, unchanged.
+- **Modification:** in each of the four INFs (`rtl8157/w7/WIN7/32/rtump62x86sta.INF`,
+  `rtl8157/w7/WIN7/64/rtump62x64sta.INF`, `rtl8157/w8/WIN8/32/rtump63x86sta.INF`,
+  `rtl8157/w8/WIN8/64/rtump63x64sta.INF`) the `;` at the start of six
+  lines is removed, and nothing else is changed (the file stays UTF-16LE
+  with its byte-order mark and CRLF line ends). The lines are lines
+  130 to 135 of the 7.61.20 INFs and 166 to 171 of the 8.68.20 INFs, in
+  the `[Realtek.NTx86.6.1]` / `[Realtek.NTamd64.6.1]` (7) and
+  `[Realtek.NTx86.6.2]` / `[Realtek.NTamd64.6.2]` (8) section. As
+  changed, in the 64-bit INFs (the 32-bit INFs read `x86` for `x64`):
+
+  ```
+  %RTL8157X.DeviceDesc% = RTL8157Xx64.ndi,USB\VID_0BDA&PID_8157
+  %RTL8157X.DeviceDesc% = RTL8157Xx64.ndi,USB\VID_0BDA&PID_8057
+  %RTL8157X.DeviceDesc% = RTL8157Xx64.ndi,USB\VID_0BDA&PID_A157
+  %RTL815X.DeviceDesc% = RTL815Xx64.ndi,USB\VID_0BDA&PID_815A
+  %RTL815X.DeviceDesc% = RTL815Xx64.ndi,USB\VID_0BDA&PID_805A
+  %RTL815X.DeviceDesc% = RTL815Xx64.ndi,USB\VID_0BDA&PID_A15A
+  ```
+
+  The install sections these lines name (`RTL8157Xx64.ndi`,
+  `RTL815Xx64.ndi` and their `.NT`, `.NT.Services` sections) and their
+  strings are Realtek's, already in the INFs. The first three lines are
+  the RTL8157. The last three are the RTL8159, enabled at the owner's
+  choice (2026-11-11); their install section carries only Realtek's
+  common settings, none for the chip itself, and the generic name
+  "Realtek(R) USB Ethernet Controller",
+  and nobody has reported them working with these packages.
+
+  The change follows the method published at
+  <https://board.eclipse.cx/viewtopic.php?t=929>, "Realtek RTL8157 USB
+  5GbE Ethernet on Windows 7/8" (K4sum1, 2025-12-20), which removes the
+  `;` from the RTL8157X lines of Realtek's Windows 7 and 8 INFs. Its
+  author reports an RTL8157 in use on their main PC for over a month;
+  the post does not say which Windows, and it names the 32-bit folders
+  as not tried. The RTL8159 lines were not tried there. The author
+  later reported stop errors with the RTL8157 on one family of USB
+  controllers, and two faulty adapters out of four. Nobody in this
+  project has run these drivers on any adapter.
+
+  The changed INFs no longer match Realtek's catalogs, so the packages
+  are unsigned; README.md says what that means for installing them.
 
 Common to the packages added on 2026-10-27 (`ax88772/` XP x64 to 7,
 `ax88772b/`, `ax88178/`, `ax88172/`, `ax88172a/`, `mcs7830/`,
@@ -577,7 +672,8 @@ Provenance of `dm96xx/`:
   (including Davicom's `.pdb` symbol files). Left out: the installer
   itself, its `DPInst*.exe` setup programs, the `Install_*.bat` and
   `Uninstall_*.bat` files, the `WdfCoInstaller01009.dll` at its top, the
-  `Win8_x86` and `Win8_x64` folders (Windows 8 is outside this pack), its
+  `Win8_x86` and `Win8_x64` folders (for Windows 8 the pack carries only Realtek's USB Ethernet drivers,
+  `ethernet/rtl815x/w8/` and `ethernet/rtl8157/w8/`), its
   empty folders (`Win98` and others) and its `SimpleInstaller.si`.
 
 ### `non-free/serial/`
@@ -1115,7 +1211,8 @@ Provenance of `rtl8192cu/wxp-7/`:
   Left out: the rest of the package, that is the InstallShield setup and
   its files, the install batch files, `DATA\`, `EAP\`, the `IM\`
   intermediate driver, the release notes and the `Win8X86` and `Win8X64`
-  folders (Windows 8 is outside this pack).
+  folders (for Windows 8 the pack carries only Realtek's USB Ethernet drivers,
+  `ethernet/rtl815x/w8/` and `ethernet/rtl8157/w8/`).
 
 Provenance of `rtwlanu/wxp-7/`:
 
@@ -1217,8 +1314,9 @@ Provenance of `ar9271/wxp-7/`:
 - **Name:** these keep TP-LINK's names: the folders (`Windows XP 32bit/`
   and the others) and `Release Note.txt` hold spaces.
 - **Modification:** the `Windows 8 32bit`, `Windows 8 64bit`, `Windows
-  8.1 32bit` and `Windows 8.1 64bit` folders are left out (Windows 8 is
-  outside this pack). The rest is as released.
+  8.1 32bit` and `Windows 8.1 64bit` folders are left out (for Windows 8 the pack carries only Realtek's USB Ethernet drivers,
+  `ethernet/rtl815x/w8/` and `ethernet/rtl8157/w8/`). The
+  rest is as released.
 
 Provenance of `ar9170/w2k-7/`:
 
