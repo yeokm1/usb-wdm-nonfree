@@ -1103,6 +1103,7 @@ here, in the commit after the tag (a zip cannot hold its own hash):
 | 1.1.0 | `v1.1.0` (commit `565d11b`) | `usb-wdm-nonfree-v1.1.0.zip` | 185,097,979 | `44f22200fd4f60292923cbac95460f88b3b0ea607129346c6d88fb8dd64072e1` |
 | 1.2.0 | `v1.2.0` (commit `c40ad7e`) | `usb-wdm-nonfree-v1.2.0.zip` | 186,057,286 | `88a6f4d350e976e4ace05b9204d1fa0ac1e891202a55b0e468f6ed5eab4bb1c8` |
 | 1.3.0 | `v1.3.0` (commit `d2f7a26`) | `usb-wdm-nonfree-v1.3.0.zip` | 188,944,803 | `0c4dec427d7f0255f7a88fa96b68c5b951e0172885b8fb2bbe529f1a19979914` |
+| 1.4.0 | `v1.4.0` (commit `5ba92a1`) | `usb-wdm-nonfree-v1.4.0.zip` | 202,323,330 | `5a19c9031dac247b242c4a112a917bd2e96ad1cfcd30338d265ebf14fe49a924` |
 
 ## Changelog
 
