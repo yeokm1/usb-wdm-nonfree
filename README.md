@@ -1110,7 +1110,7 @@ here, in the commit after the tag (a zip cannot hold its own hash):
 Each tag is a release. The zip of each is in the table above.
 
 - **v1.4.0** (2026-11-11):
-  - USB Ethernet, Realtek RTL8157 (5 Gigabit) and RTL8159 (10 Gigabit) on Windows 7, 8 and 8.1: `rtl8157/`, Realtek's INFs with their six commented-out lines for these chips enabled, beside Realtek's unchanged files, after the method published at https://board.eclipse.cx/viewtopic.php?t=929. The changed INFs are unsigned and are copied only. Nobody in this project has run them on an adapter, and nobody has reported the RTL8159 lines working.
+  - USB Ethernet, Realtek RTL8157 (5 Gigabit) and RTL8159 (10 Gigabit) on Windows 7, 8 and 8.1: `rtl8157/`, Realtek's INFs with their six commented-out lines for these chips enabled, beside Realtek's unchanged files, after the method published at https://board.eclipse.cx/viewtopic.php?t=929. The changed INFs are unsigned and are copied only.
   - Realtek's USB Ethernet package 8.68.20 for Windows 8 and 8.1, unchanged (`rtl815x/w8/`). These are the only drivers in the pack for 8 and 8.1.
 - **v1.3.0** (2026-11-07):
   - USB smart card readers: Microsoft's USB CCID class driver for Windows 2000 and XP (`usbccid/`), copied only.
